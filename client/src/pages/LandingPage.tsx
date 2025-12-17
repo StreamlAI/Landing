@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Terminal, Layers, Cpu, Network, RefreshCcw, Database, Shield, Zap, ChevronRight } from "lucide-react";
-import { Link } from "wouter";
 import heroBg from "@assets/generated_images/dark_abstract_network_graph_background.png";
 import workflowImg from "@assets/generated_images/isometric_marketing_workflow_schematic.png";
 
@@ -20,12 +19,6 @@ export default function LandingPage() {
             <a href="#problem" className="hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4">01_PROBLEM</a>
             <a href="#solution" className="hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4">02_SOLUTION</a>
             <a href="#platform" className="hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4">03_PLATFORM</a>
-          </div>
-          <div className="flex items-center gap-4">
-            <button className="hidden md:block text-sm font-mono hover:text-primary transition-colors">LOGIN</button>
-            <button className="bg-primary text-black px-4 py-2 text-sm font-bold hover:bg-white transition-colors font-mono uppercase">
-              Get Access
-            </button>
           </div>
         </div>
       </nav>
@@ -74,13 +67,15 @@ export default function LandingPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <button className="bg-primary text-black px-8 py-4 text-lg font-bold hover:bg-white transition-all hover:scale-105 font-mono uppercase flex items-center gap-2 group">
-                Deploy Agent
+              <a 
+                href="https://calendly.com/yirancai00/30min?month=2025-06"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary text-black px-8 py-4 text-lg font-bold hover:bg-white transition-all hover:scale-105 font-mono uppercase flex items-center gap-2 group"
+              >
+                Book a Demo
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="border border-border text-foreground px-8 py-4 text-lg font-mono hover:bg-white/5 transition-colors uppercase">
-                Read Documentation
-              </button>
+              </a>
             </motion.div>
           </div>
         </div>
@@ -306,10 +301,15 @@ export default function LandingPage() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
             Join the companies moving from deterministic scripts to autonomous marketing infrastructure.
           </p>
-          <button className="bg-primary text-black px-12 py-5 text-xl font-bold hover:bg-white transition-all hover:scale-105 font-mono uppercase inline-flex items-center gap-3">
-            Get Early Access
+          <a 
+            href="https://calendly.com/yirancai00/30min?month=2025-06"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-black px-12 py-5 text-xl font-bold hover:bg-white transition-all hover:scale-105 font-mono uppercase inline-flex items-center gap-3"
+          >
+            Book a Demo
             <ChevronRight className="w-6 h-6" />
-          </button>
+          </a>
         </div>
       </section>
 
@@ -319,12 +319,6 @@ export default function LandingPage() {
           <div className="flex items-center gap-2 mb-4 md:mb-0">
             <Terminal className="w-5 h-5 text-primary" />
             <span className="text-foreground font-bold">STREAML_</span>
-          </div>
-          
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-primary transition-colors">MANIFESTO</a>
-            <a href="#" className="hover:text-primary transition-colors">DOCS</a>
-            <a href="#" className="hover:text-primary transition-colors">TWITTER</a>
           </div>
           
           <div className="mt-4 md:mt-0">
