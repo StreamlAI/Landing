@@ -461,7 +461,7 @@ export default function LandingPage() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}
                       transition={{ duration: 0.3 }}
-                      className="relative w-full h-full flex items-center justify-center scale-[0.55] sm:scale-[0.7] md:scale-100 origin-center"
+                      className="relative w-full h-full flex items-center justify-center scale-[0.7] sm:scale-[0.8] md:scale-100 origin-center"
                     >
                       {/* Central Agent */}
                       <motion.div
@@ -558,7 +558,7 @@ export default function LandingPage() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}
                       transition={{ duration: 0.3 }}
-                      className="relative w-full h-full flex items-center justify-center scale-[0.55] sm:scale-[0.7] md:scale-100 origin-center"
+                      className="relative w-full h-full flex items-center justify-center scale-[0.7] sm:scale-[0.8] md:scale-100 origin-center"
                     >
                       {/* Central Database */}
                       <motion.div
