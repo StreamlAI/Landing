@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Layers, Network, RefreshCcw, Database, Shield, Zap, Cpu, Terminal, Activity, Code, Server, Lock, Sparkles } from "lucide-react";
+import { ArrowRight, Layers, Network, RefreshCcw, Database, Shield, Zap, Cpu, Terminal, Activity, Code, Server, Lock, Sparkles, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [activeDiagram, setActiveDiagram] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +42,53 @@ export default function LandingPage() {
             <span>Book Demo</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-muted-foreground hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile menu panel */}
+        <motion.div
+          initial={false}
+          animate={{
+            height: mobileMenuOpen ? "auto" : 0,
+            opacity: mobileMenuOpen ? 1 : 0,
+          }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border/40"
+        >
+          <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            <a
+              href="#features"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-medium text-muted-foreground hover:text-white transition-colors py-2"
+            >
+              Features
+            </a>
+            <a
+              href="#architecture"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-medium text-muted-foreground hover:text-white transition-colors py-2"
+            >
+              Platform
+            </a>
+            <a
+              href="https://calendly.com/yirancai00/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary-glow flex items-center justify-center gap-2 mt-2"
+            >
+              <span>Book Demo</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </motion.div>
       </nav>
 
       {/* Hero Section */}
@@ -66,18 +113,18 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8"
               >
                 AUTONOMOUS<br />
                 MARKETING<br />
-                <span className="text-gradient-blue">INFRATRUCTURE</span>
+                <span className="text-gradient-blue">INFRASTRUCTURE</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg md:text-xl text-muted-foreground font-light max-w-xl mb-12 leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-muted-foreground font-light max-w-xl mb-8 sm:mb-12 leading-relaxed"
               >
                 A continuous runtime that generates, executes, and optimizes marketing workflows. Deploy intelligent agents that self-evolve.
               </motion.p>
@@ -107,7 +154,7 @@ export default function LandingPage() {
               transition={{ duration: 1.2, delay: 0.3 }}
               className="lg:w-1/2 relative w-full flex items-center justify-center"
             >
-              <div className="relative w-full aspect-square max-w-lg">
+              <div className="relative w-full aspect-square max-w-lg scale-[0.65] sm:scale-75 md:scale-90 lg:scale-100 origin-center">
 
                 {/* Ambient Glow Layers */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/20 rounded-full blur-[80px] animate-pulse"></div>
@@ -403,7 +450,7 @@ export default function LandingPage() {
             <div className="lg:w-1/2 w-full">
               <div className="relative rounded-lg border border-primary/20 bg-card/80 p-1 backdrop-blur-sm">
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
-                <div className="aspect-square md:aspect-[4/3] bg-background/50 rounded-lg overflow-hidden relative flex items-center justify-center p-8">
+                <div className="aspect-square md:aspect-[4/3] bg-background/50 rounded-lg overflow-hidden relative flex items-center justify-center p-4 md:p-8">
                   <div className="absolute inset-0 bg-grid opacity-20"></div>
 
                   {/* Diagram 1: Cross-Platform Execution */}
@@ -414,7 +461,7 @@ export default function LandingPage() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}
                       transition={{ duration: 0.3 }}
-                      className="relative w-full h-full flex items-center justify-center"
+                      className="relative w-full h-full flex items-center justify-center scale-[0.55] sm:scale-[0.7] md:scale-100 origin-center"
                     >
                       {/* Central Agent */}
                       <motion.div
@@ -511,7 +558,7 @@ export default function LandingPage() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}
                       transition={{ duration: 0.3 }}
-                      className="relative w-full h-full flex items-center justify-center"
+                      className="relative w-full h-full flex items-center justify-center scale-[0.55] sm:scale-[0.7] md:scale-100 origin-center"
                     >
                       {/* Central Database */}
                       <motion.div
@@ -717,10 +764,10 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-grid-small opacity-10"></div>
 
         <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 sm:mb-8">
             DEPLOY <span className="text-primary text-glow-blue">INTELLIGENCE</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12">
             Join the automated future. Initialize your first agent swarm today.
           </p>
         </div>
