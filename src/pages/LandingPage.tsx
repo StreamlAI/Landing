@@ -68,9 +68,9 @@ export default function LandingPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8"
               >
-                Autonomous<br />
-                Marketing<br />
-                <span className="text-gradient-blue">Infrastructure</span>
+                AUTONOMOUS<br />
+                MARKETING<br />
+                <span className="text-gradient-blue">INFRATRUCTURE</span>
               </motion.h1>
 
               <motion.p
@@ -94,7 +94,7 @@ export default function LandingPage() {
                   rel="noopener noreferrer"
                   className="btn-primary-glow flex items-center gap-3 group"
                 >
-                  Talk to Founder
+                  TALK TO FOUNDER
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
@@ -292,7 +292,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="mb-20 text-center md:text-left">
             <span className="text-primary font-medium tracking-wide text-sm uppercase mb-4 block">System Capabilities</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Core Modules</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">CORE MODULES</h2>
             <p className="text-xl text-muted-foreground max-w-2xl font-light">
               Full-stack autonomous runtime with continuous optimization loops.
             </p>
