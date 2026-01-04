@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Layers, Network, RefreshCcw, Database, Shield, Zap, Cpu, Terminal, Activity, Code, Server, Lock } from "lucide-react";
+import { ArrowRight, Layers, Network, RefreshCcw, Database, Shield, Zap, Cpu, Terminal, Activity, Code, Server, Lock, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function LandingPage() {
@@ -15,86 +15,70 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans selection:bg-primary/20 selection:text-primary">
-      {/* Global Tech Overlay */}
-      <div className="fixed inset-0 pointer-events-none z-50">
-        <div className="scanline"></div>
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-50"></div>
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-50"></div>
-      </div>
-
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b ${scrolled ? "bg-background/90 backdrop-blur-md border-border/60 h-16" : "bg-transparent border-transparent h-20"
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b ${scrolled ? "bg-background/80 backdrop-blur-xl border-border/40 h-16 shadow-lg shadow-primary/5" : "bg-transparent border-transparent h-24"
           }`}
       >
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
-          <div className="flex items-center gap-3 group cursor-pointer">
-            <div className="relative w-8 h-8 flex items-center justify-center bg-primary/10 rounded-sm border border-primary/30 group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300">
-              <Terminal className="w-5 h-5 text-primary group-hover:text-accent transition-colors" />
-            </div>
-            <span className="text-xl font-bold tracking-tight font-mono-tech group-hover:text-glow-blue transition-all">Streaml</span>
+          <div className="flex items-center gap-3 cursor-pointer group">
+            <img src="/favicon.png" alt="Streaml" className="w-10 h-10 group-hover:scale-105 transition-transform duration-300" />
+            <span className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Streaml</span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-mono-tech text-muted-foreground hover:text-primary transition-colors hover:text-glow-blue">/// FEATURES</a>
-            <a href="#architecture" className="text-sm font-mono-tech text-muted-foreground hover:text-primary transition-colors hover:text-glow-blue">/// PLATFORM</a>
-            <a href="#process" className="text-sm font-mono-tech text-muted-foreground hover:text-primary transition-colors hover:text-glow-blue">/// PROCESS</a>
+            <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-white transition-colors">Features</a>
+            <a href="#architecture" className="text-sm font-medium text-muted-foreground hover:text-white transition-colors">Platform</a>
           </div>
 
           <a
             href="https://calendly.com/yirancai00/30min?month=2025-06"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex btn-cyber items-center gap-2"
+            className="hidden md:flex btn-secondary-glass items-center gap-2 group"
           >
-            <span>Initialize</span>
+            <span>Book Demo</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-grid">
-        {/* Ambient Glow */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        {/* Elegant Background Elements */}
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none opacity-50"></div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             {/* Text Content */}
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 z-20">
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
                 className="mb-8 flex items-center gap-3"
               >
-                <div className="flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-sm">
-                  <div className="status-dot status-dot-active"></div>
-                  <span className="text-xs font-mono-tech text-primary tracking-wider">SYSTEM ONLINE v2.4.0</span>
-                </div>
               </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-8 glitch"
-                data-text="Autonomous Marketing Infrastructure"
+                className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8"
               >
-                AUTONOMOUS<br />
-                MARKETING<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient bg-300%">INFRASTRUCTURE</span>
+                Autonomous<br />
+                Marketing<br />
+                <span className="text-gradient-blue">Infrastructure</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg md:text-xl text-muted-foreground font-light max-w-xl mb-12 leading-relaxed border-l-2 border-primary/30 pl-6"
+                className="text-lg md:text-xl text-muted-foreground font-light max-w-xl mb-12 leading-relaxed"
               >
-                <span className="text-primary font-mono-tech">&gt;&gt;</span> A runtime that generates, executes, and continuously optimizes marketing workflows.
-                <br />
-                <span className="text-primary font-mono-tech">&gt;&gt;</span> Deploy intelligent agents that self-evolve.
+                A continuous runtime that generates, executes, and optimizes marketing workflows. Deploy intelligent agents that self-evolve.
               </motion.p>
 
               <motion.div
@@ -107,80 +91,79 @@ export default function LandingPage() {
                   href="https://calendly.com/yirancai00/30min?month=2025-06"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-cyber flex items-center gap-3 group"
+                  className="btn-primary-glow flex items-center gap-3 group"
                 >
-                  Book Demo
+                  Talk to Founder
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
             </div>
 
-            {/* Right Side - Tech Animation */}
+            {/* Right Side - Elegant Animation */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="lg:w-1/2 relative min-h-[500px] w-full flex items-center justify-center p-10"
+              transition={{ duration: 1.2, delay: 0.3 }}
+              className="lg:w-1/2 relative w-full flex items-center justify-center"
             >
-              {/* Server/Node Visualization */}
-              <div className="relative w-full aspect-square max-w-md">
+              <div className="relative w-full aspect-square max-w-lg">
 
-                {/* Central Core */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                  <div className="relative w-32 h-32 bg-card border border-primary/50 shadow-[0_0_50px_rgba(59,130,246,0.2)] rounded-sm flex items-center justify-center corner-brackets">
-                    <Server className="w-12 h-12 text-primary animate-pulse" />
-                    {/* Ring */}
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-[-10px] border border-dashed border-primary/30 rounded-full"
-                    />
+                {/* Central Glass Core */}
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+                >
+                  <div className="relative w-40 h-40 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-[0_0_60px_rgba(26,140,255,0.15)] flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 rounded-3xl opacity-50"></div>
+                    <Server className="w-16 h-16 text-white drop-shadow-lg" />
+
+                    {/* Inner glowing ring */}
+                    <div className="absolute inset-4 border border-white/10 rounded-2xl"></div>
                   </div>
-                </div>
+                </motion.div>
 
-                {/* Orbiting Satellite Nodes */}
-                {[0, 72, 144, 216, 288].map((angle, i) => (
+                {/* Orbiting Elements */}
+                {[0, 120, 240].map((angle, i) => (
                   <motion.div
                     key={i}
                     className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: -i * 5 }}
+                    transition={{ duration: 40, repeat: Infinity, ease: "linear", delay: -i * 10 }}
                   >
                     <div
                       className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[50%]"
                       style={{
-                        transform: `rotate(${angle}deg) translateY(-140px)`,
+                        transform: `rotate(${angle}deg) translateY(-160px)`,
                       }}
                     >
                       <motion.div
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 1 + i * 0.2 }}
-                        className="w-12 h-12 bg-background border border-accent/40 flex items-center justify-center rounded-sm shadow-[0_0_15px_rgba(6,182,212,0.15)] relative"
+                        whileHover={{ scale: 1.1 }}
+                        className="w-16 h-16 bg-card/60 backdrop-blur-xl border border-white/10 flex items-center justify-center rounded-2xl shadow-lg relative cursor-pointer pointer-events-auto transition-colors hover:border-primary/40"
                       >
-                        {/* Static counter-rotation to keep icon upright */}
                         <motion.div
                           animate={{ rotate: -360 }}
-                          transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: -i * 5 }}
+                          transition={{ duration: 40, repeat: Infinity, ease: "linear", delay: -i * 10 }}
                         >
-                          {i === 0 && <Code className="w-5 h-5 text-accent" />}
-                          {i === 1 && <MessageSquareIcon className="w-5 h-5 text-accent" />}
-                          {i === 2 && <RefreshCcw className="w-5 h-5 text-accent" />}
-                          {i === 3 && <Lock className="w-5 h-5 text-accent" />}
-                          {i === 4 && <Database className="w-5 h-5 text-accent" />}
+                          {i === 0 && <Code className="w-6 h-6 text-primary" />}
+                          {i === 1 && <MessageSquareIcon className="w-6 h-6 text-accent" />}
+                          {i === 2 && <RefreshCcw className="w-6 h-6 text-indigo-400" />}
                         </motion.div>
-
-                        {/* Connecting Line to Center */}
-                        <div className="absolute top-full left-1/2 w-px h-[76px] bg-gradient-to-b from-accent/30 to-transparent origin-top -z-10" style={{ transform: 'rotate(0deg)' }}></div>
                       </motion.div>
                     </div>
                   </motion.div>
                 ))}
 
-                {/* Data Packets */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
-                  <circle cx="50%" cy="50%" r="140" fill="none" stroke="rgba(59, 130, 246, 0.1)" />
-                  <circle cx="50%" cy="50%" r="90" fill="none" stroke="rgba(59, 130, 246, 0.05)" />
+                {/* Connecting Lines */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-20">
+                  <circle cx="50%" cy="50%" r="160" fill="none" stroke="url(#gradient-line)" strokeWidth="1" strokeDasharray="4 4" />
+                  <defs>
+                    <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="rgba(26, 140, 255, 0)" />
+                      <stop offset="50%" stopColor="rgba(26, 140, 255, 1)" />
+                      <stop offset="100%" stopColor="rgba(26, 140, 255, 0)" />
+                    </linearGradient>
+                  </defs>
                 </svg>
 
               </div>
@@ -190,14 +173,11 @@ export default function LandingPage() {
       </section>
 
       {/* Features Grid */}
-      <section id="features" className="py-32 bg-background relative border-t border-border/50">
-        <div className="absolute inset-0 bg-grid-small opacity-30"></div>
+      <section id="features" className="py-32 relative">
         <div className="container mx-auto px-6 relative z-10">
-          <div className="mb-20">
-            <div className="inline-block px-3 py-1 mb-4 border border-accent/20 bg-accent/5 rounded-sm">
-              <span className="text-xs font-mono-tech text-accent">/// SYSTEM CAPABILITIES</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">CORE MODULES</h2>
+          <div className="mb-20 text-center md:text-left">
+            <span className="text-primary font-medium tracking-wide text-sm uppercase mb-4 block">System Capabilities</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Core Modules</h2>
             <p className="text-xl text-muted-foreground max-w-2xl font-light">
               Full-stack autonomous runtime with continuous optimization loops.
             </p>
@@ -242,16 +222,14 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="tech-card p-8 group hover:bg-card/80"
+                whileHover={{ y: -5 }}
+                className="glass-card p-10 group"
               >
-                <div className="w-12 h-12 bg-primary/5 border border-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{feature.title}</h3>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
-
-                {/* Decorative corner */}
-                <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-primary/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </motion.div>
             ))}
           </div>
@@ -335,7 +313,6 @@ export default function LandingPage() {
                           <stop offset="100%" stopColor="rgba(59,130,246,0.5)" />
                         </linearGradient>
                       </defs>
-                      {/* Lines from center to nodes */}
                       <motion.line
                         initial={{ pathLength: 0 }}
                         whileInView={{ pathLength: 1 }}
@@ -399,15 +376,6 @@ export default function LandingPage() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
             Join the automated future. Initialize your first agent swarm today.
           </p>
-
-          <a
-            href="https://calendly.com/yirancai00/30min?month=2025-06"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-cyber inline-flex items-center gap-3 px-12 py-5 text-lg"
-          >
-            INITIALIZE SEQUENCE
-          </a>
         </div>
       </section>
 
@@ -415,16 +383,12 @@ export default function LandingPage() {
       <footer className="py-12 border-t border-border bg-card">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-primary/20 flex items-center justify-center rounded-xs">
-              <span className="text-xs font-bold text-primary">S</span>
-            </div>
-            <span className="font-mono-tech text-sm font-bold tracking-wider">Streaml_Inc</span>
+            <span className="font-mono-tech text-sm font-bold tracking-wider">Streaml, Inc.</span>
           </div>
 
           <div className="flex gap-8 text-xs font-mono-tech text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">PRIVACY_PROTOCOL</a>
-            <a href="#" className="hover:text-primary transition-colors">TERMS_OF_EXECUTION</a>
-            <span className="opacity-50">SYSTEM_ID: 883-291</span>
+            <a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</a>
           </div>
         </div>
       </footer>
