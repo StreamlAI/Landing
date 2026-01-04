@@ -30,7 +30,7 @@ export default function LandingPage() {
 
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-white transition-colors">Features</a>
-            <a href="#architecture" className="text-sm font-medium text-muted-foreground hover:text-white transition-colors">Platform</a>
+            <a href="#architecture" className="text-sm font-medium text-muted-foreground hover:text-white transition-colors">Architecture</a>
           </div>
 
           <a
@@ -76,7 +76,7 @@ export default function LandingPage() {
               onClick={() => setMobileMenuOpen(false)}
               className="text-base font-medium text-muted-foreground hover:text-white transition-colors py-2"
             >
-              Platform
+              Architecture
             </a>
             <a
               href="https://calendly.com/yirancai00/30min"
