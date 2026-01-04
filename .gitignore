@@ -4,3 +4,21 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+
+# Claude
+.claude
+.replit
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.idea
+*.swp
+*.swo

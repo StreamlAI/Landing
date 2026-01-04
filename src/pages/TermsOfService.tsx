@@ -22,15 +22,11 @@ export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-black overflow-x-hidden font-sans">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 border-b border-border bg-background/80 backdrop-blur-sm">
+      <nav className="fixed top-0 w-full z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl shadow-lg shadow-primary/5">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Terminal className="w-6 h-6 text-primary" />
-            <span className="text-xl font-bold tracking-tighter font-mono">STREAML_</span>
-          </Link>
-          <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-mono text-sm">
-            <ChevronLeft className="w-4 h-4" />
-            Back to Home
+          <Link href="/" className="flex items-center gap-3 cursor-pointer group">
+            <img src="/favicon.png" alt="Streaml" className="w-10 h-10 group-hover:scale-105 transition-transform duration-300" />
+            <span className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Streaml</span>
           </Link>
         </div>
       </nav>
@@ -51,7 +47,7 @@ export default function TermsOfService() {
               Terms of Service
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl">
-              Last Updated: January 2025
+              Last Updated: January 2026
             </p>
           </motion.div>
         </div>
@@ -619,18 +615,15 @@ export default function TermsOfService() {
       </div>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-border bg-black text-sm font-mono text-muted-foreground">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 mb-4 md:mb-0">
-            <Terminal className="w-5 h-5 text-primary" />
-            <span className="text-foreground font-bold">STREAML_</span>
+      <footer className="py-12 border-t border-border bg-card">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/favicon.png" alt="Streaml" className="w-6 h-6" />
+            <span className="font-mono-tech text-sm font-bold tracking-wider">Streaml, Inc</span>
           </Link>
-          <div className="flex gap-6">
+          <div className="flex gap-8 text-xs font-mono-tech text-muted-foreground">
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link>
-          </div>
-          <div className="mt-4 md:mt-0">
-            &copy; 2025 STREAML SYSTEM.
           </div>
         </div>
       </footer>
