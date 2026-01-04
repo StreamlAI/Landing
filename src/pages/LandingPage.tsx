@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Terminal, Layers, Cpu, Network, RefreshCcw, Database, Shield, Zap, ChevronRight } from "lucide-react";
-import heroBg from "@assets/generated_images/dark_abstract_network_graph_background.png";
-import workflowImg from "@assets/generated_images/isometric_marketing_workflow_schematic.png";
+
+const heroBg = "/generated_images/dark_abstract_network_graph_background.png";
+const workflowImg = "/generated_images/isometric_marketing_workflow_schematic.png";
 
 export default function LandingPage() {
   return (
@@ -320,7 +321,10 @@ export default function LandingPage() {
             <Terminal className="w-5 h-5 text-primary" />
             <span className="text-foreground font-bold">STREAML_</span>
           </div>
-          
+          <div className="flex gap-6">
+            <a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</a>
+          </div>
           <div className="mt-4 md:mt-0">
             &copy; 2025 STREAML SYSTEM.
           </div>
