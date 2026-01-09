@@ -16,6 +16,7 @@ import {
   Sparkles,
   Menu,
   X,
+  Linkedin,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -69,15 +70,27 @@ export default function LandingPage() {
             </a>
           </div>
 
-          <a
-            href="https://calendly.com/yirancai00/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex btn-secondary-glass items-center gap-2 group"
-          >
-            <span>Book Demo</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </a>
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="https://calendly.com/yirancai00/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary-glass flex items-center gap-2 group"
+            >
+              <span>Book Demo</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+
+            <a
+              href="http://linkedin.com/in/caivivian"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-white transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -126,6 +139,16 @@ export default function LandingPage() {
             >
               <span>Book Demo</span>
               <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="http://linkedin.com/in/caivivian"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 text-muted-foreground hover:text-white transition-colors py-2"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" />
+              <span>LinkedIn</span>
             </a>
           </div>
         </motion.div>
