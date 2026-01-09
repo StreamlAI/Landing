@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Terminal, ChevronLeft, Shield, Database, Lock, Globe, Users, FileText, Bell, Mail } from "lucide-react";
 import { Link } from "wouter";
+import { Navigation } from "@/components/Navigation";
 
 export default function PrivacyPolicy() {
   const sections = [
@@ -19,14 +20,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-black overflow-x-hidden font-sans">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl shadow-lg shadow-primary/5">
-        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 cursor-pointer group">
-            <img src="/favicon.png" alt="Streaml" className="w-10 h-10 group-hover:scale-105 transition-transform duration-300" />
-            <span className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Streaml</span>
-          </Link>
-        </div>
-      </nav>
+      <Navigation showLinks={false} />
 
       {/* Header */}
       <section className="pt-32 pb-16 border-b border-border">

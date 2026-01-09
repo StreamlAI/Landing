@@ -16,9 +16,13 @@ import {
   Sparkles,
   Menu,
   X,
-  Linkedin,
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
+import { XIcon } from "@/components/icons/XIcon";
+import { RedditIcon } from "@/components/icons/RedditIcon";
+import { Mail } from "lucide-react";
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,7 +54,7 @@ export default function LandingPage() {
               alt="Streaml"
               className="w-10 h-10 group-hover:scale-105 transition-transform duration-300"
             />
-            <span className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+            <span className="text-xl font-bold tracking-tight text-foreground">
               Streaml
             </span>
           </div>
@@ -58,19 +62,21 @@ export default function LandingPage() {
           <div className="hidden md:flex items-center gap-8">
             <a
               href="#architecture"
-              className="text-sm font-medium text-muted-foreground hover:text-white transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Architecture
             </a>
             <a
               href="#features"
-              className="text-sm font-medium text-muted-foreground hover:text-white transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Features
             </a>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
+
             <a
               href="https://calendly.com/yirancai00/30min"
               target="_blank"
@@ -85,17 +91,17 @@ export default function LandingPage() {
               href="http://linkedin.com/in/caivivian"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-white transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-5 h-5" />
+              <LinkedInIcon className="w-5 h-5" />
             </a>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-muted-foreground hover:text-white transition-colors"
+            className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -117,17 +123,22 @@ export default function LandingPage() {
           className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border/40"
         >
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            <div className="flex items-center justify-between py-2">
+              <span className="text-base font-medium text-muted-foreground">Theme</span>
+              <ThemeToggle />
+            </div>
+
             <a
               href="#architecture"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-muted-foreground hover:text-white transition-colors py-2"
+              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               Architecture
             </a>
             <a
               href="#features"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-muted-foreground hover:text-white transition-colors py-2"
+              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               Features
             </a>
@@ -144,10 +155,10 @@ export default function LandingPage() {
               href="http://linkedin.com/in/caivivian"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 text-muted-foreground hover:text-white transition-colors py-2"
+              className="flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground transition-colors py-2"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-5 h-5" />
+              <LinkedInIcon className="w-5 h-5" />
               <span>LinkedIn</span>
             </a>
           </div>
@@ -596,6 +607,7 @@ export default function LandingPage() {
                       {[
                         {
                           label: "LinkedIn",
+                          Icon: LinkedInIcon,
                           x: -160,
                           y: -80,
                           color: "text-blue-400",
@@ -603,13 +615,15 @@ export default function LandingPage() {
                         },
                         {
                           label: "X",
+                          Icon: XIcon,
                           x: 160,
                           y: -80,
-                          color: "text-white",
+                          color: "text-foreground",
                           delay: 0.1,
                         },
                         {
                           label: "Reddit",
+                          Icon: RedditIcon,
                           x: -160,
                           y: 80,
                           color: "text-orange-400",
@@ -617,6 +631,7 @@ export default function LandingPage() {
                         },
                         {
                           label: "Email",
+                          Icon: Mail,
                           x: 160,
                           y: 80,
                           color: "text-green-400",
@@ -630,7 +645,7 @@ export default function LandingPage() {
                           transition={{ delay: node.delay, duration: 0.4 }}
                           className="absolute z-10 w-20 h-20 bg-card/90 border border-white/20 rounded-lg flex flex-col items-center justify-center"
                         >
-                          <Network className={`w-6 h-6 ${node.color} mb-1`} />
+                          <node.Icon className={`w-6 h-6 ${node.color} mb-1`} />
                           <span className="text-[10px] font-mono-tech text-muted-foreground">
                             {node.label}
                           </span>
@@ -1076,25 +1091,5 @@ export default function LandingPage() {
         </div>
       </footer>
     </div>
-  );
-}
-
-// Icon component needed for the mapping above
-function MessageSquareIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-    </svg>
   );
 }
