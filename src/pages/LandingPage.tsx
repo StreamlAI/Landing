@@ -190,7 +190,7 @@ export default function LandingPage() {
               >
                 AUTONOMOUS
                 <br />
-                MARKETING
+                GROWTH
                 <br />
                 <span className="text-gradient-blue">INFRASTRUCTURE</span>
               </motion.h1>
