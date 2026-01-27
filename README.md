@@ -48,7 +48,7 @@ src/
 
 public/
 ├── favicon.png        # Site logo/favicon
-└── opengraph.jpg      # OG image for social sharing
+└── opengraph.png      # OG image for social sharing
 ```
 
 ## Path Aliases

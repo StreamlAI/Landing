@@ -176,8 +176,8 @@ export default function LandingPage() {
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         {/* Full-screen background video */}
         <BackgroundVideo
-          src="https://customer-cbeadsgr09pnsezs.cloudflarestream.com/257c7359efd4b4aaebcc03aa8fc78a36/manifest/video.m3u8"
-          poster="https://customer-cbeadsgr09pnsezs.cloudflarestream.com/257c7359efd4b4aaebcc03aa8fc78a36/thumbnails/thumbnail.jpg"
+          src="/hero-bg.mp4"
+          poster="/hero-poster.jpg"
         />
 
         {/* Subtle gradient overlay on top of video */}
