@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Layers,
   Network,
   RefreshCcw,
   Database,
-  Shield,
   Zap,
   Cpu,
   Terminal,
@@ -13,12 +11,11 @@ import {
   Code,
   Server,
   Lock,
-  Sparkles,
   Menu,
   X,
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { BackgroundVideo } from "@/components/BackgroundVideo";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { RedditIcon } from "@/components/icons/RedditIcon";
@@ -43,16 +40,26 @@ export default function LandingPage() {
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b ${
           scrolled
-            ? "bg-background/80 backdrop-blur-xl border-border/40 h-16 shadow-lg shadow-primary/5"
+            ? "h-16 shadow-lg shadow-black/10"
             : "bg-transparent border-transparent h-24"
         }`}
+        style={
+          scrolled
+            ? {
+                background: "rgba(85, 80, 110, 0.25)",
+                borderColor: "rgba(164, 132, 215, 0.15)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+              }
+            : undefined
+        }
       >
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer group">
             <img
               src="/favicon.png"
               alt="Streaml"
-              className="w-10 h-10 group-hover:scale-105 transition-transform duration-300"
+              className="w-7 h-7 group-hover:scale-105 transition-transform duration-300"
             />
             <span className="text-xl font-bold tracking-tight text-foreground">
               Streaml
@@ -75,7 +82,6 @@ export default function LandingPage() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
 
             <a
               href="https://calendly.com/yirancai00/30min"
@@ -120,14 +126,15 @@ export default function LandingPage() {
             opacity: mobileMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border/40"
+          className="md:hidden overflow-hidden border-t"
+          style={{
+            background: "rgba(85, 80, 110, 0.3)",
+            borderColor: "rgba(164, 132, 215, 0.15)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+          }}
         >
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-            <div className="flex items-center justify-between py-2">
-              <span className="text-base font-medium text-muted-foreground">Theme</span>
-              <ThemeToggle />
-            </div>
-
             <a
               href="#architecture"
               onClick={() => setMobileMenuOpen(false)}
@@ -167,20 +174,38 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Elegant Background Elements */}
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none opacity-50"></div>
+        {/* Full-screen background video */}
+        <BackgroundVideo
+          src="https://customer-cbeadsgr09pnsezs.cloudflarestream.com/257c7359efd4b4aaebcc03aa8fc78a36/manifest/video.m3u8"
+          poster="https://customer-cbeadsgr09pnsezs.cloudflarestream.com/257c7359efd4b4aaebcc03aa8fc78a36/thumbnails/thumbnail.jpg"
+        />
+
+        {/* Subtle gradient overlay on top of video */}
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <div className="flex flex-col items-center lg:items-start">
             {/* Text Content */}
-            <div className="lg:w-1/2 z-20">
+            <div className="max-w-2xl z-20">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="mb-8 flex items-center gap-3"
-              ></motion.div>
+                className="mb-6"
+              >
+                <span
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide"
+                  style={{
+                    background: "rgba(85, 80, 110, 0.4)",
+                    border: "1px solid rgba(164, 132, 215, 0.5)",
+                    backdropFilter: "blur(12px)",
+                    color: "rgba(255,255,255,0.85)",
+                  }}
+                >
+                  <Zap className="w-3 h-3 text-primary" />
+                  AI-Native Marketing Runtime
+                </span>
+              </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
@@ -199,7 +224,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-base sm:text-lg md:text-xl text-muted-foreground font-light max-w-xl mb-8 sm:mb-12 leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-white/55 font-light max-w-xl mb-8 sm:mb-12 leading-relaxed"
               >
                 A continuous runtime that generates, executes, and optimizes
                 marketing workflows. Deploy intelligent agents that self-evolve.
@@ -223,271 +248,6 @@ export default function LandingPage() {
               </motion.div>
             </div>
 
-            {/* Right Side - Enhanced Animation */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.3 }}
-              className="lg:w-1/2 relative w-full flex items-center justify-center"
-            >
-              <div className="relative w-full aspect-square max-w-lg scale-[0.65] sm:scale-75 md:scale-90 lg:scale-100 origin-center">
-                {/* Ambient Glow Layers */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/20 rounded-full blur-[80px] animate-pulse"></div>
-                <div
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-accent/15 rounded-full blur-[60px] animate-pulse"
-                  style={{ animationDelay: "1s" }}
-                ></div>
-
-                {/* Outer Orbital Ring */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 60,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px]"
-                >
-                  <svg className="w-full h-full">
-                    <circle
-                      cx="50%"
-                      cy="50%"
-                      r="200"
-                      fill="none"
-                      stroke="rgba(59, 130, 246, 0.1)"
-                      strokeWidth="1"
-                    />
-                  </svg>
-                  {/* Outer ring particles */}
-                  {[0, 90, 180, 270].map((angle, i) => (
-                    <motion.div
-                      key={`outer-${i}`}
-                      className="absolute w-2 h-2 bg-primary/60 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"
-                      style={{
-                        top: `${
-                          50 + 47.6 * Math.sin((angle * Math.PI) / 180)
-                        }%`,
-                        left: `${
-                          50 + 47.6 * Math.cos((angle * Math.PI) / 180)
-                        }%`,
-                      }}
-                      animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.5,
-                      }}
-                    />
-                  ))}
-                </motion.div>
-
-                {/* Middle Orbital Ring */}
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{
-                    duration: 40,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px]"
-                >
-                  <svg className="w-full h-full">
-                    <circle
-                      cx="50%"
-                      cy="50%"
-                      r="150"
-                      fill="none"
-                      stroke="rgba(6, 182, 212, 0.15)"
-                      strokeWidth="1"
-                      strokeDasharray="8 4"
-                    />
-                  </svg>
-                </motion.div>
-
-                {/* Inner Orbital Ring with Icons */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px]"
-                >
-                  <svg className="w-full h-full">
-                    <circle
-                      cx="50%"
-                      cy="50%"
-                      r="120"
-                      fill="none"
-                      stroke="rgba(59, 130, 246, 0.2)"
-                      strokeWidth="2"
-                    />
-                  </svg>
-                  {/* Orbiting Icons */}
-                  {[
-                    { Icon: Code, color: "text-primary", angle: 0 },
-                    { Icon: Database, color: "text-accent", angle: 120 },
-                    { Icon: RefreshCcw, color: "text-indigo-400", angle: 240 },
-                  ].map(({ Icon, color, angle }, i) => (
-                    <motion.div
-                      key={`icon-${i}`}
-                      className="absolute"
-                      style={{
-                        top: `${50 + 46 * Math.sin((angle * Math.PI) / 180)}%`,
-                        left: `${50 + 46 * Math.cos((angle * Math.PI) / 180)}%`,
-                        transform: "translate(-50%, -50%)",
-                      }}
-                    >
-                      <motion.div
-                        animate={{ rotate: -360 }}
-                        transition={{
-                          duration: 30,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                        className="w-12 h-12 bg-card/80 backdrop-blur-xl border border-white/20 flex items-center justify-center rounded-xl shadow-lg"
-                      >
-                        <Icon className={`w-5 h-5 ${color}`} />
-                      </motion.div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                {/* Central Glass Core */}
-                <motion.div
-                  animate={{ y: [0, -8, 0], scale: [1, 1.02, 1] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
-                >
-                  {/* Pulsing ring behind core */}
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="absolute inset-[-20px] border-2 border-primary/30 rounded-[2rem]"
-                  />
-                  <motion.div
-                    animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 0.5,
-                    }}
-                    className="absolute inset-[-30px] border border-primary/20 rounded-[2.5rem]"
-                  />
-
-                  <div className="relative w-36 h-36 bg-gradient-to-b from-white/15 to-white/5 backdrop-blur-2xl border border-white/30 rounded-3xl shadow-[0_0_80px_rgba(59,130,246,0.3)] flex items-center justify-center overflow-hidden">
-                    {/* Animated gradient overlay */}
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className="absolute inset-0 bg-gradient-conic from-primary/30 via-transparent via-50% to-primary/30 opacity-50"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 rounded-3xl"></div>
-
-                    {/* Core icon */}
-                    <motion.div
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <Server className="w-14 h-14 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" />
-                    </motion.div>
-
-                    {/* Inner glowing border */}
-                    <div className="absolute inset-3 border border-white/20 rounded-2xl"></div>
-                  </div>
-                </motion.div>
-
-                {/* Floating Data Particles */}
-                {[...Array(8)].map((_, i) => (
-                  <motion.div
-                    key={`particle-${i}`}
-                    className="absolute w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_6px_rgba(59,130,246,0.8)]"
-                    initial={{
-                      x: Math.random() * 400 - 200,
-                      y: Math.random() * 400 - 200,
-                      opacity: 0,
-                    }}
-                    animate={{
-                      x: [
-                        null,
-                        Math.random() * 300 - 150,
-                        Math.random() * 300 - 150,
-                      ],
-                      y: [
-                        null,
-                        Math.random() * 300 - 150,
-                        Math.random() * 300 - 150,
-                      ],
-                      opacity: [0, 1, 0],
-                    }}
-                    transition={{
-                      duration: 4 + Math.random() * 2,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                      ease: "easeInOut",
-                    }}
-                    style={{
-                      top: "50%",
-                      left: "50%",
-                    }}
-                  />
-                ))}
-
-                {/* Energy Lines connecting to center */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
-                  <defs>
-                    <linearGradient
-                      id="energy-gradient"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="0%"
-                    >
-                      <stop offset="0%" stopColor="rgba(59, 130, 246, 0)" />
-                      <stop offset="50%" stopColor="rgba(59, 130, 246, 0.6)" />
-                      <stop offset="100%" stopColor="rgba(59, 130, 246, 0)" />
-                    </linearGradient>
-                  </defs>
-                  {[0, 60, 120, 180, 240, 300].map((angle, i) => (
-                    <motion.line
-                      key={`line-${i}`}
-                      x1="50%"
-                      y1="50%"
-                      x2={`${50 + 35 * Math.cos((angle * Math.PI) / 180)}%`}
-                      y2={`${50 + 35 * Math.sin((angle * Math.PI) / 180)}%`}
-                      stroke="url(#energy-gradient)"
-                      strokeWidth="1"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: [0, 1, 0], opacity: [0, 0.8, 0] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.3,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  ))}
-                </svg>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -495,23 +255,29 @@ export default function LandingPage() {
       {/* Architecture Section */}
       <section
         id="architecture"
-        className="py-32 border-t border-border/30 bg-card/20 relative overflow-hidden"
+        className="py-32 border-t relative overflow-hidden"
+        style={{ borderColor: "rgba(164, 132, 215, 0.1)", background: "rgba(85, 80, 110, 0.04)" }}
       >
-        {/* Background noise */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5"></div>
+        <div className="absolute inset-0 bg-grid opacity-30"></div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
-              <div className="inline-block px-3 py-1 mb-4 border border-blue-500/20 bg-blue-500/5 rounded-sm">
-                <span className="text-xs font-mono-tech text-blue-500">
+              <div
+                className="inline-block px-3 py-1 mb-4 rounded-sm"
+                style={{
+                  border: "1px solid rgba(123, 57, 252, 0.2)",
+                  background: "rgba(123, 57, 252, 0.05)",
+                }}
+              >
+                <span className="text-xs font-tech text-primary">
                   /// ARCHITECTURE_VIEW
                 </span>
               </div>
               <h2 className="text-4xl font-bold mb-8">
                 MULTI-CHANNEL
                 <br />
-                <span className="text-gradient hover:text-glow-blue transition-all duration-300 text-primary">
+                <span className="text-gradient-blue">
                   AGENT RUNTIME
                 </span>
               </h2>
@@ -541,13 +307,13 @@ export default function LandingPage() {
                     whileTap={{ scale: 0.98 }}
                     className={`flex gap-4 p-4 border rounded-lg cursor-pointer transition-all duration-300 ${
                       activeDiagram === i
-                        ? "border-primary/50 bg-primary/10 shadow-[0_0_20px_rgba(59,130,246,0.15)]"
-                        : "border-transparent hover:border-primary/20 hover:bg-primary/5"
+                        ? "border-primary/40 bg-primary/8 shadow-[0_0_20px_rgba(123,57,252,0.1)]"
+                        : "border-transparent hover:border-primary/15 hover:bg-primary/5"
                     }`}
                   >
                     <div
                       className={`mt-1 transition-colors ${
-                        activeDiagram === i ? "text-primary" : "text-accent"
+                        activeDiagram === i ? "text-primary" : "text-muted-foreground"
                       }`}
                     >
                       {item.icon}
@@ -567,7 +333,7 @@ export default function LandingPage() {
                     {activeDiagram === i && (
                       <motion.div
                         layoutId="activeIndicator"
-                        className="ml-auto self-center w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+                        className="ml-auto self-center w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(123,57,252,0.6)]"
                       />
                     )}
                   </motion.div>
@@ -576,8 +342,14 @@ export default function LandingPage() {
             </div>
 
             <div className="lg:w-1/2 w-full">
-              <div className="relative rounded-lg border border-primary/20 bg-card/80 p-1 backdrop-blur-sm">
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
+              <div
+                className="relative rounded-lg p-1 backdrop-blur-sm"
+                style={{
+                  border: "1px solid rgba(164, 132, 215, 0.2)",
+                  background: "rgba(85, 80, 110, 0.1)",
+                }}
+              >
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent animate-pulse"></div>
                 <div className="aspect-square md:aspect-[4/3] bg-background/50 rounded-lg overflow-hidden relative flex items-center justify-center p-4 md:p-8">
                   <div className="absolute inset-0 bg-grid opacity-20"></div>
 
@@ -595,10 +367,10 @@ export default function LandingPage() {
                       <motion.div
                         animate={{ scale: [1, 1.02, 1] }}
                         transition={{ duration: 3, repeat: Infinity }}
-                        className="absolute z-20 w-32 h-32 bg-card border-2 border-primary/50 rounded-xl flex flex-col items-center justify-center shadow-[0_0_40px_rgba(59,130,246,0.3)]"
+                        className="absolute z-20 w-32 h-32 bg-card border-2 border-primary/40 rounded-xl flex flex-col items-center justify-center shadow-[0_0_30px_rgba(123,57,252,0.2)]"
                       >
                         <Cpu className="w-12 h-12 text-primary mb-1" />
-                        <span className="text-xs font-mono-tech text-primary">
+                        <span className="text-xs font-tech text-primary">
                           AGENT
                         </span>
                       </motion.div>
@@ -643,10 +415,14 @@ export default function LandingPage() {
                           initial={{ opacity: 0, x: 0, y: 0 }}
                           animate={{ opacity: 1, x: node.x, y: node.y }}
                           transition={{ delay: node.delay, duration: 0.4 }}
-                          className="absolute z-10 w-20 h-20 bg-card/90 border border-white/20 rounded-lg flex flex-col items-center justify-center"
+                          className="absolute z-10 w-20 h-20 rounded-lg flex flex-col items-center justify-center"
+                          style={{
+                            background: "rgba(85, 80, 110, 0.3)",
+                            border: "1px solid rgba(164, 132, 215, 0.2)",
+                          }}
                         >
                           <node.Icon className={`w-6 h-6 ${node.color} mb-1`} />
-                          <span className="text-[10px] font-mono-tech text-muted-foreground">
+                          <span className="text-[10px] font-tech text-muted-foreground">
                             {node.label}
                           </span>
                         </motion.div>
@@ -664,11 +440,11 @@ export default function LandingPage() {
                           >
                             <stop
                               offset="0%"
-                              stopColor="rgba(59,130,246,0.8)"
+                              stopColor="rgba(123,57,252,0.7)"
                             />
                             <stop
                               offset="100%"
-                              stopColor="rgba(6,182,212,0.8)"
+                              stopColor="rgba(164,132,215,0.7)"
                             />
                           </linearGradient>
                         </defs>
@@ -698,7 +474,7 @@ export default function LandingPage() {
                       {[0, 1, 2, 3].map((i) => (
                         <motion.div
                           key={`flow-${i}`}
-                          className="absolute w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(59,130,246,1)]"
+                          className="absolute w-2 h-2 bg-primary rounded-full shadow-[0_0_6px_rgba(123,57,252,0.8)]"
                           animate={{
                             x: [0, (i % 2 === 0 ? -1 : 1) * 100, 0],
                             y: [0, (i < 2 ? -1 : 1) * 40, 0],
@@ -719,7 +495,7 @@ export default function LandingPage() {
                         className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2"
                       >
                         <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                        <span className="text-[9px] font-mono-tech text-green-400/80">
+                        <span className="text-[9px] font-tech text-green-400/80">
                           MULTI_CHANNEL_ACTIVE
                         </span>
                       </motion.div>
@@ -737,9 +513,9 @@ export default function LandingPage() {
                       className="relative w-full h-full flex items-center justify-center"
                     >
                       {/* Timeline visualization */}
-                      <div className="absolute inset-x-8 top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent rounded-full"></div>
+                      <div className="absolute inset-x-8 top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-transparent via-violet-500/30 to-transparent rounded-full"></div>
 
-                      {/* Time markers with variable spacing (stochastic timing) */}
+                      {/* Time markers with variable spacing */}
                       {[
                         { pos: 15, label: "9:02", action: "Post" },
                         { pos: 32, label: "11:47", action: "Reply" },
@@ -762,12 +538,12 @@ export default function LandingPage() {
                               repeat: Infinity,
                               delay: i * 0.4,
                             }}
-                            className="w-3 h-3 bg-indigo-400 rounded-full shadow-[0_0_10px_rgba(129,140,248,0.8)] mb-2"
+                            className="w-3 h-3 bg-violet-400 rounded-full shadow-[0_0_8px_rgba(167,139,250,0.6)] mb-2"
                           />
-                          <span className="text-[8px] font-mono-tech text-indigo-400">
+                          <span className="text-[8px] font-tech text-violet-400">
                             {marker.label}
                           </span>
-                          <span className="text-[7px] font-mono-tech text-muted-foreground mt-0.5">
+                          <span className="text-[7px] font-tech text-muted-foreground mt-0.5">
                             {marker.action}
                           </span>
                         </motion.div>
@@ -778,16 +554,20 @@ export default function LandingPage() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="absolute top-6 left-1/2 -translate-x-1/2 bg-card/90 border border-indigo-400/30 rounded-lg px-4 py-2"
+                        className="absolute top-6 left-1/2 -translate-x-1/2 rounded-lg px-4 py-2"
+                        style={{
+                          background: "rgba(85, 80, 110, 0.3)",
+                          border: "1px solid rgba(167, 139, 250, 0.3)",
+                        }}
                       >
                         <div className="flex items-center gap-3">
-                          <Activity className="w-4 h-4 text-indigo-400" />
+                          <Activity className="w-4 h-4 text-violet-400" />
                           <div>
-                            <span className="text-[10px] font-mono-tech text-indigo-400 block">
+                            <span className="text-[10px] font-tech text-violet-400 block">
                               BEHAVIOR_PATTERN
                             </span>
                             <span className="text-[8px] text-muted-foreground">
-                              Stochastic • Natural • Adaptive
+                              Stochastic · Natural · Adaptive
                             </span>
                           </div>
                         </div>
@@ -798,13 +578,13 @@ export default function LandingPage() {
                         <motion.div
                           key={`delay-${i}`}
                           initial={{ opacity: 0 }}
-                          animate={{ opacity: [0, 0.6, 0] }}
+                          animate={{ opacity: [0, 0.5, 0] }}
                           transition={{
                             duration: 3,
                             repeat: Infinity,
                             delay: i * 0.7,
                           }}
-                          className="absolute top-[55%] text-[7px] font-mono-tech text-indigo-300/60"
+                          className="absolute top-[55%] text-[7px] font-tech text-violet-300/50"
                           style={{ left: `${pos}%` }}
                         >
                           +{Math.floor(Math.random() * 45 + 5)}m
@@ -819,7 +599,11 @@ export default function LandingPage() {
                           repeat: Infinity,
                           ease: "easeInOut",
                         }}
-                        className="absolute bottom-8 w-10 h-10 bg-card border border-indigo-400/50 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(129,140,248,0.3)]"
+                        className="absolute bottom-8 w-10 h-10 border rounded-full flex items-center justify-center shadow-[0_0_12px_rgba(167,139,250,0.2)]"
+                        style={{
+                          background: "rgba(85, 80, 110, 0.4)",
+                          borderColor: "rgba(167, 139, 250, 0.4)",
+                        }}
                       >
                         <span className="text-lg">🤖</span>
                       </motion.div>
@@ -829,8 +613,8 @@ export default function LandingPage() {
                         transition={{ duration: 2, repeat: Infinity }}
                         className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2"
                       >
-                        <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse"></div>
-                        <span className="text-[9px] font-mono-tech text-indigo-400/80">
+                        <div className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse"></div>
+                        <span className="text-[9px] font-tech text-violet-400/80">
                           HUMAN_LIKE_TIMING
                         </span>
                       </motion.div>
@@ -851,10 +635,10 @@ export default function LandingPage() {
                       <motion.div
                         animate={{ scale: [1, 1.03, 1] }}
                         transition={{ duration: 3, repeat: Infinity }}
-                        className="absolute z-20 w-36 h-36 bg-card border-2 border-accent/50 rounded-xl flex flex-col items-center justify-center shadow-[0_0_40px_rgba(6,182,212,0.3)]"
+                        className="absolute z-20 w-36 h-36 bg-card border-2 border-accent/40 rounded-xl flex flex-col items-center justify-center shadow-[0_0_30px_rgba(248,123,82,0.15)]"
                       >
                         <Database className="w-14 h-14 text-accent mb-1" />
-                        <span className="text-sm font-mono-tech text-accent">
+                        <span className="text-sm font-tech text-accent">
                           DATA_CORE
                         </span>
                       </motion.div>
@@ -865,7 +649,7 @@ export default function LandingPage() {
                           key={`ring-${i}`}
                           initial={{ opacity: 0, scale: 0.5 }}
                           animate={{
-                            opacity: 0.3 - i * 0.08,
+                            opacity: 0.25 - i * 0.06,
                             scale: 1,
                             rotate: i % 2 === 0 ? 360 : -360,
                           }}
@@ -878,7 +662,7 @@ export default function LandingPage() {
                               ease: "linear",
                             },
                           }}
-                          className="absolute border border-accent/30 rounded-full"
+                          className="absolute border border-accent/25 rounded-full"
                           style={{ width: size, height: size }}
                         />
                       ))}
@@ -896,15 +680,17 @@ export default function LandingPage() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 0.3 + i * 0.1 }}
-                          className="absolute z-10 w-16 h-16 bg-card/90 border border-accent/30 rounded-lg flex flex-col items-center justify-center"
+                          className="absolute z-10 w-16 h-16 rounded-lg flex flex-col items-center justify-center"
                           style={{
                             transform: `translate(-50%, -50%) rotate(${node.angle}deg) translateY(-130px) rotate(-${node.angle}deg)`,
                             top: "50%",
                             left: "50%",
+                            background: "rgba(85, 80, 110, 0.3)",
+                            border: "1px solid rgba(248, 123, 82, 0.25)",
                           }}
                         >
                           <node.Icon className="w-5 h-5 text-accent mb-0.5" />
-                          <span className="text-[9px] font-mono-tech text-muted-foreground">
+                          <span className="text-[9px] font-tech text-muted-foreground">
                             {node.label}
                           </span>
                         </motion.div>
@@ -923,7 +709,7 @@ export default function LandingPage() {
                             y2={`${
                               50 + 25 * Math.sin(((angle - 90) * Math.PI) / 180)
                             }%`}
-                            stroke="rgba(6,182,212,0.4)"
+                            stroke="rgba(248,123,82,0.3)"
                             strokeWidth="1"
                             strokeDasharray="4 2"
                             initial={{ pathLength: 0 }}
@@ -937,7 +723,7 @@ export default function LandingPage() {
                       {[0, 1, 2, 3, 4].map((i) => (
                         <motion.div
                           key={`ingest-${i}`}
-                          className="absolute w-1.5 h-1.5 bg-accent rounded-full shadow-[0_0_6px_rgba(6,182,212,1)]"
+                          className="absolute w-1.5 h-1.5 bg-accent rounded-full shadow-[0_0_5px_rgba(248,123,82,0.8)]"
                           animate={{
                             scale: [0, 1, 0],
                             opacity: [0, 1, 0],
@@ -966,7 +752,7 @@ export default function LandingPage() {
                         className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2"
                       >
                         <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></div>
-                        <span className="text-[9px] font-mono-tech text-accent/80">
+                        <span className="text-[9px] font-tech text-accent/80">
                           INGESTING_DATA
                         </span>
                       </motion.div>
@@ -1036,7 +822,10 @@ export default function LandingPage() {
                 whileHover={{ y: -5 }}
                 className="glass-card p-10 group"
               >
-                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                <div
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300"
+                  style={{ background: "rgba(123, 57, 252, 0.08)" }}
+                >
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
@@ -1051,13 +840,13 @@ export default function LandingPage() {
 
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5"></div>
-        <div className="absolute inset-0 bg-grid-small opacity-10"></div>
+        <div className="absolute inset-0" style={{ background: "rgba(123, 57, 252, 0.04)" }}></div>
+        <div className="absolute inset-0 bg-grid opacity-10"></div>
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 sm:mb-8">
             DEPLOY{" "}
-            <span className="text-primary text-glow-blue">INTELLIGENCE</span>
+            <span className="text-gradient-blue">INTELLIGENCE</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12">
             Join the automated future. Initialize your first agent swarm today.
@@ -1066,15 +855,21 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-border bg-card">
+      <footer
+        className="py-12 border-t"
+        style={{
+          borderColor: "rgba(164, 132, 215, 0.1)",
+          background: "rgba(85, 80, 110, 0.04)",
+        }}
+      >
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <span className="font-mono-tech text-sm font-bold tracking-wider">
+            <span className="text-sm font-bold tracking-wider">
               Streaml, Inc.
             </span>
           </div>
 
-          <div className="flex gap-8 text-xs font-mono-tech text-muted-foreground">
+          <div className="flex gap-8 text-xs text-muted-foreground">
             <a
               href="/privacy-policy"
               className="hover:text-primary transition-colors"

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 
 interface NavigationProps {
@@ -11,15 +10,16 @@ interface NavigationProps {
 
 export function Navigation({ showLinks = true }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-xl border-border/40 h-16 shadow-lg shadow-primary/5"
-          : "bg-background/80 backdrop-blur-xl border-border/40 h-16"
-      }`}
+      className="fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b h-16 shadow-lg shadow-black/10"
+      style={{
+        background: "rgba(85, 80, 110, 0.25)",
+        borderColor: "rgba(164, 132, 215, 0.15)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+      }}
     >
       <div className="container mx-auto px-6 h-full flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 cursor-pointer group">
@@ -51,8 +51,6 @@ export function Navigation({ showLinks = true }: NavigationProps) {
         )}
 
         <div className="hidden md:flex items-center gap-4">
-          <ThemeToggle />
-
           <a
             href="https://calendly.com/yirancai00/30min"
             target="_blank"
@@ -96,14 +94,15 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           opacity: mobileMenuOpen ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border/40"
+        className="md:hidden overflow-hidden border-t"
+        style={{
+          background: "rgba(85, 80, 110, 0.3)",
+          borderColor: "rgba(164, 132, 215, 0.15)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+        }}
       >
         <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-          <div className="flex items-center justify-between py-2">
-            <span className="text-base font-medium text-muted-foreground">Theme</span>
-            <ThemeToggle />
-          </div>
-
           {showLinks && (
             <>
               <a

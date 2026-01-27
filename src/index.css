@@ -2,8 +2,6 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-@custom-variant light (&:is(.light *));
-
 @theme inline {
   --radius-sm: 0px;
   --radius-md: 2px;
@@ -38,92 +36,56 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  /* Tech Accent Colors */
-  --color-electric: #3b82f6;
-  --color-electric-dim: #1d4ed8;
-  --color-cyan: #06b6d4;
+  /* Refined Purple Palette */
+  --color-electric: #7b39fc;
+  --color-electric-dim: #6a2ce0;
+  --color-cyan: #f87b52;
   --color-terminal: #22c55e;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-button: 'Cabin', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', serif;
 }
 
-/* ELEGANT DARK TECH THEME */
+/* PREMIUM DARK THEME — Linear-inspired */
 :root {
-  /* Deep, Rich Black - Obsidian */
-  --background: 220 20% 4%;
-  /* #080b0f */
+  --background: 225 25% 4%;
   --foreground: 210 20% 98%;
 
-  /* Glassy Surfaces */
-  --card: 220 20% 6%;
+  /* Cleaner surfaces */
+  --card: 225 20% 6%;
   --card-foreground: 210 20% 98%;
 
-  --popover: 220 20% 5%;
+  --popover: 225 20% 5%;
   --popover-foreground: 210 20% 98%;
 
-  /* Primary: Electric Blue - refined */
-  --primary: 215 100% 55%;
-  /* #1a8cff */
+  /* Primary: Purple */
+  --primary: 262 96% 60%;
+  /* #7b39fc */
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary */
-  --secondary: 220 15% 10%;
-  --secondary-foreground: 210 20% 90%;
+  /* Secondary: Deep violet */
+  --secondary: 260 30% 20%;
+  --secondary-foreground: 260 20% 90%;
 
-  --muted: 220 15% 12%;
-  --muted-foreground: 215 15% 60%;
+  --muted: 260 15% 12%;
+  --muted-foreground: 240 10% 55%;
 
-  /* Accent: Cyan - softer data stream look */
-  --accent: 190 90% 50%;
-  /* #0ce6f2 */
-  --accent-foreground: 220 20% 4%;
+  /* Accent: Orange (sparingly) */
+  --accent: 14 94% 65%;
+  /* #f87b52 */
+  --accent-foreground: 225 25% 4%;
 
   --destructive: 0 85% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 220 15% 12%;
-  --input: 220 15% 12%;
-  --ring: 215 100% 55%;
+  --border: 260 12% 14%;
+  --input: 260 12% 14%;
+  --ring: 262 96% 60%;
 
   --radius: 8px;
-  /* Softer corners */
-}
-
-/* ELEGANT LIGHT TECH THEME */
-:root.light {
-  /* Clean White Base */
-  --background: 0 0% 100%;
-  --foreground: 220 20% 10%;
-
-  /* Elevated Surfaces */
-  --card: 0 0% 98%;
-  --card-foreground: 220 20% 10%;
-
-  --popover: 0 0% 100%;
-  --popover-foreground: 220 20% 10%;
-
-  /* Primary: Electric Blue (slightly darker for contrast) */
-  --primary: 215 100% 45%;
-  --primary-foreground: 0 0% 100%;
-
-  /* Secondary */
-  --secondary: 220 10% 95%;
-  --secondary-foreground: 220 20% 20%;
-
-  --muted: 220 10% 96%;
-  --muted-foreground: 220 15% 45%;
-
-  /* Accent: Cyan */
-  --accent: 190 90% 45%;
-  --accent-foreground: 0 0% 100%;
-
-  --destructive: 0 85% 55%;
-  --destructive-foreground: 0 0% 100%;
-
-  --border: 220 15% 88%;
-  --input: 220 15% 88%;
-  --ring: 215 100% 45%;
 }
 
 @layer base {
@@ -137,20 +99,11 @@
     background-attachment: fixed;
   }
 
-  /* Dark theme background (default) */
-  :root:not(.light) body {
+  body {
     background-color: #080b0f;
     background-image:
-      radial-gradient(circle at 50% 0%, rgba(26, 140, 255, 0.08), transparent 40%),
-      radial-gradient(circle at 80% 10%, rgba(12, 230, 242, 0.05), transparent 30%);
-  }
-
-  /* Light theme background */
-  :root.light body {
-    background-color: #ffffff;
-    background-image:
-      radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.06), transparent 40%),
-      radial-gradient(circle at 80% 10%, rgba(6, 182, 212, 0.04), transparent 30%);
+      radial-gradient(circle at 50% 0%, rgba(123, 57, 252, 0.06), transparent 40%),
+      radial-gradient(circle at 80% 10%, rgba(248, 123, 82, 0.03), transparent 30%);
   }
 
   h1,
@@ -159,7 +112,8 @@
   h4,
   h5,
   h6 {
-    @apply font-sans tracking-tight font-semibold;
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply tracking-tight font-semibold;
   }
 
   code,
@@ -175,63 +129,82 @@
   .bg-grid {
     background-size: 60px 60px;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
   }
 
-  /* Elegant Glows */
+  /* Controlled Glows — softer, not neon */
   .glow-soft {
-    box-shadow: 0 0 30px rgba(26, 140, 255, 0.15);
+    box-shadow: 0 0 30px rgba(123, 57, 252, 0.12);
   }
 
   .glow-text {
-    text-shadow: 0 0 20px rgba(26, 140, 255, 0.4);
+    text-shadow: 0 0 20px rgba(123, 57, 252, 0.3);
   }
 
-  /* Glassmorphism Card */
+  /* Glassmorphism Card — refined */
   .glass-card {
-    @apply bg-card/40 backdrop-blur-md border border-white/5 rounded-xl transition-all duration-300;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
+    @apply backdrop-blur-md border rounded-xl transition-all duration-300;
+    background: rgba(85, 80, 110, 0.08);
+    border-color: rgba(164, 132, 215, 0.12);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
   }
 
   .glass-card:hover {
-    @apply bg-card/60 border-primary/20;
-    box-shadow: 0 10px 40px -5px rgba(26, 140, 255, 0.15);
+    background: rgba(85, 80, 110, 0.15);
+    border-color: rgba(164, 132, 215, 0.25);
+    box-shadow: 0 10px 40px -5px rgba(123, 57, 252, 0.1);
     transform: translateY(-2px);
   }
 
-  /* Modern Primary Button */
+  /* Primary CTA Button */
   .btn-primary-glow {
     @apply relative px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 overflow-hidden;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-electric-dim));
+    font-family: 'Cabin', system-ui, sans-serif;
+    background: linear-gradient(135deg, #7b39fc, #6a2ce0);
     color: white;
-    box-shadow: 0 4px 15px rgba(26, 140, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(123, 57, 252, 0.25);
   }
 
   .btn-primary-glow:hover {
-    box-shadow: 0 8px 25px rgba(26, 140, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(123, 57, 252, 0.4);
     transform: translateY(-1px);
     filter: brightness(1.1);
   }
 
-  /* Secondary Button */
+  /* Secondary Glass Button */
   .btn-secondary-glass {
-    @apply px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 border border-border/50 bg-secondary/50 backdrop-blur-sm hover:bg-secondary hover:border-primary/30 text-foreground;
+    @apply px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 text-foreground;
+    font-family: 'Cabin', system-ui, sans-serif;
+    background: rgba(85, 80, 110, 0.4);
+    border: 1px solid rgba(164, 132, 215, 0.5);
+    backdrop-filter: blur(12px);
   }
 
-  /* Typography Utilities */
+  .btn-secondary-glass:hover {
+    background: rgba(85, 80, 110, 0.55);
+    border-color: rgba(164, 132, 215, 0.7);
+  }
+
+  /* Gradient Text */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-primary-foreground to-white/80;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70;
   }
 
   .text-gradient-blue {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #7b39fc, #a78bfa, #7b39fc);
   }
 
   .font-tech {
     font-family: 'JetBrains Mono', monospace;
     letter-spacing: -0.02em;
+  }
+
+  .font-serif-accent {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
   }
 
   /* Smooth Fade In */
