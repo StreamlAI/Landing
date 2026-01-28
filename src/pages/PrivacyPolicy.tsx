@@ -2,8 +2,15 @@ import { motion } from "framer-motion";
 import { Terminal, ChevronLeft, Shield, Database, Lock, Globe, Users, FileText, Bell, Mail } from "lucide-react";
 import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function PrivacyPolicy() {
+  useSEO({
+    title: "Privacy Policy | Streaml",
+    description: "Learn how Streaml collects, uses, and protects your personal information. Our commitment to data privacy and security.",
+    canonicalPath: "/privacy-policy",
+  });
+
   const sections = [
     { id: "collect", title: "Information We Collect", icon: Database },
     { id: "use", title: "How We Use Your Information", icon: FileText },

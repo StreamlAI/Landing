@@ -20,11 +20,18 @@ import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { RedditIcon } from "@/components/icons/RedditIcon";
 import { Mail } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [activeDiagram, setActiveDiagram] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useSEO({
+    title: "Streaml | AI-Native Marketing Infrastructure",
+    description: "Build, own, and evolve AI marketing agents. The first AI-native marketing infrastructure for closed-loop autonomous workflows.",
+    canonicalPath: "/",
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -172,7 +179,8 @@ export default function LandingPage() {
         </motion.div>
       </nav>
 
-      {/* Hero Section */}
+      <main>
+        {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         {/* Full-screen background video */}
         <BackgroundVideo
@@ -853,6 +861,7 @@ export default function LandingPage() {
           </p>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer

@@ -2,8 +2,15 @@ import { motion } from "framer-motion";
 import { Terminal, ChevronLeft, FileText, UserCheck, Shield, CreditCard, Scale, Database, AlertTriangle, Gavel, Globe, Bell, Mail } from "lucide-react";
 import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function TermsOfService() {
+  useSEO({
+    title: "Terms of Service | Streaml",
+    description: "Read the terms and conditions for using Streaml's AI-native marketing infrastructure and services.",
+    canonicalPath: "/terms-of-service",
+  });
+
   const sections = [
     { id: "acceptance", title: "Acceptance of Terms", icon: UserCheck },
     { id: "service", title: "Description of Service", icon: Terminal },

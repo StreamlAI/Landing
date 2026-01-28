@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "dev-host": "vite --host",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node --import tsx scripts/prerender.ts",
+    "build:client": "vite build",
     "preview": "vite preview",
     "check": "tsc"
   },
@@ -76,6 +77,7 @@
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
     "typescript": "5.6.3",
     "vite": "^7.1.9"
   }

@@ -33,6 +33,9 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: true,
   },
+  ssr: {
+    noExternal: ["wouter"],
+  },
   server: {
     fs: {
       strict: true,
