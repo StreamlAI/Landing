@@ -859,6 +859,15 @@ export default function LandingPage() {
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12">
             Join the automated future. Initialize your first agent swarm today.
           </p>
+          <a
+            href="mailto:vivian@streaml.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary-glow inline-flex items-center gap-3 group"
+          >
+            GET YOUR OWN AGENT
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
       </section>
       </main>
