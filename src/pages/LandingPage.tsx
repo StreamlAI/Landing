@@ -505,7 +505,7 @@ export default function LandingPage() {
               <div className="bg-white border-2 border-[#1A1A1A] relative overflow-hidden">
                 <div className="grid lg:grid-cols-[1.6fr_1fr]">
                   {/* Left: Browser Demo */}
-                  <div className="bg-[#1A1A1A] p-6 md:p-10 min-h-[600px] order-2 lg:order-1 flex flex-col">
+                  <div className="bg-[#1A1A1A] pt-6 md:pt-10 px-6 md:px-10 pb-0 min-h-[600px] order-2 lg:order-1 flex flex-col">
                     {/* Browser Window */}
                     <div className="bg-[#2D2D2D] rounded-lg overflow-hidden border border-[#404040] flex-1 flex flex-col">
                       {/* Browser Header */}
@@ -649,7 +649,7 @@ export default function LandingPage() {
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 1 }}
-                      className="mt-3 mb-4 flex items-center justify-center gap-2"
+                      className="mt-3 mb-6 flex items-center justify-center gap-2"
                     >
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
