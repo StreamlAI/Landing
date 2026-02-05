@@ -14,6 +14,24 @@ import {
   X,
   Mail,
   Phone,
+  Workflow,
+  MousePointerClick,
+  Sparkles,
+  MessageSquare,
+  Calendar,
+  Globe,
+  Eye,
+  UserCheck,
+  CloudCog,
+  Play,
+  Check,
+  Search,
+  User,
+  Send,
+  Circle,
+  MoreHorizontal,
+  ChevronRight,
+  ChevronDown,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
@@ -29,6 +47,7 @@ export default function LandingPage() {
     title: "Streaml | AI-Native Marketing Infrastructure",
     description: "Build, own, and evolve AI marketing agents. The first AI-native marketing infrastructure for closed-loop autonomous workflows.",
     canonicalPath: "/",
+    keywords: "AI marketing, marketing automation, autonomous agents, AI agents, marketing infrastructure, workflow automation, growth automation, lead generation, outbound automation, LinkedIn automation",
   });
 
   useEffect(() => {
@@ -60,6 +79,69 @@ export default function LandingPage() {
       desc: "Internal CRM & Knowledge Base ingestion. Your proprietary data becomes competitive advantage.",
       icon: <Database className="w-8 h-8" />,
       bg: "neo-block-white",
+    },
+  ];
+
+  const workflowHighlights = [
+    {
+      icon: <Workflow className="w-8 h-8" />,
+      tag: "WORKFLOW CANVAS",
+      title: "Build Automation Visually.",
+      titleAccent: "Let AI Optimize It.",
+      subtitle: "Drag-and-drop canvas. No code required.",
+      color: "#FFB703",
+      features: [
+        {
+          icon: <MousePointerClick className="w-5 h-5" />,
+          title: "Drag & Drop",
+          desc: "Build multi-step flows",
+        },
+        {
+          icon: <Zap className="w-5 h-5" />,
+          title: "28+ Actions",
+          desc: "DMs, emails, enrichment",
+        },
+        {
+          icon: <Sparkles className="w-5 h-5" />,
+          title: "AI Evolution",
+          desc: "Auto-tests 3 variations",
+        },
+        {
+          icon: <Calendar className="w-5 h-5" />,
+          title: "Smart Scheduling",
+          desc: "Cron + custom triggers",
+        },
+      ],
+    },
+    {
+      icon: <Globe className="w-8 h-8" />,
+      tag: "CLOUD BROWSER",
+      title: "Your Own Cloud Browser.",
+      titleAccent: "Always On. Always Logged In.",
+      subtitle: "Runs 24/7, even when your laptop is closed.",
+      color: "#E63946",
+      features: [
+        {
+          icon: <UserCheck className="w-5 h-5" />,
+          title: "Persistent Login",
+          desc: "Stay logged in forever",
+        },
+        {
+          icon: <Eye className="w-5 h-5" />,
+          title: "Live View",
+          desc: "Watch in real-time",
+        },
+        {
+          icon: <Activity className="w-5 h-5" />,
+          title: "Human-Like",
+          desc: "Realistic timing & behavior",
+        },
+        {
+          icon: <Play className="w-5 h-5" />,
+          title: "Session Replay",
+          desc: "Full run history",
+        },
+      ],
     },
   ];
 
@@ -127,6 +209,12 @@ export default function LandingPage() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
+            <a
+              href="#automation"
+              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
+            >
+              Automation
+            </a>
             <a
               href="#architecture"
               className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
@@ -200,6 +288,13 @@ export default function LandingPage() {
           }}
         >
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            <a
+              href="#automation"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
+            >
+              Automation
+            </a>
             <a
               href="#architecture"
               onClick={() => setMobileMenuOpen(false)}
@@ -355,6 +450,385 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Automation Section - Two Highlight Cards */}
+        <section
+          id="automation"
+          className="py-24 md:py-32 relative overflow-hidden"
+          style={{
+            backgroundColor: "#1D3557",
+            borderTop: "4px solid #1A1A1A",
+          }}
+        >
+          {/* Background Grid Pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '40px 40px'
+            }}
+          />
+
+          <div className="container mx-auto px-6 relative z-10">
+            {/* Section Header */}
+            <div className="mb-16 md:mb-20 text-center">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase border-2 border-white text-white"
+              >
+                /// AUTOMATION
+              </motion.span>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white"
+              >
+                INTELLIGENT <span className="text-[#FFB703]">AUTOMATION</span>
+              </motion.h2>
+            </div>
+
+            {/* Highlight 1: Cloud Browser */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="relative mb-8 lg:mb-12"
+            >
+              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-[#E63946] hidden lg:block" />
+              <div className="bg-white border-2 border-[#1A1A1A] relative overflow-hidden">
+                <div className="grid lg:grid-cols-[1.6fr_1fr]">
+                  {/* Left: Browser Demo */}
+                  <div className="bg-[#1A1A1A] p-6 md:p-10 min-h-[600px] order-2 lg:order-1 flex flex-col">
+                    {/* Browser Window */}
+                    <div className="bg-[#2D2D2D] rounded-lg overflow-hidden border border-[#404040] flex-1 flex flex-col">
+                      {/* Browser Header */}
+                      <div className="bg-[#3D3D3D] px-4 py-2.5 flex items-center gap-3 border-b border-[#404040]">
+                        <div className="flex gap-2">
+                          <div className="w-3.5 h-3.5 rounded-full bg-[#FF5F57]" />
+                          <div className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E]" />
+                          <div className="w-3.5 h-3.5 rounded-full bg-[#28CA41]" />
+                        </div>
+                        <div className="flex-1 bg-[#2D2D2D] rounded px-4 py-1.5 text-sm text-[#888] flex items-center gap-2">
+                          <Lock className="w-3.5 h-3.5" />
+                          linkedin.com/messaging
+                        </div>
+                      </div>
+
+                      {/* Browser Content - LinkedIn-style Messaging */}
+                      <div className="flex-1 bg-white flex">
+                        {/* Sidebar */}
+                        <div className="w-24 md:w-36 lg:w-44 border-r border-[#E0E0E0] bg-[#F8F8F8]">
+                          <div className="p-3 border-b border-[#E0E0E0]">
+                            <div className="bg-[#E8E8E8] rounded px-3 py-1.5 text-xs text-[#666] flex items-center gap-2">
+                              <Search className="w-3.5 h-3.5" /> <span className="hidden md:inline">Search</span>
+                            </div>
+                          </div>
+                          {[
+                            { initials: 'JD', name: 'John Doe', role: 'VP Sales' },
+                            { initials: 'SK', name: 'Sarah K.', role: 'CEO' },
+                            { initials: 'MR', name: 'Mike R.', role: 'CTO' },
+                            { initials: 'AL', name: 'Alex L.', role: 'Director' },
+                            { initials: 'JW', name: 'Jane W.', role: 'Manager' }
+                          ].map((contact, i) => (
+                            <motion.div
+                              key={i}
+                              initial={{ opacity: 0, x: -10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 0.4 + i * 0.08 }}
+                              className={`p-2.5 flex items-center gap-2.5 border-b border-[#E8E8E8] hover:bg-[#EEF3F8] cursor-pointer transition-colors ${i === 0 ? 'bg-[#EEF3F8]' : ''}`}
+                            >
+                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0A66C2] to-[#004182] flex items-center justify-center text-white text-xs font-bold flex-shrink-0 shadow-sm">
+                                {contact.initials}
+                              </div>
+                              <div className="hidden md:block flex-1 min-w-0">
+                                <p className="text-xs font-semibold text-[#1A1A1A] truncate">{contact.name}</p>
+                                <p className="text-[10px] text-[#666] truncate">{contact.role}</p>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+
+                        {/* Chat Area */}
+                        <div className="flex-1 flex flex-col">
+                          {/* Chat Header */}
+                          <div className="p-4 border-b border-[#E0E0E0] flex items-center justify-between bg-white">
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0A66C2] to-[#004182] flex items-center justify-center text-white text-sm font-bold shadow-sm">JD</div>
+                              <div>
+                                <p className="text-sm font-semibold text-[#1A1A1A]">John Doe</p>
+                                <p className="text-xs text-[#666] flex items-center gap-1">
+                                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                                  VP of Sales at TechCorp
+                                </p>
+                              </div>
+                            </div>
+                            <MoreHorizontal className="w-5 h-5 text-[#666] cursor-pointer hover:text-[#1A1A1A]" />
+                          </div>
+
+                          {/* Messages */}
+                          <div className="flex-1 p-4 space-y-4 overflow-hidden bg-[#F9F9F9]">
+                            {/* Received Message */}
+                            <motion.div
+                              initial={{ opacity: 0, x: -10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 0.5 }}
+                              className="flex gap-2"
+                            >
+                              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0A66C2] to-[#004182] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">JD</div>
+                              <div className="flex-1">
+                                <div className="bg-white border border-[#E0E0E0] rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%] shadow-sm">
+                                  <p className="text-xs text-[#1A1A1A] leading-relaxed">Thanks for reaching out! Yes, I'm always looking for better ways to scale our outbound.</p>
+                                </div>
+                                <p className="text-[10px] text-[#999] mt-1 ml-1">2:31 PM</p>
+                              </div>
+                            </motion.div>
+
+                            {/* Sent Message */}
+                            <motion.div
+                              initial={{ opacity: 0, x: 10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 0.7 }}
+                              className="flex justify-end"
+                            >
+                              <div className="flex-1 flex flex-col items-end">
+                                <div className="bg-[#0A66C2] text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%] shadow-sm">
+                                  <p className="text-xs leading-relaxed">We built an AI-powered system that personalizes messages at scale. Helped similar B2B teams 3x their reply rates.</p>
+                                </div>
+                                <div className="flex items-center gap-1.5 text-[10px] text-[#999] mt-1 mr-1">
+                                  <Check className="w-3 h-3 text-[#0A66C2]" />
+                                  Sent · 2:34 PM
+                                </div>
+                              </div>
+                            </motion.div>
+
+                            {/* Typing Indicator */}
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 0.9 }}
+                              className="flex gap-2"
+                            >
+                              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0A66C2] to-[#004182] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">JD</div>
+                              <div className="bg-white border border-[#E0E0E0] rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm">
+                                <div className="flex gap-1">
+                                  <span className="w-2 h-2 bg-[#666] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                                  <span className="w-2 h-2 bg-[#666] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                                  <span className="w-2 h-2 bg-[#666] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                                </div>
+                              </div>
+                            </motion.div>
+                          </div>
+
+                          {/* Input */}
+                          <div className="p-3 border-t border-[#E0E0E0] bg-white">
+                            <div className="bg-[#F3F3F3] rounded-full px-4 py-2.5 text-xs text-[#999] flex items-center gap-2">
+                              Write a message...
+                              <div className="ml-auto flex gap-2 text-[#666]">
+                                <Send className="w-4 h-4" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Live indicator */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 1 }}
+                      className="mt-3 mb-4 flex items-center justify-center gap-2"
+                    >
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E63946]"></span>
+                      </span>
+                      <span className="text-xs text-white/70">Live View</span>
+                    </motion.div>
+                  </div>
+
+                  {/* Right: Content */}
+                  <div className="p-6 md:p-10 order-1 lg:order-2">
+                    <span className="inline-block px-2 py-1 text-[10px] font-mono font-bold tracking-wider text-white bg-[#E63946] mb-4">
+                      CLOUD BROWSER
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2 leading-tight">
+                      Your Own Cloud Browser.
+                      <br />
+                      <span className="text-[#E63946]">Always On.</span>
+                    </h3>
+                    <p className="text-base text-[#666] mb-6">Runs 24/7, even when your laptop is closed.</p>
+
+                    <div className="space-y-3">
+                      {workflowHighlights[1].features.map((f, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className="w-6 h-6 flex items-center justify-center bg-[#E63946]/10 border border-[#E63946]/30 flex-shrink-0 mt-0.5">
+                            <Check className="w-3.5 h-3.5 text-[#E63946]" />
+                          </div>
+                          <span className="text-sm text-[#1A1A1A] leading-relaxed"><strong>{f.title}</strong> — {f.desc}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#E63946]" />
+              </div>
+            </motion.div>
+
+            {/* Highlight 2: Workflow Canvas */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="relative"
+            >
+              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-[#FFB703] hidden lg:block" />
+              <div className="bg-white border-2 border-[#1A1A1A] relative overflow-hidden">
+                <div className="grid lg:grid-cols-[1fr_1.4fr]">
+                  {/* Left: Content */}
+                  <div className="p-6 md:p-10 order-1">
+                    <span className="inline-block px-2 py-1 text-[10px] font-mono font-bold tracking-wider text-white bg-[#FFB703] mb-4">
+                      WORKFLOW CANVAS
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2 leading-tight">
+                      Build Automation Visually.
+                      <br />
+                      <span className="text-[#FFB703]">Let AI Optimize It.</span>
+                    </h3>
+                    <p className="text-base text-[#666] mb-6">Drag-and-drop canvas. No code required.</p>
+
+                    <div className="space-y-3">
+                      {workflowHighlights[0].features.map((f, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className="w-6 h-6 flex items-center justify-center bg-[#FFB703]/10 border border-[#FFB703]/30 flex-shrink-0 mt-0.5">
+                            <Check className="w-3.5 h-3.5 text-[#FFB703]" />
+                          </div>
+                          <span className="text-sm text-[#1A1A1A] leading-relaxed"><strong>{f.title}</strong> — {f.desc}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Right: Canvas Demo */}
+                  <div className="bg-[#F5F5F5] border-t lg:border-t-0 lg:border-l-2 border-[#1A1A1A] p-6 md:p-8 min-h-[500px] relative overflow-hidden order-2">
+                    {/* Canvas Grid Background */}
+                    <div className="absolute inset-0 opacity-30" style={{
+                      backgroundImage: 'radial-gradient(circle, #ccc 1px, transparent 1px)',
+                      backgroundSize: '20px 20px'
+                    }} />
+
+                    {/* Workflow Nodes */}
+                    <div className="relative h-full flex items-center justify-center py-8 md:py-0">
+                      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                        {/* Node 1: Search */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.2 }}
+                          className="bg-white border-2 border-[#1A1A1A] p-4 shadow-[4px_4px_0_#1A1A1A] w-40 md:w-32"
+                        >
+                          <div className="w-10 h-10 bg-blue-100 border border-blue-300 flex items-center justify-center mb-2">
+                            <Search className="w-5 h-5 text-blue-600" />
+                          </div>
+                          <p className="text-sm font-bold text-[#1A1A1A]">Search Leads</p>
+                        </motion.div>
+
+                        {/* Arrow 1 */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.35 }}
+                          className="flex items-center md:origin-left"
+                        >
+                          {/* Mobile: Down Arrow */}
+                          <ChevronDown className="w-5 h-5 text-[#FFB703] md:hidden" />
+                          {/* Desktop: Right Arrow */}
+                          <div className="hidden md:flex items-center">
+                            <div className="w-8 md:w-12 h-0.5 bg-[#FFB703]" />
+                            <ChevronRight className="w-5 h-5 text-[#FFB703] -ml-1" />
+                          </div>
+                        </motion.div>
+
+                        {/* Node 2: Personalize */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.4 }}
+                          className="bg-white border-2 border-[#1A1A1A] p-4 shadow-[4px_4px_0_#1A1A1A] w-40 md:w-32"
+                        >
+                          <div className="w-10 h-10 bg-purple-100 border border-purple-300 flex items-center justify-center mb-2">
+                            <Sparkles className="w-5 h-5 text-purple-600" />
+                          </div>
+                          <p className="text-sm font-bold text-[#1A1A1A]">AI Personalize</p>
+                        </motion.div>
+
+                        {/* Arrow 2 */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.55 }}
+                          className="flex items-center md:origin-left"
+                        >
+                          {/* Mobile: Down Arrow */}
+                          <ChevronDown className="w-5 h-5 text-[#FFB703] md:hidden" />
+                          {/* Desktop: Right Arrow */}
+                          <div className="hidden md:flex items-center">
+                            <div className="w-8 md:w-12 h-0.5 bg-[#FFB703]" />
+                            <ChevronRight className="w-5 h-5 text-[#FFB703] -ml-1" />
+                          </div>
+                        </motion.div>
+
+                        {/* Node 3: Send DM */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.6 }}
+                          className="bg-white border-2 border-[#1A1A1A] p-4 shadow-[4px_4px_0_#FFB703] w-40 md:w-32"
+                        >
+                          <div className="w-10 h-10 bg-[#0A66C2]/10 border border-[#0A66C2]/30 flex items-center justify-center mb-2">
+                            <Send className="w-5 h-5 text-[#0A66C2]" />
+                          </div>
+                          <p className="text-sm font-bold text-[#1A1A1A]">Send DM</p>
+                        </motion.div>
+                      </div>
+                    </div>
+
+                    {/* Floating Status */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.8 }}
+                      className="absolute bottom-4 left-4 bg-white border border-[#1A1A1A] px-3 py-2 text-xs flex items-center gap-2"
+                    >
+                      <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                      <span className="text-[#1A1A1A] font-medium">3 variations testing...</span>
+                    </motion.div>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#FFB703]" />
+              </div>
+            </motion.div>
+          </div>
+        </section>
         {/* Architecture Section - Three Cards */}
         <section
           id="architecture"
@@ -450,6 +924,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
 
         {/* Features Grid - 2x3 */}
         <section
