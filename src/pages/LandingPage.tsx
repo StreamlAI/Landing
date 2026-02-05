@@ -8,23 +8,21 @@ import {
   Cpu,
   Terminal,
   Activity,
-  Code,
   Server,
   Lock,
   Menu,
   X,
+  Mail,
+  Phone,
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { BackgroundVideo } from "@/components/BackgroundVideo";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { RedditIcon } from "@/components/icons/RedditIcon";
-import { Mail } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeDiagram, setActiveDiagram] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useSEO({
@@ -41,34 +39,89 @@ export default function LandingPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const architectureCards = [
+    {
+      title: "Cross-Platform",
+      subtitle: "Execution",
+      desc: "Native browser interaction with LinkedIn, X, and Reddit. Unified API across all social channels.",
+      icon: <Network className="w-8 h-8" />,
+      bg: "neo-block-blue",
+    },
+    {
+      title: "Humanoid",
+      subtitle: "Behavior",
+      desc: "Stochastic timing and natural language patterns. Indistinguishable from human operators.",
+      icon: <Activity className="w-8 h-8" />,
+      bg: "neo-block-yellow",
+    },
+    {
+      title: "Data",
+      subtitle: "Moat",
+      desc: "Internal CRM & Knowledge Base ingestion. Your proprietary data becomes competitive advantage.",
+      icon: <Database className="w-8 h-8" />,
+      bg: "neo-block-white",
+    },
+  ];
+
+  const features = [
+    {
+      icon: <Terminal className="w-5 h-5" />,
+      title: "Client Dashboard",
+      desc: "Real-time command interface for prompts, execution status, and logs.",
+      color: "neo-index-red",
+    },
+    {
+      icon: <Cpu className="w-5 h-5" />,
+      title: "Workflow Engine",
+      desc: "Compiles natural language prompts into executable, versioned code.",
+      color: "neo-index-yellow",
+    },
+    {
+      icon: <Server className="w-5 h-5" />,
+      title: "Cloud Sandbox",
+      desc: "Isolated execution environments ensuring security and scalability.",
+      color: "neo-index-blue",
+    },
+    {
+      icon: <RefreshCcw className="w-5 h-5" />,
+      title: "Evolution Loop",
+      desc: "Self-correcting algorithms that analyze and improve performance.",
+      color: "neo-index-red",
+    },
+    {
+      icon: <Lock className="w-5 h-5" />,
+      title: "Secure Runtime",
+      desc: "Enterprise-grade security with strict permission boundaries.",
+      color: "neo-index-yellow",
+    },
+    {
+      icon: <Database className="w-5 h-5" />,
+      title: "Data Persistence",
+      desc: "Long-term memory vector stores for contextual awareness.",
+      color: "neo-index-blue",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans selection:bg-primary/20 selection:text-primary">
+    <div className="min-h-screen bg-[#FAFAFA] text-[#1A1A1A] overflow-x-hidden font-sans selection:bg-[#E63946]/20">
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b ${
-          scrolled
-            ? "h-16 shadow-lg shadow-black/10"
-            : "bg-transparent border-transparent h-24"
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled ? "h-16" : "h-20"
         }`}
-        style={
-          scrolled
-            ? {
-                background: "rgba(85, 80, 110, 0.25)",
-                borderColor: "rgba(164, 132, 215, 0.15)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-              }
-            : undefined
-        }
+        style={{
+          backgroundColor: "#FAFAFA",
+          borderBottom: "2px solid #1A1A1A",
+        }}
       >
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer group">
             <img
               src="/favicon.png"
               alt="Streaml"
-              className="w-7 h-7 group-hover:scale-105 transition-transform duration-300"
+              className="w-8 h-8 group-hover:scale-105 transition-transform duration-200"
             />
-            <span className="text-xl font-bold tracking-tight text-foreground">
+            <span className="text-xl font-bold tracking-tight">
               Streaml
             </span>
           </div>
@@ -76,45 +129,52 @@ export default function LandingPage() {
           <div className="hidden md:flex items-center gap-8">
             <a
               href="#architecture"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             >
               Architecture
             </a>
             <a
               href="#features"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             >
               Features
             </a>
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
-
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="https://calendly.com/yirancai00/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary-glass flex items-center gap-2 group"
+              className="neo-btn-secondary flex items-center gap-2 group"
             >
+              <Phone className="w-4 h-4" />
               <span>Book Demo</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </a>
 
             <a
               href="http://linkedin.com/in/caivivian"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="LinkedIn"
+              className="neo-btn-secondary flex items-center gap-2"
             >
-              <LinkedInIcon className="w-5 h-5" />
+              <LinkedInIcon className="w-4 h-4" />
+              <span>LinkedIn</span>
+            </a>
+
+            <a
+              href="mailto:vivian@streaml.app"
+              className="neo-btn-secondary flex items-center gap-2"
+            >
+              <Mail className="w-4 h-4" />
+              <span>Email</span>
             </a>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+            className="md:hidden p-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -132,27 +192,25 @@ export default function LandingPage() {
             height: mobileMenuOpen ? "auto" : 0,
             opacity: mobileMenuOpen ? 1 : 0,
           }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden border-t"
+          transition={{ duration: 0.2 }}
+          className="md:hidden overflow-hidden"
           style={{
-            background: "rgba(85, 80, 110, 0.3)",
-            borderColor: "rgba(164, 132, 215, 0.15)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
+            backgroundColor: "#FAFAFA",
+            borderBottom: mobileMenuOpen ? "2px solid #1A1A1A" : "none",
           }}
         >
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
             <a
               href="#architecture"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
             >
               Architecture
             </a>
             <a
               href="#features"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
             >
               Features
             </a>
@@ -160,7 +218,7 @@ export default function LandingPage() {
               href="https://calendly.com/yirancai00/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary-glow flex items-center justify-center gap-2 mt-2"
+              className="neo-btn-primary flex items-center justify-center gap-2 mt-2"
             >
               <span>Book Demo</span>
               <ArrowRight className="w-4 h-4" />
@@ -169,734 +227,405 @@ export default function LandingPage() {
               href="http://linkedin.com/in/caivivian"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground transition-colors py-2"
+              className="flex items-center justify-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
               aria-label="LinkedIn"
             >
               <LinkedInIcon className="w-5 h-5" />
               <span>LinkedIn</span>
+            </a>
+            <a
+              href="mailto:vivian@streaml.app"
+              className="flex items-center justify-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
+              aria-label="Email"
+            >
+              <Mail className="w-5 h-5" />
+              <span>Email</span>
             </a>
           </div>
         </motion.div>
       </nav>
 
       <main>
-        {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Full-screen background video */}
-        <BackgroundVideo
-          src="/hero-bg.mp4"
-          poster="/hero-poster.jpg"
-        />
+        {/* Hero Section - Neo-Geo Style */}
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+          {/* Grid Background */}
+          <div className="absolute inset-0 neo-grid opacity-50"></div>
 
-        {/* Subtle gradient overlay on top of video */}
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+          {/* Geometric Color Blocks */}
+          <motion.div
+            initial={{ x: 200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-24 right-[-5%] w-[40%] h-[50vh] bg-[#1D3557] hidden lg:block"
+          />
+          <motion.div
+            initial={{ x: 200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-[55vh] right-[5%] w-[25%] h-[25vh] bg-[#FFB703] hidden lg:block"
+          />
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute bottom-24 right-[25%] w-20 h-20 bg-[#E63946] hidden lg:block"
+          />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col items-center lg:items-start">
-            {/* Text Content */}
-            <div className="max-w-2xl z-20">
+          {/* Bottom Line */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#1A1A1A]"></div>
+
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-2xl">
+              {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="mb-6"
+                transition={{ duration: 0.5 }}
+                className="mb-8"
               >
                 <span
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold tracking-wide uppercase"
                   style={{
-                    background: "rgba(85, 80, 110, 0.4)",
-                    border: "1px solid rgba(164, 132, 215, 0.5)",
-                    backdropFilter: "blur(12px)",
-                    color: "rgba(255,255,255,0.85)",
+                    border: "2px solid #1A1A1A",
+                    backgroundColor: "#FAFAFA",
                   }}
                 >
-                  <Zap className="w-3 h-3 text-primary" />
+                  <Zap className="w-3 h-3 text-[#E63946]" />
                   AI-Native Marketing Runtime
                 </span>
               </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8"
-              >
-                AUTONOMOUS
-                <br />
-                GROWTH
-                <br />
-                <span className="text-gradient-blue">INFRASTRUCTURE</span>
-              </motion.h1>
+              {/* Headline */}
+              <div className="space-y-2 mb-10">
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.15 }}
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-bold tracking-tighter leading-[0.9]"
+                >
+                  AUTONOMOUS
+                </motion.h1>
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-bold tracking-tighter leading-[0.9]"
+                >
+                  GROWTH
+                </motion.h1>
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.45 }}
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-bold tracking-tighter leading-[0.9] text-[#1D3557]"
+                >
+                  INFRA
+                </motion.h1>
+              </div>
 
+              {/* Subtext */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-base sm:text-lg md:text-xl text-white/55 font-light max-w-xl mb-8 sm:mb-12 leading-relaxed"
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="text-lg md:text-xl text-[#4A4A4A] max-w-lg mb-10 leading-relaxed"
               >
                 A continuous runtime that generates, executes, and optimizes
                 marketing workflows. Deploy intelligent agents that self-evolve.
               </motion.p>
 
+              {/* CTA Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-wrap gap-6"
+                transition={{ duration: 0.5, delay: 0.75 }}
+                className="flex flex-wrap gap-4"
               >
                 <a
                   href="https://calendly.com/yirancai00/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary-glow flex items-center gap-3 group"
+                  className="neo-btn-primary flex items-center gap-3 group"
                 >
                   TALK TO FOUNDER
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
             </div>
-
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Architecture Section */}
-      <section
-        id="architecture"
-        className="py-32 border-t relative overflow-hidden"
-        style={{ borderColor: "rgba(164, 132, 215, 0.1)", background: "rgba(85, 80, 110, 0.04)" }}
-      >
-        <div className="absolute inset-0 bg-grid opacity-30"></div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2">
-              <div
-                className="inline-block px-3 py-1 mb-4 rounded-sm"
-                style={{
-                  border: "1px solid rgba(123, 57, 252, 0.2)",
-                  background: "rgba(123, 57, 252, 0.05)",
-                }}
+        {/* Architecture Section - Three Cards */}
+        <section
+          id="architecture"
+          className="py-24 md:py-32 relative"
+          style={{ borderTop: "4px solid #1A1A1A" }}
+        >
+          <div className="container mx-auto px-6">
+            {/* Section Header */}
+            <div className="mb-16">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase border-2 border-[#1A1A1A]"
               >
-                <span className="text-xs font-tech text-primary">
-                  /// ARCHITECTURE_VIEW
-                </span>
-              </div>
-              <h2 className="text-4xl font-bold mb-8">
-                MULTI-CHANNEL
-                <br />
-                <span className="text-gradient-blue">
-                  AGENT RUNTIME
-                </span>
-              </h2>
-
-              <div className="space-y-4">
-                {[
-                  {
-                    title: "Cross-Platform Execution",
-                    desc: "Native browser interaction with LinkedIn, X, and Reddit.",
-                    icon: <Network className="w-5 h-5" />,
-                  },
-                  {
-                    title: "Humanoid Behavior",
-                    desc: "Stochastic timing and natural language patterns.",
-                    icon: <Activity className="w-5 h-5" />,
-                  },
-                  {
-                    title: "Proprietary Data Moat",
-                    desc: "Internal CRM & Knowledge Base ingestion.",
-                    icon: <Database className="w-5 h-5" />,
-                  },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    onClick={() => setActiveDiagram(i)}
-                    whileHover={{ x: 4 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`flex gap-4 p-4 border rounded-lg cursor-pointer transition-all duration-300 ${
-                      activeDiagram === i
-                        ? "border-primary/40 bg-primary/8 shadow-[0_0_20px_rgba(123,57,252,0.1)]"
-                        : "border-transparent hover:border-primary/15 hover:bg-primary/5"
-                    }`}
-                  >
-                    <div
-                      className={`mt-1 transition-colors ${
-                        activeDiagram === i ? "text-primary" : "text-muted-foreground"
-                      }`}
-                    >
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4
-                        className={`font-bold text-base mb-1 transition-colors ${
-                          activeDiagram === i ? "text-primary" : ""
-                        }`}
-                      >
-                        {item.title}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {item.desc}
-                      </p>
-                    </div>
-                    {activeDiagram === i && (
-                      <motion.div
-                        layoutId="activeIndicator"
-                        className="ml-auto self-center w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(123,57,252,0.6)]"
-                      />
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:w-1/2 w-full">
-              <div
-                className="relative rounded-lg p-1 backdrop-blur-sm"
-                style={{
-                  border: "1px solid rgba(164, 132, 215, 0.2)",
-                  background: "rgba(85, 80, 110, 0.1)",
-                }}
-              >
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent animate-pulse"></div>
-                <div className="aspect-square md:aspect-[4/3] bg-background/50 rounded-lg overflow-hidden relative flex items-center justify-center p-4 md:p-8">
-                  <div className="absolute inset-0 bg-grid opacity-20"></div>
-
-                  {/* Diagram 1: Cross-Platform Execution */}
-                  {activeDiagram === 0 && (
-                    <motion.div
-                      key="diagram-0"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.3 }}
-                      className="relative w-full h-full flex items-center justify-center scale-[0.7] sm:scale-[0.8] md:scale-100 origin-center"
-                    >
-                      {/* Central Agent */}
-                      <motion.div
-                        animate={{ scale: [1, 1.02, 1] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                        className="absolute z-20 w-32 h-32 bg-card border-2 border-primary/40 rounded-xl flex flex-col items-center justify-center shadow-[0_0_30px_rgba(123,57,252,0.2)]"
-                      >
-                        <Cpu className="w-12 h-12 text-primary mb-1" />
-                        <span className="text-xs font-tech text-primary">
-                          AGENT
-                        </span>
-                      </motion.div>
-
-                      {/* Platform Nodes */}
-                      {[
-                        {
-                          label: "LinkedIn",
-                          Icon: LinkedInIcon,
-                          x: -160,
-                          y: -80,
-                          color: "text-blue-400",
-                          delay: 0,
-                        },
-                        {
-                          label: "X",
-                          Icon: XIcon,
-                          x: 160,
-                          y: -80,
-                          color: "text-foreground",
-                          delay: 0.1,
-                        },
-                        {
-                          label: "Reddit",
-                          Icon: RedditIcon,
-                          x: -160,
-                          y: 80,
-                          color: "text-orange-400",
-                          delay: 0.2,
-                        },
-                        {
-                          label: "Email",
-                          Icon: Mail,
-                          x: 160,
-                          y: 80,
-                          color: "text-green-400",
-                          delay: 0.3,
-                        },
-                      ].map((node, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, x: 0, y: 0 }}
-                          animate={{ opacity: 1, x: node.x, y: node.y }}
-                          transition={{ delay: node.delay, duration: 0.4 }}
-                          className="absolute z-10 w-20 h-20 rounded-lg flex flex-col items-center justify-center"
-                          style={{
-                            background: "rgba(85, 80, 110, 0.3)",
-                            border: "1px solid rgba(164, 132, 215, 0.2)",
-                          }}
-                        >
-                          <node.Icon className={`w-6 h-6 ${node.color} mb-1`} />
-                          <span className="text-[10px] font-tech text-muted-foreground">
-                            {node.label}
-                          </span>
-                        </motion.div>
-                      ))}
-
-                      {/* Animated connection lines */}
-                      <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                        <defs>
-                          <linearGradient
-                            id="flowGradient"
-                            x1="0%"
-                            y1="0%"
-                            x2="100%"
-                            y2="0%"
-                          >
-                            <stop
-                              offset="0%"
-                              stopColor="rgba(123,57,252,0.7)"
-                            />
-                            <stop
-                              offset="100%"
-                              stopColor="rgba(164,132,215,0.7)"
-                            />
-                          </linearGradient>
-                        </defs>
-                        {[
-                          { x2: "30%", y2: "35%" },
-                          { x2: "70%", y2: "35%" },
-                          { x2: "30%", y2: "65%" },
-                          { x2: "70%", y2: "65%" },
-                        ].map((line, i) => (
-                          <motion.line
-                            key={i}
-                            x1="50%"
-                            y1="50%"
-                            x2={line.x2}
-                            y2={line.y2}
-                            stroke="url(#flowGradient)"
-                            strokeWidth="2"
-                            strokeDasharray="6 3"
-                            initial={{ pathLength: 0 }}
-                            animate={{ pathLength: 1 }}
-                            transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
-                          />
-                        ))}
-                      </svg>
-
-                      {/* Data flow particles */}
-                      {[0, 1, 2, 3].map((i) => (
-                        <motion.div
-                          key={`flow-${i}`}
-                          className="absolute w-2 h-2 bg-primary rounded-full shadow-[0_0_6px_rgba(123,57,252,0.8)]"
-                          animate={{
-                            x: [0, (i % 2 === 0 ? -1 : 1) * 100, 0],
-                            y: [0, (i < 2 ? -1 : 1) * 40, 0],
-                            opacity: [0, 1, 0],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: i * 0.5,
-                          }}
-                          style={{ top: "50%", left: "50%" }}
-                        />
-                      ))}
-
-                      <motion.div
-                        animate={{ opacity: [0.5, 1, 0.5] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2"
-                      >
-                        <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                        <span className="text-[9px] font-tech text-green-400/80">
-                          MULTI_CHANNEL_ACTIVE
-                        </span>
-                      </motion.div>
-                    </motion.div>
-                  )}
-
-                  {/* Diagram 2: Humanoid Behavior */}
-                  {activeDiagram === 1 && (
-                    <motion.div
-                      key="diagram-2"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.3 }}
-                      className="relative w-full h-full flex items-center justify-center"
-                    >
-                      {/* Timeline visualization */}
-                      <div className="absolute inset-x-8 top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-transparent via-violet-500/30 to-transparent rounded-full"></div>
-
-                      {/* Time markers with variable spacing */}
-                      {[
-                        { pos: 15, label: "9:02", action: "Post" },
-                        { pos: 32, label: "11:47", action: "Reply" },
-                        { pos: 48, label: "2:23", action: "Like" },
-                        { pos: 67, label: "4:51", action: "Comment" },
-                        { pos: 88, label: "7:18", action: "Share" },
-                      ].map((marker, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: i * 0.15 }}
-                          className="absolute flex flex-col items-center"
-                          style={{ left: `${marker.pos}%`, top: "50%" }}
-                        >
-                          <motion.div
-                            animate={{ scale: [1, 1.3, 1] }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              delay: i * 0.4,
-                            }}
-                            className="w-3 h-3 bg-violet-400 rounded-full shadow-[0_0_8px_rgba(167,139,250,0.6)] mb-2"
-                          />
-                          <span className="text-[8px] font-tech text-violet-400">
-                            {marker.label}
-                          </span>
-                          <span className="text-[7px] font-tech text-muted-foreground mt-0.5">
-                            {marker.action}
-                          </span>
-                        </motion.div>
-                      ))}
-
-                      {/* Behavior pattern card */}
-                      <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                        className="absolute top-6 left-1/2 -translate-x-1/2 rounded-lg px-4 py-2"
-                        style={{
-                          background: "rgba(85, 80, 110, 0.3)",
-                          border: "1px solid rgba(167, 139, 250, 0.3)",
-                        }}
-                      >
-                        <div className="flex items-center gap-3">
-                          <Activity className="w-4 h-4 text-violet-400" />
-                          <div>
-                            <span className="text-[10px] font-tech text-violet-400 block">
-                              BEHAVIOR_PATTERN
-                            </span>
-                            <span className="text-[8px] text-muted-foreground">
-                              Stochastic · Natural · Adaptive
-                            </span>
-                          </div>
-                        </div>
-                      </motion.div>
-
-                      {/* Random delay indicators */}
-                      {[25, 42, 58, 78].map((pos, i) => (
-                        <motion.div
-                          key={`delay-${i}`}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: [0, 0.5, 0] }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            delay: i * 0.7,
-                          }}
-                          className="absolute top-[55%] text-[7px] font-tech text-violet-300/50"
-                          style={{ left: `${pos}%` }}
-                        >
-                          +{Math.floor(Math.random() * 45 + 5)}m
-                        </motion.div>
-                      ))}
-
-                      {/* Humanoid avatar */}
-                      <motion.div
-                        animate={{ x: [-120, 120, -120] }}
-                        transition={{
-                          duration: 8,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                        className="absolute bottom-8 w-10 h-10 border rounded-full flex items-center justify-center shadow-[0_0_12px_rgba(167,139,250,0.2)]"
-                        style={{
-                          background: "rgba(85, 80, 110, 0.4)",
-                          borderColor: "rgba(167, 139, 250, 0.4)",
-                        }}
-                      >
-                        <span className="text-lg">🤖</span>
-                      </motion.div>
-
-                      <motion.div
-                        animate={{ opacity: [0.5, 1, 0.5] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2"
-                      >
-                        <div className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse"></div>
-                        <span className="text-[9px] font-tech text-violet-400/80">
-                          HUMAN_LIKE_TIMING
-                        </span>
-                      </motion.div>
-                    </motion.div>
-                  )}
-
-                  {/* Diagram 3: Proprietary Data Moat */}
-                  {activeDiagram === 2 && (
-                    <motion.div
-                      key="diagram-1"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.3 }}
-                      className="relative w-full h-full flex items-center justify-center scale-[0.7] sm:scale-[0.8] md:scale-100 origin-center"
-                    >
-                      {/* Central Database */}
-                      <motion.div
-                        animate={{ scale: [1, 1.03, 1] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                        className="absolute z-20 w-36 h-36 bg-card border-2 border-accent/40 rounded-xl flex flex-col items-center justify-center shadow-[0_0_30px_rgba(248,123,82,0.15)]"
-                      >
-                        <Database className="w-14 h-14 text-accent mb-1" />
-                        <span className="text-sm font-tech text-accent">
-                          DATA_CORE
-                        </span>
-                      </motion.div>
-
-                      {/* Data layers - concentric rings */}
-                      {[240, 190, 140].map((size, i) => (
-                        <motion.div
-                          key={`ring-${i}`}
-                          initial={{ opacity: 0, scale: 0.5 }}
-                          animate={{
-                            opacity: 0.25 - i * 0.06,
-                            scale: 1,
-                            rotate: i % 2 === 0 ? 360 : -360,
-                          }}
-                          transition={{
-                            opacity: { delay: i * 0.2, duration: 0.5 },
-                            scale: { delay: i * 0.2, duration: 0.5 },
-                            rotate: {
-                              duration: 30 + i * 10,
-                              repeat: Infinity,
-                              ease: "linear",
-                            },
-                          }}
-                          className="absolute border border-accent/25 rounded-full"
-                          style={{ width: size, height: size }}
-                        />
-                      ))}
-
-                      {/* Data source nodes */}
-                      {[
-                        { label: "CRM", angle: 0, Icon: Database },
-                        { label: "DOCS", angle: 72, Icon: Server },
-                        { label: "WIKI", angle: 144, Icon: Code },
-                        { label: "API", angle: 216, Icon: Network },
-                        { label: "LOGS", angle: 288, Icon: Terminal },
-                      ].map((node, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 0.3 + i * 0.1 }}
-                          className="absolute z-10 w-16 h-16 rounded-lg flex flex-col items-center justify-center"
-                          style={{
-                            transform: `translate(-50%, -50%) rotate(${node.angle}deg) translateY(-130px) rotate(-${node.angle}deg)`,
-                            top: "50%",
-                            left: "50%",
-                            background: "rgba(85, 80, 110, 0.3)",
-                            border: "1px solid rgba(248, 123, 82, 0.25)",
-                          }}
-                        >
-                          <node.Icon className="w-5 h-5 text-accent mb-0.5" />
-                          <span className="text-[9px] font-tech text-muted-foreground">
-                            {node.label}
-                          </span>
-                        </motion.div>
-                      ))}
-
-                      {/* Data flow lines */}
-                      <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                        {[0, 72, 144, 216, 288].map((angle, i) => (
-                          <motion.line
-                            key={i}
-                            x1="50%"
-                            y1="50%"
-                            x2={`${
-                              50 + 25 * Math.cos(((angle - 90) * Math.PI) / 180)
-                            }%`}
-                            y2={`${
-                              50 + 25 * Math.sin(((angle - 90) * Math.PI) / 180)
-                            }%`}
-                            stroke="rgba(248,123,82,0.3)"
-                            strokeWidth="1"
-                            strokeDasharray="4 2"
-                            initial={{ pathLength: 0 }}
-                            animate={{ pathLength: 1 }}
-                            transition={{ delay: 0.5 + i * 0.1, duration: 0.4 }}
-                          />
-                        ))}
-                      </svg>
-
-                      {/* Ingestion particles */}
-                      {[0, 1, 2, 3, 4].map((i) => (
-                        <motion.div
-                          key={`ingest-${i}`}
-                          className="absolute w-1.5 h-1.5 bg-accent rounded-full shadow-[0_0_5px_rgba(248,123,82,0.8)]"
-                          animate={{
-                            scale: [0, 1, 0],
-                            opacity: [0, 1, 0],
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            delay: i * 0.3,
-                          }}
-                          style={{
-                            top: `${
-                              50 +
-                              25 * Math.sin(((i * 72 - 90) * Math.PI) / 180)
-                            }%`,
-                            left: `${
-                              50 +
-                              25 * Math.cos(((i * 72 - 90) * Math.PI) / 180)
-                            }%`,
-                          }}
-                        />
-                      ))}
-
-                      <motion.div
-                        animate={{ opacity: [0.5, 1, 0.5] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2"
-                      >
-                        <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></div>
-                        <span className="text-[9px] font-tech text-accent/80">
-                          INGESTING_DATA
-                        </span>
-                      </motion.div>
-                    </motion.div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section id="features" className="py-32 relative">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="mb-20 text-center md:text-left">
-            <span className="text-primary font-medium tracking-wide text-sm uppercase mb-4 block">
-              System Capabilities
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              CORE MODULES
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl font-light">
-              Full-stack autonomous runtime with continuous optimization loops.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <Terminal className="w-6 h-6 text-primary" />,
-                title: "Client Dashboard",
-                desc: "Real-time command interface for prompts, execution status, and logs.",
-              },
-              {
-                icon: <Cpu className="w-6 h-6 text-primary" />,
-                title: "Workflow Engine",
-                desc: "Compiles natural language prompts into executable, versioned code.",
-              },
-              {
-                icon: <Server className="w-6 h-6 text-primary" />,
-                title: "Cloud Sandbox",
-                desc: "Isolated execution environments ensuring security and scalability.",
-              },
-              {
-                icon: <RefreshCcw className="w-6 h-6 text-primary" />,
-                title: "Evolution Loop",
-                desc: "Self-correcting algorithms that analyze and improve performance.",
-              },
-              {
-                icon: <Lock className="w-6 h-6 text-primary" />,
-                title: "Secure Runtime",
-                desc: "Enterprise-grade security with strict permission boundaries.",
-              },
-              {
-                icon: <Database className="w-6 h-6 text-primary" />,
-                title: "Data Persistence",
-                desc: "Long-term memory vector stores for contextual awareness.",
-              },
-            ].map((feature, i) => (
-              <motion.div
-                key={i}
+                /// ARCHITECTURE
+              </motion.span>
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="glass-card p-10 group"
+                transition={{ delay: 0.1 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
               >
-                <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300"
-                  style={{ background: "rgba(123, 57, 252, 0.08)" }}
+                MULTI-CHANNEL
+                <br />
+                <span className="text-[#1D3557]">AGENT RUNTIME</span>
+              </motion.h2>
+            </div>
+
+            {/* Three Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-0">
+              {architectureCards.map((card, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -4 }}
+                  className={`${card.bg} p-8 md:p-10 transition-all duration-200 ${
+                    i === 2 ? "" : "md:border-r-4 md:border-[#1A1A1A]"
+                  } border-b-4 md:border-b-0 border-[#1A1A1A] last:border-b-0`}
+                  style={{
+                    minHeight: "320px",
+                  }}
                 >
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {feature.desc}
-                </p>
-              </motion.div>
-            ))}
+                  <div className="mb-6">{card.icon}</div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1">
+                    {card.title}
+                  </h3>
+                  <h4 className="text-2xl md:text-3xl font-bold mb-6 opacity-70">
+                    {card.subtitle}
+                  </h4>
+                  <p className={`text-base leading-relaxed ${
+                    card.bg === "neo-block-yellow" ? "text-[#1A1A1A]/70" :
+                    card.bg === "neo-block-white" ? "text-[#4A4A4A]" : "text-white/70"
+                  }`}>
+                    {card.desc}
+                  </p>
+
+                  {/* Platform Icons for Cross-Platform card */}
+                  {i === 0 && (
+                    <div className="flex gap-4 mt-8">
+                      <div
+                        className="w-12 h-12 flex items-center justify-center"
+                        style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
+                      >
+                        <LinkedInIcon className="w-6 h-6 text-white" />
+                      </div>
+                      <div
+                        className="w-12 h-12 flex items-center justify-center"
+                        style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
+                      >
+                        <XIcon className="w-6 h-6 text-white" />
+                      </div>
+                      <div
+                        className="w-12 h-12 flex items-center justify-center"
+                        style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
+                      >
+                        <RedditIcon className="w-6 h-6 text-white" />
+                      </div>
+                      <div
+                        className="w-12 h-12 flex items-center justify-center"
+                        style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
+                      >
+                        <Mail className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "rgba(123, 57, 252, 0.04)" }}></div>
-        <div className="absolute inset-0 bg-grid opacity-10"></div>
+        {/* Features Grid - 2x3 */}
+        <section
+          id="features"
+          className="py-24 md:py-32 relative"
+          style={{
+            borderTop: "4px solid #1A1A1A",
+            backgroundColor: "#FAFAFA"
+          }}
+        >
+          <div className="absolute inset-0 neo-grid opacity-30"></div>
 
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 sm:mb-8">
-            DEPLOY{" "}
-            <span className="text-gradient-blue">INTELLIGENCE</span>
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12">
-            Join the automated future. Initialize your first agent swarm today.
-          </p>
-          <a
-            href="mailto:vivian@streaml.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary-glow inline-flex items-center gap-3 group"
-          >
-            GET YOUR OWN AGENT
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
-      </section>
+          <div className="container mx-auto px-6 relative z-10">
+            {/* Section Header */}
+            <div className="mb-16 text-center md:text-left">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase border-2 border-[#1A1A1A]"
+              >
+                /// CAPABILITIES
+              </motion.span>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-4xl md:text-5xl font-bold mb-6"
+              >
+                CORE MODULES
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-lg text-[#4A4A4A] max-w-2xl"
+              >
+                Full-stack autonomous runtime with continuous optimization loops.
+              </motion.p>
+            </div>
+
+            {/* 2x3 Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {features.map((feature, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="neo-card p-8 relative group"
+                >
+                  {/* Index Badge */}
+                  <div className={`neo-index ${feature.color} absolute top-6 left-6`}>
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+
+                  <div className="pt-12">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="text-[#1A1A1A]">{feature.icon}</div>
+                      <h3 className="text-lg font-bold">{feature.title}</h3>
+                    </div>
+                    <p className="text-[#4A4A4A] text-sm leading-relaxed">
+                      {feature.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section - Deep Blue Background */}
+        <section
+          className="py-24 md:py-32 relative overflow-hidden"
+          style={{
+            backgroundColor: "#1D3557",
+            borderTop: "4px solid #1A1A1A"
+          }}
+        >
+          {/* Decorative Red Block */}
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="absolute top-1/2 -translate-y-1/2 right-[10%] w-32 h-48 bg-[#E63946] hidden lg:block"
+          />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="absolute bottom-12 right-[25%] w-20 h-20 bg-[#FFB703] hidden lg:block"
+          />
+
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-3xl">
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-white"
+              >
+                DEPLOY
+                <br />
+                <span className="text-[#FFB703]">INTELLIGENCE</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-lg md:text-xl text-white/70 max-w-xl mb-10"
+              >
+                Join the automated future. Initialize your first agent swarm today.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="flex flex-wrap gap-4"
+              >
+                <a
+                  href="mailto:vivian@streaml.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#E63946] text-white border-2 border-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"
+                  style={{ fontFamily: "'Cabin', system-ui, sans-serif" }}
+                >
+                  GET YOUR OWN AGENT
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://calendly.com/yirancai00/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 font-medium text-sm transition-all duration-200 bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#1D3557]"
+                  style={{ fontFamily: "'Cabin', system-ui, sans-serif" }}
+                >
+                  BOOK A DEMO
+                </a>
+              </motion.div>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
+      {/* Footer - Minimal One-Line */}
       <footer
-        className="py-12 border-t"
+        className="py-8"
         style={{
-          borderColor: "rgba(164, 132, 215, 0.1)",
-          background: "rgba(85, 80, 110, 0.04)",
+          backgroundColor: "#FAFAFA",
+          borderTop: "2px solid #1A1A1A",
         }}
       >
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <span className="text-sm font-bold tracking-wider">
               Streaml, Inc.
             </span>
           </div>
 
-          <div className="flex gap-8 text-xs text-muted-foreground">
+          <div className="flex gap-8 text-xs text-[#4A4A4A]">
             <a
               href="/privacy-policy"
-              className="hover:text-primary transition-colors"
+              className="hover:text-[#1A1A1A] transition-colors"
             >
               Privacy Policy
             </a>
             <a
               href="/terms-of-service"
-              className="hover:text-primary transition-colors"
+              className="hover:text-[#1A1A1A] transition-colors"
             >
               Terms of Service
             </a>

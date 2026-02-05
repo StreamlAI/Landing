@@ -4,9 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 @theme inline {
   --radius-sm: 0px;
-  --radius-md: 2px;
-  --radius-lg: 4px;
-  --radius-xl: 6px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -36,11 +36,14 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  /* Refined Purple Palette */
-  --color-electric: #7b39fc;
-  --color-electric-dim: #6a2ce0;
-  --color-cyan: #f87b52;
-  --color-terminal: #22c55e;
+  /* Neo-Geo Mondrian Palette */
+  --color-neo-white: #FAFAFA;
+  --color-neo-black: #1A1A1A;
+  --color-neo-red: #E63946;
+  --color-neo-yellow: #FFB703;
+  --color-neo-blue: #1D3557;
+  --color-neo-gray: #E5E5E5;
+  --color-neo-muted: #4A4A4A;
 
   --font-sans: 'Manrope', system-ui, sans-serif;
   --font-heading: 'Inter', system-ui, sans-serif;
@@ -49,43 +52,40 @@
   --font-serif: 'Instrument Serif', serif;
 }
 
-/* PREMIUM DARK THEME — Linear-inspired */
+/* NEO-GEO CONSTRUCTIVIST THEME */
 :root {
-  --background: 225 25% 4%;
-  --foreground: 210 20% 98%;
+  --background: 0 0% 98%;
+  --foreground: 0 0% 10%;
 
-  /* Cleaner surfaces */
-  --card: 225 20% 6%;
-  --card-foreground: 210 20% 98%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
 
-  --popover: 225 20% 5%;
-  --popover-foreground: 210 20% 98%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
 
-  /* Primary: Purple */
-  --primary: 262 96% 60%;
-  /* #7b39fc */
+  /* Primary: Neo Red */
+  --primary: 355 79% 56%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Deep violet */
-  --secondary: 260 30% 20%;
-  --secondary-foreground: 260 20% 90%;
+  /* Secondary: Neo Blue */
+  --secondary: 213 49% 23%;
+  --secondary-foreground: 0 0% 100%;
 
-  --muted: 260 15% 12%;
-  --muted-foreground: 240 10% 55%;
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 29%;
 
-  /* Accent: Orange (sparingly) */
-  --accent: 14 94% 65%;
-  /* #f87b52 */
-  --accent-foreground: 225 25% 4%;
+  /* Accent: Neo Yellow */
+  --accent: 40 100% 51%;
+  --accent-foreground: 0 0% 10%;
 
   --destructive: 0 85% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 260 12% 14%;
-  --input: 260 12% 14%;
-  --ring: 262 96% 60%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 355 79% 56%;
 
-  --radius: 8px;
+  --radius: 0px;
 }
 
 @layer base {
@@ -94,16 +94,9 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    background-attachment: fixed;
-  }
-
-  body {
-    background-color: #080b0f;
-    background-image:
-      radial-gradient(circle at 50% 0%, rgba(123, 57, 252, 0.06), transparent 40%),
-      radial-gradient(circle at 80% 10%, rgba(248, 123, 82, 0.03), transparent 30%);
+    @apply font-sans antialiased;
+    background-color: #FAFAFA;
+    color: #1A1A1A;
   }
 
   h1,
@@ -113,7 +106,7 @@
   h5,
   h6 {
     font-family: 'Inter', system-ui, sans-serif;
-    @apply tracking-tight font-semibold;
+    @apply tracking-tight font-bold;
   }
 
   code,
@@ -124,77 +117,212 @@
 }
 
 @layer utilities {
-
-  /* Subtle Grid */
-  .bg-grid {
-    background-size: 60px 60px;
+  /* Neo-Geo Grid Background */
+  .neo-grid {
+    background-size: 80px 80px;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      linear-gradient(rgba(26, 26, 26, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 26, 26, 0.06) 1px, transparent 1px);
   }
 
-  /* Controlled Glows — softer, not neon */
-  .glow-soft {
-    box-shadow: 0 0 30px rgba(123, 57, 252, 0.12);
+  /* Neo-Geo Card */
+  .neo-card {
+    background-color: white;
+    border: 1px solid #1A1A1A;
+    transition: all 0.2s ease;
   }
 
-  .glow-text {
-    text-shadow: 0 0 20px rgba(123, 57, 252, 0.3);
+  .neo-card:hover {
+    border-width: 2px;
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 0 #1A1A1A;
   }
 
-  /* Glassmorphism Card — refined */
-  .glass-card {
-    @apply backdrop-blur-md border rounded-xl transition-all duration-300;
-    background: rgba(85, 80, 110, 0.08);
-    border-color: rgba(164, 132, 215, 0.12);
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
-  }
-
-  .glass-card:hover {
-    background: rgba(85, 80, 110, 0.15);
-    border-color: rgba(164, 132, 215, 0.25);
-    box-shadow: 0 10px 40px -5px rgba(123, 57, 252, 0.1);
-    transform: translateY(-2px);
-  }
-
-  /* Primary CTA Button */
-  .btn-primary-glow {
-    @apply relative px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 overflow-hidden;
-    font-family: 'Cabin', system-ui, sans-serif;
-    background: linear-gradient(135deg, #7b39fc, #6a2ce0);
+  /* Neo-Geo Color Blocks */
+  .neo-block-red {
+    background-color: #E63946;
     color: white;
-    box-shadow: 0 4px 15px rgba(123, 57, 252, 0.25);
+  }
+
+  .neo-block-yellow {
+    background-color: #FFB703;
+    color: #1A1A1A;
+  }
+
+  .neo-block-blue {
+    background-color: #1D3557;
+    color: white;
+  }
+
+  .neo-block-white {
+    background-color: #FAFAFA;
+    color: #1A1A1A;
+    border: 2px solid #1A1A1A;
+  }
+
+  /* Neo-Geo Border */
+  .neo-border {
+    border: 4px solid #1A1A1A;
+  }
+
+  .neo-border-thin {
+    border: 1px solid #1A1A1A;
+  }
+
+  /* Neo Primary CTA Button */
+  .neo-btn-primary {
+    position: relative;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    font-family: 'Cabin', system-ui, sans-serif;
+    background-color: #E63946;
+    color: white;
+    border: 2px solid #1A1A1A;
+  }
+
+  .neo-btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 #1A1A1A;
+  }
+
+  .neo-btn-primary:active {
+    transform: translate(0, 0);
+    box-shadow: none;
+  }
+
+  /* Neo Secondary Button */
+  .neo-btn-secondary {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    font-family: 'Cabin', system-ui, sans-serif;
+    background-color: transparent;
+    color: #1A1A1A;
+    border: 2px solid #1A1A1A;
+  }
+
+  .neo-btn-secondary:hover {
+    background-color: #1A1A1A;
+    color: white;
+  }
+
+  /* Neo Text Styles */
+  .neo-heading {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #1A1A1A;
+    line-height: 0.95;
+  }
+
+  .neo-text-muted {
+    color: #4A4A4A;
+  }
+
+  /* Neo Index Tag */
+  .neo-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .neo-index-red {
+    background-color: #E63946;
+    color: white;
+  }
+
+  .neo-index-yellow {
+    background-color: #FFB703;
+    color: #1A1A1A;
+  }
+
+  .neo-index-blue {
+    background-color: #1D3557;
+    color: white;
+  }
+
+  /* Smooth Fade In Animation */
+  @keyframes neo-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-neo-fade-in {
+    animation: neo-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Neo Line Decorations */
+  .neo-line-h {
+    height: 4px;
+    background-color: #1A1A1A;
+  }
+
+  .neo-line-v {
+    width: 4px;
+    background-color: #1A1A1A;
+  }
+
+  /* Legacy compatibility classes */
+  .btn-primary-glow {
+    position: relative;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    font-family: 'Cabin', system-ui, sans-serif;
+    background-color: #E63946;
+    color: white;
+    border: 2px solid #1A1A1A;
   }
 
   .btn-primary-glow:hover {
-    box-shadow: 0 8px 25px rgba(123, 57, 252, 0.4);
-    transform: translateY(-1px);
-    filter: brightness(1.1);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 #1A1A1A;
   }
 
-  /* Secondary Glass Button */
   .btn-secondary-glass {
-    @apply px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 text-foreground;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
     font-family: 'Cabin', system-ui, sans-serif;
-    background: rgba(85, 80, 110, 0.4);
-    border: 1px solid rgba(164, 132, 215, 0.5);
-    backdrop-filter: blur(12px);
+    background-color: transparent;
+    color: #1A1A1A;
+    border: 2px solid #1A1A1A;
   }
 
   .btn-secondary-glass:hover {
-    background: rgba(85, 80, 110, 0.55);
-    border-color: rgba(164, 132, 215, 0.7);
+    background-color: #1A1A1A;
+    color: white;
   }
 
-  /* Gradient Text */
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70;
+  .glass-card {
+    background-color: white;
+    border: 1px solid #1A1A1A;
+    transition: all 0.2s ease;
+  }
+
+  .glass-card:hover {
+    border-width: 2px;
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 0 #1A1A1A;
   }
 
   .text-gradient-blue {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #7b39fc, #a78bfa, #7b39fc);
+    color: #1D3557;
   }
 
   .font-tech {
@@ -202,25 +330,10 @@
     letter-spacing: -0.02em;
   }
 
-  .font-serif-accent {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-  }
-
-  /* Smooth Fade In */
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  .bg-grid {
+    background-size: 80px 80px;
+    background-image:
+      linear-gradient(rgba(26, 26, 26, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 26, 26, 0.06) 1px, transparent 1px);
   }
 }

@@ -13,12 +13,10 @@ export function Navigation({ showLinks = true }: NavigationProps) {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b h-16 shadow-lg shadow-black/10"
+      className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 h-16"
       style={{
-        background: "rgba(85, 80, 110, 0.25)",
-        borderColor: "rgba(164, 132, 215, 0.15)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
+        backgroundColor: "#FAFAFA",
+        borderBottom: "2px solid #1A1A1A",
       }}
     >
       <div className="container mx-auto px-6 h-full flex items-center justify-between">
@@ -26,9 +24,9 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           <img
             src="/favicon.png"
             alt="Streaml"
-            className="w-10 h-10 group-hover:scale-105 transition-transform duration-300"
+            className="w-8 h-8 group-hover:scale-105 transition-transform duration-200"
           />
-          <span className="text-xl font-bold tracking-tight text-foreground">
+          <span className="text-xl font-bold tracking-tight text-[#1A1A1A]">
             Streaml
           </span>
         </Link>
@@ -37,13 +35,13 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           <div className="hidden md:flex items-center gap-8">
             <a
               href="/#architecture"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             >
               Architecture
             </a>
             <a
               href="/#features"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             >
               Features
             </a>
@@ -55,7 +53,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             href="https://calendly.com/yirancai00/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary-glass flex items-center gap-2 group"
+            className="neo-btn-secondary flex items-center gap-2 group"
           >
             <span>Book Demo</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -65,7 +63,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             href="http://linkedin.com/in/caivivian"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             aria-label="LinkedIn"
           >
             <LinkedInIcon className="w-5 h-5" />
@@ -75,7 +73,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
         {/* Mobile menu button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+          className="md:hidden p-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? (
@@ -93,13 +91,11 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           height: mobileMenuOpen ? "auto" : 0,
           opacity: mobileMenuOpen ? 1 : 0,
         }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden border-t"
+        transition={{ duration: 0.2 }}
+        className="md:hidden overflow-hidden"
         style={{
-          background: "rgba(85, 80, 110, 0.3)",
-          borderColor: "rgba(164, 132, 215, 0.15)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
+          backgroundColor: "#FAFAFA",
+          borderBottom: mobileMenuOpen ? "2px solid #1A1A1A" : "none",
         }}
       >
         <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
@@ -108,14 +104,14 @@ export function Navigation({ showLinks = true }: NavigationProps) {
               <a
                 href="/#architecture"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
               >
                 Architecture
               </a>
               <a
                 href="/#features"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
               >
                 Features
               </a>
@@ -126,7 +122,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             href="https://calendly.com/yirancai00/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary-glow flex items-center justify-center gap-2 mt-2"
+            className="neo-btn-primary flex items-center justify-center gap-2 mt-2"
           >
             <span>Book Demo</span>
             <ArrowRight className="w-4 h-4" />
@@ -135,7 +131,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             href="http://linkedin.com/in/caivivian"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground transition-colors py-2"
+            className="flex items-center justify-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
             aria-label="LinkedIn"
           >
             <LinkedInIcon className="w-5 h-5" />
