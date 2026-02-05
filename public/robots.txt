@@ -1,4 +1,24 @@
+# Streaml Robots.txt
+# https://streaml.app
+
 User-agent: *
 Allow: /
 
+# Block access to development/internal paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemaps
 Sitemap: https://streaml.app/sitemap.xml
+
+# Crawl-delay for polite crawling (optional)
+# Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
