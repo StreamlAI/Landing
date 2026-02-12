@@ -7,6 +7,7 @@ import LandingPage from "@/pages/LandingPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
+import { CookieConsent } from "@/components/CookieConsent";
 
 function Router() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <CookieConsent />
       </TooltipProvider>
     </QueryClientProvider>
   );
