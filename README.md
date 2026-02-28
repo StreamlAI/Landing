@@ -1,6 +1,6 @@
 # Streaml Landing Page
 
-A modern, animated landing page for Streaml - an autonomous marketing infrastructure platform.
+A modern, animated landing page for Streaml - an autonomous automation infrastructure platform.
 
 ## Tech Stack
 

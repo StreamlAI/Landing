@@ -44,10 +44,10 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useSEO({
-    title: "Streaml | AI-Native Marketing Infrastructure",
-    description: "Build, own, and evolve AI marketing agents. The first AI-native marketing infrastructure for closed-loop autonomous workflows.",
+    title: "Streaml | AI-Native Automation Infrastructure",
+    description: "Build, own, and evolve AI automation agents. The first AI-native automation infrastructure for closed-loop autonomous workflows.",
     canonicalPath: "/",
-    keywords: "AI marketing, marketing automation, autonomous agents, AI agents, marketing infrastructure, workflow automation, growth automation, lead generation, outbound automation, LinkedIn automation",
+    keywords: "AI automation, workflow automation, autonomous agents, AI agents, automation infrastructure, LinkedIn automation, intelligent automation",
   });
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function LandingPage() {
     {
       title: "Data",
       subtitle: "Moat",
-      desc: "Internal CRM & Knowledge Base ingestion. Your proprietary data becomes competitive advantage.",
+      desc: "Internal database & knowledge base integration. Your proprietary data becomes a foundation for intelligence.",
       icon: <Database className="w-8 h-8" />,
       bg: "neo-block-white",
     },
@@ -315,7 +315,7 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className="neo-btn-primary flex items-center justify-center gap-2 mt-2"
             >
-              <span>Book Demo</span>
+              <span>Schedule Call</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -386,7 +386,7 @@ export default function LandingPage() {
                   }}
                 >
                   <Zap className="w-3 h-3 text-[#E63946]" />
-                  AI-Native Marketing Runtime
+                  AI-Native Automation Runtime
                 </span>
               </motion.div>
 
@@ -406,7 +406,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-bold tracking-tighter leading-[0.9]"
                 >
-                  GROWTH
+                  AUTOMATION
                 </motion.h1>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
@@ -426,7 +426,7 @@ export default function LandingPage() {
                 className="text-lg md:text-xl text-[#4A4A4A] max-w-lg mb-10 leading-relaxed"
               >
                 A continuous runtime that generates, executes, and optimizes
-                marketing workflows. Deploy intelligent agents that self-evolve.
+                intelligent workflows. Deploy autonomous agents that self-evolve.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -531,7 +531,7 @@ export default function LandingPage() {
                             </div>
                           </div>
                           {[
-                            { initials: 'JD', name: 'John Doe', role: 'VP Sales' },
+                            { initials: 'JD', name: 'John Doe', role: 'VP Operations' },
                             { initials: 'SK', name: 'Sarah K.', role: 'CEO' },
                             { initials: 'MR', name: 'Mike R.', role: 'CTO' },
                             { initials: 'AL', name: 'Alex L.', role: 'Director' },
@@ -566,7 +566,7 @@ export default function LandingPage() {
                                 <p className="text-sm font-semibold text-[#1A1A1A]">John Doe</p>
                                 <p className="text-xs text-[#666] flex items-center gap-1">
                                   <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                                  VP of Sales at TechCorp
+                                  VP of Operations at TechCorp
                                 </p>
                               </div>
                             </div>
@@ -586,7 +586,7 @@ export default function LandingPage() {
                               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0A66C2] to-[#004182] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">JD</div>
                               <div className="flex-1">
                                 <div className="bg-white border border-[#E0E0E0] rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%] shadow-sm">
-                                  <p className="text-xs text-[#1A1A1A] leading-relaxed">Thanks for reaching out! Yes, I'm always looking for better ways to scale our outbound.</p>
+                                  <p className="text-xs text-[#1A1A1A] leading-relaxed">Thanks for reaching out! Yes, I'm always looking for better ways to scale our operations.</p>
                                 </div>
                                 <p className="text-[10px] text-[#999] mt-1 ml-1">2:31 PM</p>
                               </div>
@@ -602,7 +602,7 @@ export default function LandingPage() {
                             >
                               <div className="flex-1 flex flex-col items-end">
                                 <div className="bg-[#0A66C2] text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%] shadow-sm">
-                                  <p className="text-xs leading-relaxed">We built an AI-powered system that personalizes messages at scale. Helped similar B2B teams 3x their reply rates.</p>
+                                  <p className="text-xs leading-relaxed">We built an AI-powered system that personalizes interactions at scale. Helped similar teams improve their efficiency significantly.</p>
                                 </div>
                                 <div className="flex items-center gap-1.5 text-[10px] text-[#999] mt-1 mr-1">
                                   <Check className="w-3 h-3 text-[#0A66C2]" />
@@ -744,7 +744,7 @@ export default function LandingPage() {
                           <div className="w-10 h-10 bg-blue-100 border border-blue-300 flex items-center justify-center mb-2">
                             <Search className="w-5 h-5 text-blue-600" />
                           </div>
-                          <p className="text-sm font-bold text-[#1A1A1A]">Search Leads</p>
+                          <p className="text-sm font-bold text-[#1A1A1A]">Search Contacts</p>
                         </motion.div>
 
                         {/* Arrow 1 */}

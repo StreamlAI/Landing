@@ -55,7 +55,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             rel="noopener noreferrer"
             className="neo-btn-secondary flex items-center gap-2 group"
           >
-            <span>Book Demo</span>
+            <span>Schedule Call</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
 
@@ -124,7 +124,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             rel="noopener noreferrer"
             className="neo-btn-primary flex items-center justify-center gap-2 mt-2"
           >
-            <span>Book Demo</span>
+            <span>Schedule Call</span>
             <ArrowRight className="w-4 h-4" />
           </a>
           <a

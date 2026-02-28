@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
             {/* Introduction */}
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Welcome to Streaml. This Privacy Policy explains how Streaml ("we," "us," or "our") collects, uses, and protects your personal information when you use our AI-powered sales automation platform and related services (the "Service").
+                Welcome to Streaml. This Privacy Policy explains how Streaml ("we," "us," or "our") collects, uses, and protects your personal information when you use our AI-powered automation platform and related services (the "Service").
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 By accessing or using our Service, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with our policies and practices, please do not use our Service.
@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
               <div className="border border-primary/30 bg-primary/5 p-4 mt-6">
                 <p className="text-sm font-mono text-primary mb-2">QUICK_SUMMARY:</p>
                 <p className="text-sm text-foreground">
-                  We collect information to provide and improve our sales automation services. We never sell your personal data and only share it when necessary to provide our services or when required by law.
+                  We collect information to provide and improve our automation services. We never sell your personal data and only share it when necessary to provide our services or when required by law.
                 </p>
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function PrivacyPolicy() {
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex gap-3">
                       <span className="text-primary">-</span>
-                      <span><strong className="text-foreground">Prospect Information:</strong> Contact details, company information, and professional data of prospects you upload or target through our Service</span>
+                      <span><strong className="text-foreground">Contact Information:</strong> Contact details, company information, and professional data of contacts you upload or target through our Service</span>
                     </li>
                     <li className="flex gap-3">
                       <span className="text-primary">-</span>
@@ -189,10 +189,10 @@ export default function PrivacyPolicy() {
                 <div>
                   <h3 className="text-lg font-bold mb-4 text-foreground">Service Delivery</h3>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex gap-3"><span className="text-primary">-</span>Provide, maintain, and improve our AI-powered sales automation platform</li>
+                    <li className="flex gap-3"><span className="text-primary">-</span>Provide, maintain, and improve our AI-powered automation platform</li>
                     <li className="flex gap-3"><span className="text-primary">-</span>Process and fulfill your requests for services</li>
                     <li className="flex gap-3"><span className="text-primary">-</span>Personalize your experience and customize content recommendations</li>
-                    <li className="flex gap-3"><span className="text-primary">-</span>Enable AI-powered features like prospect identification and message generation</li>
+                    <li className="flex gap-3"><span className="text-primary">-</span>Enable AI-powered features like contact identification and message generation</li>
                   </ul>
                 </div>
 
@@ -379,10 +379,10 @@ export default function PrivacyPolicy() {
 
                 <div className="border border-border p-4 bg-card">
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground font-medium">Marketing Data</span>
+                    <span className="text-foreground font-medium">Communication Data</span>
                     <span className="font-mono text-sm text-primary">Until opt-out</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-1">Contact information for marketing purposes retained until you opt out</p>
+                  <p className="text-sm text-muted-foreground mt-1">Contact information for communication purposes retained until you opt out</p>
                 </div>
               </div>
 
@@ -433,9 +433,9 @@ export default function PrivacyPolicy() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-bold mb-4 text-foreground">Marketing Communications</h3>
+                  <h3 className="text-lg font-bold mb-4 text-foreground">Communication Preferences</h3>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex gap-3"><span className="text-primary">-</span>Opt out of marketing emails using the unsubscribe link in our emails</li>
+                    <li className="flex gap-3"><span className="text-primary">-</span>Opt out of notification emails using the unsubscribe link in our emails</li>
                     <li className="flex gap-3"><span className="text-primary">-</span>Update your communication preferences in your account settings</li>
                     <li className="flex gap-3"><span className="text-primary">-</span>Contact us to opt out of all non-essential communications</li>
                   </ul>

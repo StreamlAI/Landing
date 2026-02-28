@@ -7,7 +7,7 @@ import { useSEO } from "@/hooks/useSEO";
 export default function TermsOfService() {
   useSEO({
     title: "Terms of Service | Streaml",
-    description: "Read the terms and conditions for using Streaml's AI-native marketing infrastructure and services.",
+    description: "Read the terms and conditions for using Streaml's AI-native automation infrastructure and services.",
     canonicalPath: "/terms-of-service",
   });
 
@@ -82,7 +82,7 @@ export default function TermsOfService() {
             {/* Introduction */}
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Welcome to Streaml. These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and Streaml, Inc. ("Streaml," "we," "us," or "our") governing your access to and use of our AI-powered sales automation platform, including all related websites, applications, and services (collectively, the "Service").
+                Welcome to Streaml. These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and Streaml, Inc. ("Streaml," "we," "us," or "our") governing your access to and use of our AI-powered automation platform, including all related websites, applications, and services (collectively, the "Service").
               </p>
               <div className="border border-destructive/30 bg-destructive/5 p-4 mt-6">
                 <p className="text-sm font-mono text-destructive mb-2">IMPORTANT:</p>
@@ -140,15 +140,15 @@ export default function TermsOfService() {
               </div>
 
               <p className="text-muted-foreground mb-6">
-                Streaml provides an AI-powered sales automation platform designed to help businesses:
+                Streaml provides an AI-powered automation platform designed to help businesses:
               </p>
 
               <ul className="space-y-2 text-muted-foreground mb-8">
-                <li className="flex gap-3"><span className="text-primary">-</span>Identify and qualify potential leads and prospects</li>
-                <li className="flex gap-3"><span className="text-primary">-</span>Automate outreach and follow-up communications</li>
-                <li className="flex gap-3"><span className="text-primary">-</span>Manage customer relationships and sales pipelines</li>
-                <li className="flex gap-3"><span className="text-primary">-</span>Generate personalized sales content using artificial intelligence</li>
-                <li className="flex gap-3"><span className="text-primary">-</span>Analyze sales performance and optimize strategies</li>
+                <li className="flex gap-3"><span className="text-primary">-</span>Identify and qualify potential contacts and opportunities</li>
+                <li className="flex gap-3"><span className="text-primary">-</span>Automate communication and follow-up workflows</li>
+                <li className="flex gap-3"><span className="text-primary">-</span>Manage relationships and operational pipelines</li>
+                <li className="flex gap-3"><span className="text-primary">-</span>Generate personalized content using artificial intelligence</li>
+                <li className="flex gap-3"><span className="text-primary">-</span>Analyze performance and optimize strategies</li>
               </ul>
 
               <div className="space-y-6">
