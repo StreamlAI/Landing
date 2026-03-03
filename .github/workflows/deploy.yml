@@ -11,7 +11,7 @@ permissions:
 env:
   AWS_REGION: us-east-1
   S3_BUCKET: streaml-landing-prod
-  CLOUDFRONT_DISTRIBUTION_ID: E2DXWVYX952R0E
+  CLOUDFRONT_DISTRIBUTION_ID: EAC3FKBIRRK0T
 
 jobs:
   deploy:
