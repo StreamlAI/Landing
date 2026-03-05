@@ -17,18 +17,13 @@ import {
   Workflow,
   MousePointerClick,
   Sparkles,
-  MessageSquare,
-  Calendar,
-  Globe,
   Eye,
   UserCheck,
   CloudCog,
   Play,
   Check,
   Search,
-  User,
   Send,
-  Circle,
   MoreHorizontal,
   ChevronRight,
   ChevronDown,
@@ -44,10 +39,10 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useSEO({
-    title: "Streaml | AI-Native Automation Infrastructure",
-    description: "Build, own, and evolve AI automation agents. The first AI-native automation infrastructure for closed-loop autonomous workflows.",
+    title: "Streaml | Agent-to-Agent Execution Infrastructure",
+    description: "A runtime where AI agents discover, communicate, and execute workflows across tools, data, and platforms.",
     canonicalPath: "/",
-    keywords: "AI automation, workflow automation, autonomous agents, AI agents, automation infrastructure, LinkedIn automation, intelligent automation",
+    keywords: "AI agents, agent-to-agent, autonomous execution, agent runtime, multi-agent architecture, workflow automation, agent economy",
   });
 
   useEffect(() => {
@@ -60,23 +55,23 @@ export default function LandingPage() {
 
   const architectureCards = [
     {
-      title: "Cross-Platform",
-      subtitle: "Execution",
-      desc: "Native browser interaction with LinkedIn, X, and Reddit. Unified API across all social channels.",
+      title: "Agent-to-Agent",
+      subtitle: "Coordination",
+      desc: "Agents call internal company agents, interact with external APIs, retrieve organizational knowledge, and trigger actions across SaaS systems.",
       icon: <Network className="w-8 h-8" />,
       bg: "neo-block-blue",
     },
     {
       title: "Humanoid",
-      subtitle: "Behavior",
-      desc: "Stochastic timing and natural language patterns. Indistinguishable from human operators.",
+      subtitle: "Execution",
+      desc: "Natural timing variability, contextual language generation, and adaptive behavior across platforms. Agents blend seamlessly into real operational workflows.",
       icon: <Activity className="w-8 h-8" />,
       bg: "neo-block-yellow",
     },
     {
-      title: "Data",
-      subtitle: "Moat",
-      desc: "Internal database & knowledge base integration. Your proprietary data becomes a foundation for intelligence.",
+      title: "Data Network",
+      subtitle: "Effect",
+      desc: "Your company's knowledge becomes the intelligence layer. CRM data, internal documentation, historical workflow execution, and performance analytics.",
       icon: <Database className="w-8 h-8" />,
       bg: "neo-block-white",
     },
@@ -86,60 +81,60 @@ export default function LandingPage() {
     {
       icon: <Workflow className="w-8 h-8" />,
       tag: "WORKFLOW CANVAS",
-      title: "Build Automation Visually.",
-      titleAccent: "Let AI Optimize It.",
-      subtitle: "Drag-and-drop canvas. No code required.",
+      title: "Design Agent Workflows Visually.",
+      titleAccent: "No Code Required.",
+      subtitle: "Drag-and-drop actions across tools and agents.",
       color: "#FFB703",
       features: [
         {
           icon: <MousePointerClick className="w-5 h-5" />,
-          title: "Drag & Drop",
-          desc: "Build multi-step flows",
-        },
-        {
-          icon: <Zap className="w-5 h-5" />,
-          title: "28+ Actions",
-          desc: "DMs, emails, enrichment",
+          title: "Lead Discovery",
+          desc: "Find new prospects",
         },
         {
           icon: <Sparkles className="w-5 h-5" />,
-          title: "AI Evolution",
-          desc: "Auto-tests 3 variations",
+          title: "AI Personalization",
+          desc: "Context-aware messaging",
         },
         {
-          icon: <Calendar className="w-5 h-5" />,
-          title: "Smart Scheduling",
-          desc: "Cron + custom triggers",
+          icon: <Zap className="w-5 h-5" />,
+          title: "Email / DM Automation",
+          desc: "Multi-channel outreach",
+        },
+        {
+          icon: <RefreshCcw className="w-5 h-5" />,
+          title: "Conditional Logic",
+          desc: "Smart branching flows",
         },
       ],
     },
     {
-      icon: <Globe className="w-8 h-8" />,
-      tag: "CLOUD BROWSER",
-      title: "Your Own Cloud Browser.",
-      titleAccent: "Always On. Always Logged In.",
-      subtitle: "Runs 24/7, even when your laptop is closed.",
+      icon: <CloudCog className="w-8 h-8" />,
+      tag: "CLOUD AGENT ENVIRONMENT",
+      title: "Always-On Execution.",
+      titleAccent: "Runs 24/7.",
+      subtitle: "Agents run in a persistent cloud environment.",
       color: "#E63946",
       features: [
         {
           icon: <UserCheck className="w-5 h-5" />,
-          title: "Persistent Login",
-          desc: "Stay logged in forever",
+          title: "Always Active",
+          desc: "Maintains session state",
         },
         {
           icon: <Eye className="w-5 h-5" />,
-          title: "Live View",
-          desc: "Watch in real-time",
+          title: "Live Observability",
+          desc: "Watch agents execute",
         },
         {
           icon: <Activity className="w-5 h-5" />,
-          title: "Human-Like",
-          desc: "Realistic timing & behavior",
+          title: "Human-like Behavior",
+          desc: "Stochastic timing",
         },
         {
           icon: <Play className="w-5 h-5" />,
-          title: "Session Replay",
-          desc: "Full run history",
+          title: "Replay Executions",
+          desc: "Full history access",
         },
       ],
     },
@@ -148,38 +143,38 @@ export default function LandingPage() {
   const features = [
     {
       icon: <Terminal className="w-5 h-5" />,
-      title: "Client Dashboard",
-      desc: "Real-time command interface for prompts, execution status, and logs.",
+      title: "Client Control Interface",
+      desc: "Central dashboard for monitoring agent activity, workflows, and system performance.",
       color: "neo-index-red",
     },
     {
       icon: <Cpu className="w-5 h-5" />,
-      title: "Workflow Engine",
-      desc: "Compiles natural language prompts into executable, versioned code.",
+      title: "Agent Workflow Engine",
+      desc: "Compiles natural-language instructions into executable multi-agent workflows.",
       color: "neo-index-yellow",
     },
     {
       icon: <Server className="w-5 h-5" />,
-      title: "Cloud Sandbox",
-      desc: "Isolated execution environments ensuring security and scalability.",
+      title: "Cloud Sandbox Runtime",
+      desc: "Secure, isolated environments where agents execute tasks across tools and platforms.",
       color: "neo-index-blue",
     },
     {
       icon: <RefreshCcw className="w-5 h-5" />,
-      title: "Evolution Loop",
-      desc: "Self-correcting algorithms that analyze and improve performance.",
+      title: "Evolution Engine",
+      desc: "Continuous optimization loop that analyzes performance and improves workflows automatically.",
       color: "neo-index-red",
     },
     {
       icon: <Lock className="w-5 h-5" />,
-      title: "Secure Runtime",
-      desc: "Enterprise-grade security with strict permission boundaries.",
+      title: "Secure Execution Layer",
+      desc: "Enterprise-grade permissions and safeguards for agent actions.",
       color: "neo-index-yellow",
     },
     {
       icon: <Database className="w-5 h-5" />,
-      title: "Data Persistence",
-      desc: "Long-term memory vector stores for contextual awareness.",
+      title: "Persistent Memory",
+      desc: "Long-term context storage enabling agents to learn from past interactions.",
       color: "neo-index-blue",
     },
   ];
@@ -386,7 +381,7 @@ export default function LandingPage() {
                   }}
                 >
                   <Zap className="w-3 h-3 text-[#E63946]" />
-                  AI-Native Automation Runtime
+                  STREAML
                 </span>
               </motion.div>
 
@@ -396,25 +391,25 @@ export default function LandingPage() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.15 }}
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-bold tracking-tighter leading-[0.9]"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.9]"
                 >
-                  AUTONOMOUS
+                  AGENT-TO-AGENT
                 </motion.h1>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-bold tracking-tighter leading-[0.9]"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.9]"
                 >
-                  AUTOMATION
+                  EXECUTION
                 </motion.h1>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.45 }}
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-bold tracking-tighter leading-[0.9] text-[#1D3557]"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.9] text-[#1D3557]"
                 >
-                  INFRA
+                  INFRASTRUCTURE
                 </motion.h1>
               </div>
 
@@ -425,8 +420,8 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="text-lg md:text-xl text-[#4A4A4A] max-w-lg mb-10 leading-relaxed"
               >
-                A continuous runtime that generates, executes, and optimizes
-                intelligent workflows. Deploy autonomous agents that self-evolve.
+                A runtime where AI agents discover, communicate, and execute
+                workflows across tools, data, and platforms.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -442,7 +437,7 @@ export default function LandingPage() {
                   rel="noopener noreferrer"
                   className="neo-btn-primary flex items-center gap-3 group"
                 >
-                  TALK TO FOUNDER
+                  Talk to Founder
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
@@ -480,7 +475,7 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 className="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase border-2 border-white text-white"
               >
-                /// AUTOMATION
+                /// AGENT RUNTIME
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -489,7 +484,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.1 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white"
               >
-                INTELLIGENT <span className="text-[#FFB703]">AUTOMATION</span>
+                CONTINUOUS <span className="text-[#FFB703]">EXECUTION LAYER</span>
               </motion.h2>
             </div>
 
@@ -662,14 +657,14 @@ export default function LandingPage() {
                   {/* Right: Content */}
                   <div className="p-6 md:p-10 order-1 lg:order-2">
                     <span className="inline-block px-2 py-1 text-[10px] font-mono font-bold tracking-wider text-white bg-[#E63946] mb-4">
-                      CLOUD BROWSER
+                      CLOUD AGENT ENVIRONMENT
                     </span>
                     <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2 leading-tight">
-                      Your Own Cloud Browser.
+                      Always-On Execution.
                       <br />
-                      <span className="text-[#E63946]">Always On.</span>
+                      <span className="text-[#E63946]">Runs 24/7.</span>
                     </h3>
-                    <p className="text-base text-[#666] mb-6">Runs 24/7, even when your laptop is closed.</p>
+                    <p className="text-base text-[#666] mb-6">Agents run in a persistent cloud environment, even when you're offline.</p>
 
                     <div className="space-y-3">
                       {workflowHighlights[1].features.map((f, i) => (
@@ -704,11 +699,11 @@ export default function LandingPage() {
                       WORKFLOW CANVAS
                     </span>
                     <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2 leading-tight">
-                      Build Automation Visually.
+                      Design Agent Workflows Visually.
                       <br />
-                      <span className="text-[#FFB703]">Let AI Optimize It.</span>
+                      <span className="text-[#FFB703]">No Code Required.</span>
                     </h3>
-                    <p className="text-base text-[#666] mb-6">Drag-and-drop canvas. No code required.</p>
+                    <p className="text-base text-[#666] mb-6">Drag-and-drop actions across tools and agents.</p>
 
                     <div className="space-y-3">
                       {workflowHighlights[0].features.map((f, i) => (
@@ -733,7 +728,7 @@ export default function LandingPage() {
                     {/* Workflow Nodes */}
                     <div className="relative h-full flex items-center justify-center py-8 md:py-0">
                       <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-                        {/* Node 1: Search */}
+                        {/* Node 1: Discover */}
                         <motion.div
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
@@ -744,7 +739,7 @@ export default function LandingPage() {
                           <div className="w-10 h-10 bg-blue-100 border border-blue-300 flex items-center justify-center mb-2">
                             <Search className="w-5 h-5 text-blue-600" />
                           </div>
-                          <p className="text-sm font-bold text-[#1A1A1A]">Search Contacts</p>
+                          <p className="text-sm font-bold text-[#1A1A1A]">Discover Leads</p>
                         </motion.div>
 
                         {/* Arrow 1 */}
@@ -795,7 +790,7 @@ export default function LandingPage() {
                           </div>
                         </motion.div>
 
-                        {/* Node 3: Send DM */}
+                        {/* Node 3: Execute */}
                         <motion.div
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
@@ -806,7 +801,7 @@ export default function LandingPage() {
                           <div className="w-10 h-10 bg-[#0A66C2]/10 border border-[#0A66C2]/30 flex items-center justify-center mb-2">
                             <Send className="w-5 h-5 text-[#0A66C2]" />
                           </div>
-                          <p className="text-sm font-bold text-[#1A1A1A]">Send DM</p>
+                          <p className="text-sm font-bold text-[#1A1A1A]">Execute Outreach</p>
                         </motion.div>
                       </div>
                     </div>
@@ -820,7 +815,7 @@ export default function LandingPage() {
                       className="absolute bottom-4 left-4 bg-white border border-[#1A1A1A] px-3 py-2 text-xs flex items-center gap-2"
                     >
                       <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                      <span className="text-[#1A1A1A] font-medium">3 variations testing...</span>
+                      <span className="text-[#1A1A1A] font-medium">Optimizing messaging...</span>
                     </motion.div>
                   </div>
                 </div>
@@ -844,7 +839,7 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 className="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase border-2 border-[#1A1A1A]"
               >
-                /// ARCHITECTURE
+                /// MULTI-AGENT ARCHITECTURE
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -853,9 +848,9 @@ export default function LandingPage() {
                 transition={{ delay: 0.1 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
               >
-                MULTI-CHANNEL
+                AGENT-TO-AGENT
                 <br />
-                <span className="text-[#1D3557]">AGENT RUNTIME</span>
+                <span className="text-[#1D3557]">COORDINATION</span>
               </motion.h2>
             </div>
 
@@ -890,7 +885,7 @@ export default function LandingPage() {
                     {card.desc}
                   </p>
 
-                  {/* Platform Icons for Cross-Platform card */}
+                  {/* Platform Icons for Agent-to-Agent card */}
                   {i === 0 && (
                     <div className="flex gap-4 mt-8">
                       <div
@@ -915,7 +910,7 @@ export default function LandingPage() {
                         className="w-12 h-12 flex items-center justify-center"
                         style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
                       >
-                        <Mail className="w-6 h-6 text-white" />
+                        <Database className="w-6 h-6 text-white" />
                       </div>
                     </div>
                   )}
@@ -946,7 +941,7 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 className="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase border-2 border-[#1A1A1A]"
               >
-                /// CAPABILITIES
+                /// CORE SYSTEM MODULES
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -964,7 +959,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-[#4A4A4A] max-w-2xl"
               >
-                Full-stack autonomous runtime with continuous optimization loops.
+                A unified execution layer orchestrates every interaction.
               </motion.p>
             </div>
 
@@ -1033,7 +1028,7 @@ export default function LandingPage() {
               >
                 DEPLOY
                 <br />
-                <span className="text-[#FFB703]">INTELLIGENCE</span>
+                <span className="text-[#FFB703]">AUTONOMOUS WORK</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -1042,7 +1037,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.1 }}
                 className="text-lg md:text-xl text-white/70 max-w-xl mb-10"
               >
-                Join the automated future. Initialize your first agent swarm today.
+                The future of software is agent networks executing workflows autonomously. Streaml provides the infrastructure layer that makes this possible.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -1058,7 +1053,7 @@ export default function LandingPage() {
                   className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#E63946] text-white border-2 border-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"
                   style={{ fontFamily: "'Cabin', system-ui, sans-serif" }}
                 >
-                  GET YOUR OWN AGENT
+                  Initialize your agent runtime
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
@@ -1068,7 +1063,7 @@ export default function LandingPage() {
                   className="inline-flex items-center gap-3 px-6 py-3 font-medium text-sm transition-all duration-200 bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#1D3557]"
                   style={{ fontFamily: "'Cabin', system-ui, sans-serif" }}
                 >
-                  BOOK A DEMO
+                  Talk to Founder
                 </a>
               </motion.div>
             </div>

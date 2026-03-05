@@ -74,10 +74,27 @@ public/
 
 ## Deployment
 
-Build the project and deploy the `dist/` folder to any static hosting:
+### Vercel (推荐)
+
+1. 将项目推送到 GitHub 仓库
+2. 在 Vercel 导入项目: https://vercel.com/new
+3. Vercel 会自动检测配置并部署
+
+或者使用 Vercel CLI:
+
+```bash
+npm i -g vercel
+vercel
+```
+
+项目已配置 `vercel.json`，包含路由重写和缓存策略。
+
+### 其他平台
+
+构建项目并部署 `dist/` 文件夹:
 
 ```bash
 npm run build
 ```
 
-Compatible with Vercel, Netlify, Cloudflare Pages, etc.
+兼容 Netlify, Cloudflare Pages 等静态托管平台。
