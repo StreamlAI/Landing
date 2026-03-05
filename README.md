@@ -74,27 +74,27 @@ public/
 
 ## Deployment
 
-### Vercel (推荐)
+### Vercel (Recommended)
 
-1. 将项目推送到 GitHub 仓库
-2. 在 Vercel 导入项目: https://vercel.com/new
-3. Vercel 会自动检测配置并部署
+1. Push your code to GitHub
+2. Import project on Vercel: https://vercel.com/new
+3. Vercel will automatically detect and deploy
 
-或者使用 Vercel CLI:
+Or use Vercel CLI:
 
 ```bash
 npm i -g vercel
 vercel
 ```
 
-项目已配置 `vercel.json`，包含路由重写和缓存策略。
+Project includes `vercel.json` with route rewrites and cache strategies.
 
-### 其他平台
+### Other Platforms
 
-构建项目并部署 `dist/` 文件夹:
+Build the project and deploy the `dist/` folder:
 
 ```bash
 npm run build
 ```
 
-兼容 Netlify, Cloudflare Pages 等静态托管平台。
+Compatible with Netlify, Cloudflare Pages, etc.
