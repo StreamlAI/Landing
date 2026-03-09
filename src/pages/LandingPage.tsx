@@ -33,6 +33,7 @@ import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { RedditIcon } from "@/components/icons/RedditIcon";
 import { useSEO } from "@/hooks/useSEO";
+import IntegrationWorkflow from "@/components/IntegrationWorkflow";
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -920,6 +921,9 @@ export default function LandingPage() {
           </div>
         </section>
 
+
+        {/* Integration Workflow */}
+        <IntegrationWorkflow />
 
         {/* Features Grid - 2x3 */}
         <section
