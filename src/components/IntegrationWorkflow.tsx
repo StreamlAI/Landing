@@ -376,9 +376,11 @@ export default function IntegrationWorkflow() {
               onInit={onInit}
               fitView
               panOnDrag={false}
+              panOnScroll={false}
               zoomOnScroll={false}
               zoomOnPinch={false}
               zoomOnDoubleClick={false}
+              preventScrolling={false}
               nodesDraggable={false}
               nodesConnectable={false}
               elementsSelectable={false}
