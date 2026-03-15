@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Network,
-  RefreshCcw,
   Database,
   Zap,
   Cpu,
@@ -537,99 +536,6 @@ export default function LandingPage() {
                 </div>
               </motion.div>
             </div>
-          </div>
-        </section>
-
-        {/* Why Streaml / Differentiation Section */}
-        <section
-          id="why-streaml"
-          className="py-24 md:py-32 relative"
-          style={{
-            borderTop: "4px solid #1A1A1A",
-            backgroundColor: "#FAFAFA"
-          }}
-        >
-          <div className="absolute inset-0 neo-grid opacity-30"></div>
-
-          <div className="container mx-auto px-6 relative z-10">
-            {/* Section Header */}
-            <div className="mb-16 text-center">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-12"
-              >
-                WHY <span className="text-[#1D3557]">STREAML</span>
-              </motion.h2>
-            </div>
-
-            {/* 2x2 Grid of Benefits */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-center p-8"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-[#1D3557]">
-                  <Cpu className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3">Model Routing</h3>
-                <p className="text-[#4A4A4A] leading-relaxed">
-                  Intelligent routing to the optimal model for each task
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-center p-8"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-[#FFB703]">
-                  <Zap className="w-8 h-8 text-[#1A1A1A]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3">Inference Efficiency</h3>
-                <p className="text-[#4A4A4A] leading-relaxed">
-                  Optimize model inference for maximum performance
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-center p-8"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-[#E63946]">
-                  <Activity className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3">Execution Latency</h3>
-                <p className="text-[#4A4A4A] leading-relaxed">
-                  Reduce latency for faster agent response times
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="text-center p-8"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-[#1A1A1A]">
-                  <RefreshCcw className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3">Cost Optimization</h3>
-                <p className="text-[#4A4A4A] leading-relaxed">
-                  Control costs with intelligent resource allocation
-                </p>
-              </motion.div>
-            </div>
-
           </div>
         </section>
 
