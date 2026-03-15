@@ -27,10 +27,10 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useSEO({
-    title: "Streaml | Agent-to-Agent Execution Infrastructure",
-    description: "A runtime where AI agents discover, communicate, and execute workflows across tools, data, and platforms.",
+    title: "Streaml | The Execution and Optimization Layer for AI Agents",
+    description: "Streaml is an AI agent runtime that combines tool connectivity with model optimization. Build production-grade AI systems with a single platform.",
     canonicalPath: "/",
-    keywords: "AI agents, agent-to-agent, autonomous execution, agent runtime, multi-agent architecture, workflow automation, agent economy",
+    keywords: "AI agent runtime, execution layer, model optimization, model routing, inference optimization, AI infrastructure, agent tools, workflow orchestration",
   });
 
   useEffect(() => {
@@ -40,70 +40,6 @@ export default function LandingPage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const architectureCards = [
-    {
-      title: "Agent-to-Agent",
-      subtitle: "Coordination",
-      desc: "Agents call internal company agents, interact with external APIs, retrieve organizational knowledge, and trigger actions across SaaS systems.",
-      icon: <Network className="w-8 h-8" />,
-      bg: "neo-block-blue",
-    },
-    {
-      title: "Humanoid",
-      subtitle: "Execution",
-      desc: "Natural timing variability, contextual language generation, and adaptive behavior across platforms. Agents blend seamlessly into real operational workflows.",
-      icon: <Activity className="w-8 h-8" />,
-      bg: "neo-block-yellow",
-    },
-    {
-      title: "Data Network",
-      subtitle: "Effect",
-      desc: "Your company's knowledge becomes the intelligence layer. CRM data, internal documentation, historical workflow execution, and performance analytics.",
-      icon: <Database className="w-8 h-8" />,
-      bg: "neo-block-white",
-    },
-  ];
-
-
-  const features = [
-    {
-      icon: <Terminal className="w-5 h-5" />,
-      title: "Client Control Interface",
-      desc: "Central dashboard for monitoring agent activity, workflows, and system performance.",
-      color: "neo-index-red",
-    },
-    {
-      icon: <Cpu className="w-5 h-5" />,
-      title: "Agent Workflow Engine",
-      desc: "Compiles natural-language instructions into executable multi-agent workflows.",
-      color: "neo-index-yellow",
-    },
-    {
-      icon: <Server className="w-5 h-5" />,
-      title: "Cloud Sandbox Runtime",
-      desc: "Secure, isolated environments where agents execute tasks across tools and platforms.",
-      color: "neo-index-blue",
-    },
-    {
-      icon: <RefreshCcw className="w-5 h-5" />,
-      title: "Evolution Engine",
-      desc: "Continuous optimization loop that analyzes performance and improves workflows automatically.",
-      color: "neo-index-red",
-    },
-    {
-      icon: <Lock className="w-5 h-5" />,
-      title: "Secure Execution Layer",
-      desc: "Enterprise-grade permissions and safeguards for agent actions.",
-      color: "neo-index-yellow",
-    },
-    {
-      icon: <Database className="w-5 h-5" />,
-      title: "Persistent Memory",
-      desc: "Long-term context storage enabling agents to learn from past interactions.",
-      color: "neo-index-blue",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#1A1A1A] overflow-x-hidden font-sans selection:bg-[#E63946]/20">
@@ -131,22 +67,16 @@ export default function LandingPage() {
 
           <div className="hidden md:flex items-center gap-8">
             <a
-              href="#automation"
+              href="#"
               className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             >
-              Automation
+              Home
             </a>
             <a
-              href="#architecture"
+              href="/blog"
               className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             >
-              Architecture
-            </a>
-            <a
-              href="#features"
-              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
-            >
-              Features
+              Blog
             </a>
           </div>
 
@@ -210,25 +140,18 @@ export default function LandingPage() {
         >
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
             <a
-              href="#automation"
+              href="#"
               onClick={() => setMobileMenuOpen(false)}
               className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
             >
-              Automation
+              Home
             </a>
             <a
-              href="#architecture"
+              href="/blog"
               onClick={() => setMobileMenuOpen(false)}
               className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
             >
-              Architecture
-            </a>
-            <a
-              href="#features"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
-            >
-              Features
+              Blog
             </a>
             <a
               href="https://calendly.com/yirancai00/30min"
@@ -307,7 +230,7 @@ export default function LandingPage() {
                   }}
                 >
                   <Zap className="w-3 h-3 text-[#E63946]" />
-                  STREAML
+                  AI AGENT RUNTIME
                 </span>
               </motion.div>
 
@@ -319,7 +242,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.5, delay: 0.15 }}
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.9]"
                 >
-                  AGENT-TO-AGENT
+                  THE EXECUTION &
                 </motion.h1>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
@@ -327,7 +250,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.9]"
                 >
-                  EXECUTION
+                  OPTIMIZATION LAYER
                 </motion.h1>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
@@ -335,7 +258,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.5, delay: 0.45 }}
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.9] text-[#1D3557]"
                 >
-                  INFRASTRUCTURE
+                  FOR AI AGENTS
                 </motion.h1>
               </div>
 
@@ -346,8 +269,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="text-lg md:text-xl text-[#4A4A4A] max-w-lg mb-10 leading-relaxed"
               >
-                A runtime where AI agents discover, communicate, and execute
-                workflows across tools, data, and platforms.
+                Connect agents to real-world tools while optimizing model execution, routing, and performance.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -363,20 +285,148 @@ export default function LandingPage() {
                   rel="noopener noreferrer"
                   className="neo-btn-primary flex items-center gap-3 group"
                 >
-                  Talk to Founder
+                  Book a Demo
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href="mailto:vivian@streaml.app"
+                  className="neo-btn-secondary flex items-center gap-3 group"
+                >
+                  Contact Us
+                  <Mail className="w-4 h-4" />
                 </a>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Integration Workflow */}
-        <IntegrationWorkflow />
-
-        {/* Architecture Section - Three Cards */}
+        {/* Trusted By Section */}
         <section
-          id="architecture"
+          className="py-16 relative"
+          style={{
+            backgroundColor: "#FAFAFA",
+            borderTop: "4px solid #1A1A1A",
+            borderBottom: "4px solid #1A1A1A"
+          }}
+        >
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[#1A1A1A]">
+                Trusted by Fortune 500 companies
+              </h2>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Category Definition Section */}
+        <section
+          className="py-24 md:py-32 relative"
+          style={{
+            backgroundColor: "#FAFAFA"
+          }}
+        >
+          <div className="absolute inset-0 neo-grid opacity-30"></div>
+
+          <div className="container mx-auto px-6 relative z-10">
+            {/* Section Header */}
+            <div className="mb-16 text-center">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+              >
+                A NEW CATEGORY OF
+                <br />
+                <span className="text-[#1D3557]">AI INFRASTRUCTURE</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-xl md:text-2xl text-[#4A4A4A] max-w-3xl mx-auto"
+              >
+                Most platforms connect agents to tools.
+                <br />
+                <span className="font-bold text-[#1A1A1A]">Streaml goes deeper.</span>
+              </motion.p>
+            </div>
+
+            {/* Two Column Comparison */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mb-24">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="neo-block-blue p-10 md:p-12 md:border-r-4 md:border-[#1A1A1A] border-b-4 md:border-b-0"
+                style={{ minHeight: "300px" }}
+              >
+                <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+                  Tool Connectivity Layer
+                </h3>
+                <p className="text-lg text-white/80 leading-relaxed mb-6">
+                  Connect agents to APIs and tools
+                </p>
+                <ul className="space-y-3 text-white/70">
+                  <li className="flex items-start gap-3">
+                    <Network className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>Integration with external services</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Terminal className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>API connectivity and authentication</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Database className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>Data source access</span>
+                  </li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="neo-block-yellow p-10 md:p-12"
+                style={{ minHeight: "300px" }}
+              >
+                <h3 className="text-3xl md:text-4xl font-bold mb-6 text-[#1A1A1A]">
+                  Model Optimization Layer
+                </h3>
+                <p className="text-lg text-[#1A1A1A]/80 leading-relaxed mb-6">
+                  Optimize model routing, inference, and cost
+                </p>
+                <ul className="space-y-3 text-[#1A1A1A]/70">
+                  <li className="flex items-start gap-3">
+                    <Cpu className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>Intelligent model routing</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Zap className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>Inference efficiency optimization</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Activity className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>Performance monitoring and tuning</span>
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Integration Workflow Visualization */}
+          <IntegrationWorkflow />
+        </section>
+
+        {/* Platform Section - 4 Cards */}
+        <section
+          id="platform"
           className="py-24 md:py-32 relative"
           style={{ borderTop: "4px solid #1A1A1A" }}
         >
@@ -389,7 +439,7 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 className="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase border-2 border-[#1A1A1A]"
               >
-                /// MULTI-AGENT ARCHITECTURE
+                /// PLATFORM
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -398,82 +448,112 @@ export default function LandingPage() {
                 transition={{ delay: 0.1 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
               >
-                AGENT-TO-AGENT
+                EVERYTHING TEAMS NEED
                 <br />
-                <span className="text-[#1D3557]">COORDINATION</span>
+                <span className="text-[#1D3557]">TO SHIP AI AGENTS</span>
               </motion.h2>
             </div>
 
-            {/* Three Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-0">
-              {architectureCards.map((card, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  whileHover={{ y: -4 }}
-                  className={`${card.bg} p-8 md:p-10 transition-all duration-200 ${
-                    i === 2 ? "" : "md:border-r-4 md:border-[#1A1A1A]"
-                  } border-b-4 md:border-b-0 border-[#1A1A1A] last:border-b-0`}
-                  style={{
-                    minHeight: "320px",
-                  }}
-                >
-                  <div className="mb-6">{card.icon}</div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">
-                    {card.title}
+            {/* 2x2 Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0 }}
+                className="neo-card p-10 relative group"
+              >
+                <div className="neo-index neo-index-blue absolute top-8 left-8">
+                  01
+                </div>
+                <div className="pt-12">
+                  <div className="mb-6">
+                    <Network className="w-8 h-8 text-[#1A1A1A]" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Tool Connectivity
                   </h3>
-                  <h4 className="text-2xl md:text-3xl font-bold mb-6 opacity-70">
-                    {card.subtitle}
-                  </h4>
-                  <p className={`text-base leading-relaxed ${
-                    card.bg === "neo-block-yellow" ? "text-[#1A1A1A]/70" :
-                    card.bg === "neo-block-white" ? "text-[#4A4A4A]" : "text-white/70"
-                  }`}>
-                    {card.desc}
+                  <p className="text-[#4A4A4A] text-base leading-relaxed">
+                    Connect agents to APIs and tools. Access any service or data source your agents need to operate.
                   </p>
+                </div>
+              </motion.div>
 
-                  {/* Platform Icons for Agent-to-Agent card */}
-                  {i === 0 && (
-                    <div className="flex gap-4 mt-8">
-                      <div
-                        className="w-12 h-12 flex items-center justify-center"
-                        style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
-                      >
-                        <LinkedInIcon className="w-6 h-6 text-white" />
-                      </div>
-                      <div
-                        className="w-12 h-12 flex items-center justify-center"
-                        style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
-                      >
-                        <XIcon className="w-6 h-6 text-white" />
-                      </div>
-                      <div
-                        className="w-12 h-12 flex items-center justify-center"
-                        style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
-                      >
-                        <RedditIcon className="w-6 h-6 text-white" />
-                      </div>
-                      <div
-                        className="w-12 h-12 flex items-center justify-center"
-                        style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
-                      >
-                        <Database className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="neo-card p-10 relative group"
+              >
+                <div className="neo-index neo-index-red absolute top-8 left-8">
+                  02
+                </div>
+                <div className="pt-12">
+                  <div className="mb-6">
+                    <Activity className="w-8 h-8 text-[#1A1A1A]" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Workflow Orchestration
+                  </h3>
+                  <p className="text-[#4A4A4A] text-base leading-relaxed">
+                    Orchestrate multi-step AI workflows. Chain together complex sequences of agent actions.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="neo-card p-10 relative group"
+              >
+                <div className="neo-index neo-index-yellow absolute top-8 left-8">
+                  03
+                </div>
+                <div className="pt-12">
+                  <div className="mb-6">
+                    <Cpu className="w-8 h-8 text-[#1A1A1A]" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Model Routing
+                  </h3>
+                  <p className="text-[#4A4A4A] text-base leading-relaxed">
+                    Optimize model routing and inference. Route requests to the best model for each task.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="neo-card p-10 relative group"
+              >
+                <div className="neo-index neo-index-blue absolute top-8 left-8">
+                  04
+                </div>
+                <div className="pt-12">
+                  <div className="mb-6">
+                    <Server className="w-8 h-8 text-[#1A1A1A]" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Production Runtime
+                  </h3>
+                  <p className="text-[#4A4A4A] text-base leading-relaxed">
+                    Run reliable AI systems in production. Enterprise-grade infrastructure for agent deployment.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-
-        {/* Features Grid - 2x3 */}
+        {/* Why Streaml / Differentiation Section */}
         <section
-          id="features"
+          id="why-streaml"
           className="py-24 md:py-32 relative"
           style={{
             borderTop: "4px solid #1A1A1A",
@@ -484,62 +564,176 @@ export default function LandingPage() {
 
           <div className="container mx-auto px-6 relative z-10">
             {/* Section Header */}
-            <div className="mb-16 text-center md:text-left">
+            <div className="mb-16 text-center">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-12"
+              >
+                WHY <span className="text-[#1D3557]">STREAML</span>
+              </motion.h2>
+            </div>
+
+            {/* 2x2 Grid of Benefits */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center p-8"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-[#1D3557]">
+                  <Cpu className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Model Routing</h3>
+                <p className="text-[#4A4A4A] leading-relaxed">
+                  Intelligent routing to the optimal model for each task
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-center p-8"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-[#FFB703]">
+                  <Zap className="w-8 h-8 text-[#1A1A1A]" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Inference Efficiency</h3>
+                <p className="text-[#4A4A4A] leading-relaxed">
+                  Optimize model inference for maximum performance
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-center p-8"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-[#E63946]">
+                  <Activity className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Execution Latency</h3>
+                <p className="text-[#4A4A4A] leading-relaxed">
+                  Reduce latency for faster agent response times
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="text-center p-8"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-[#1A1A1A]">
+                  <RefreshCcw className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Cost Optimization</h3>
+                <p className="text-[#4A4A4A] leading-relaxed">
+                  Control costs with intelligent resource allocation
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Bottom Statement */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="text-center"
+            >
+              <p className="text-2xl md:text-3xl font-bold text-[#1A1A1A] max-w-3xl mx-auto">
+                This makes AI systems faster, cheaper, and more reliable.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Blog Section */}
+        <section
+          id="blog"
+          className="py-24 md:py-32 relative"
+          style={{
+            borderTop: "4px solid #1A1A1A",
+            backgroundColor: "#FAFAFA"
+          }}
+        >
+          <div className="container mx-auto px-6">
+            {/* Section Header */}
+            <div className="mb-16">
               <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 className="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase border-2 border-[#1A1A1A]"
               >
-                /// CORE SYSTEM MODULES
+                /// BLOG
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl font-bold mb-6"
+                className="text-4xl md:text-5xl font-bold tracking-tight"
               >
-                CORE MODULES
+                FROM THE <span className="text-[#1D3557]">BLOG</span>
               </motion.h2>
-              <motion.p
+            </div>
+
+            {/* Blog Card and CTA */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              {/* Featured Blog Post */}
+              <motion.a
+                href="/blog/beyond-transformers"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-lg text-[#4A4A4A] max-w-2xl"
+                className="neo-card p-8 block group"
               >
-                A unified execution layer orchestrates every interaction.
-              </motion.p>
-            </div>
+                <div className="mb-4">
+                  <span className="text-xs font-mono font-bold text-[#4A4A4A] tracking-wider uppercase">
+                    MAR 15, 2026
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mb-3 group-hover:text-[#1D3557] transition-colors">
+                  Beyond Transformers: Where the Next AI Paradigm Shift Might Come From
+                </h3>
+                <p className="text-[#4A4A4A] text-sm leading-relaxed">
+                  In 2017, a single paper changed the trajectory of artificial intelligence. But every paradigm eventually hits its limits. What comes after Transformers?
+                </p>
+              </motion.a>
 
-            {/* 2x3 Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feature, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="neo-card p-8 relative group"
-                >
-                  {/* Index Badge */}
-                  <div className={`neo-index ${feature.color} absolute top-6 left-6`}>
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-
-                  <div className="pt-12">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="text-[#1A1A1A]">{feature.icon}</div>
-                      <h3 className="text-lg font-bold">{feature.title}</h3>
-                    </div>
-                    <p className="text-[#4A4A4A] text-sm leading-relaxed">
-                      {feature.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              {/* View All Blog CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="flex items-center justify-center h-full"
+              >
+                <div className="text-center">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-6">
+                    More Insights on AI Infrastructure
+                  </h3>
+                  <p className="text-[#4A4A4A] text-lg mb-8">
+                    Explore our latest articles on agent systems, model optimization, and intelligent infrastructure.
+                  </p>
+                  <a
+                    href="/blog"
+                    className="neo-btn-primary inline-flex items-center gap-2"
+                  >
+                    <span>View All Articles</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -576,9 +770,9 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-white"
               >
-                DEPLOY
+                BUILD
                 <br />
-                <span className="text-[#FFB703]">AUTONOMOUS WORK</span>
+                <span className="text-[#FFB703]">PRODUCTION AI SYSTEMS</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -587,7 +781,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.1 }}
                 className="text-lg md:text-xl text-white/70 max-w-xl mb-10"
               >
-                The future of software is agent networks executing workflows autonomously. Streaml provides the infrastructure layer that makes this possible.
+                Stop stitching together multiple services. Use Streaml as the runtime layer for intelligent systems.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -597,23 +791,23 @@ export default function LandingPage() {
                 className="flex flex-wrap gap-4"
               >
                 <a
-                  href="mailto:vivian@streaml.app"
+                  href="https://calendly.com/yirancai00/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#E63946] text-white border-2 border-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"
                   style={{ fontFamily: "'Cabin', system-ui, sans-serif" }}
                 >
-                  Initialize your agent runtime
+                  Book a Demo
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://calendly.com/yirancai00/30min"
+                  href="mailto:vivian@streaml.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-6 py-3 font-medium text-sm transition-all duration-200 bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#1D3557]"
                   style={{ fontFamily: "'Cabin', system-ui, sans-serif" }}
                 >
-                  Talk to Founder
+                  Contact Us
                 </a>
               </motion.div>
             </div>
@@ -637,6 +831,12 @@ export default function LandingPage() {
           </div>
 
           <div className="flex gap-8 text-xs text-[#4A4A4A]">
+            <a
+              href="#blog"
+              className="hover:text-[#1A1A1A] transition-colors"
+            >
+              Blog
+            </a>
             <a
               href="/privacy-policy"
               className="hover:text-[#1A1A1A] transition-colors"
