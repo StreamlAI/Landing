@@ -345,17 +345,6 @@ export default function LandingPage() {
                 <br />
                 <span className="text-[#1D3557]">AI INFRASTRUCTURE</span>
               </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-xl md:text-2xl text-[#4A4A4A] max-w-3xl mx-auto"
-              >
-                Most platforms connect agents to tools.
-                <br />
-                <span className="font-bold text-[#1A1A1A]">Streaml goes deeper.</span>
-              </motion.p>
             </div>
 
             {/* Two Column Comparison */}
@@ -641,18 +630,6 @@ export default function LandingPage() {
               </motion.div>
             </div>
 
-            {/* Bottom Statement */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="text-center"
-            >
-              <p className="text-2xl md:text-3xl font-bold text-[#1A1A1A] max-w-3xl mx-auto">
-                This makes AI systems faster, cheaper, and more reliable.
-              </p>
-            </motion.div>
           </div>
         </section>
 
