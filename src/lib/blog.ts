@@ -25,7 +25,7 @@ const blogPostsMetadata: Record<string, BlogPostMetadata> = {
     author: 'Streaml Team',
     excerpt: 'In 2017, a single paper changed the trajectory of artificial intelligence. But every paradigm eventually hits its limits. What comes after Transformers?',
     tags: ['AI', 'Machine Learning', 'Transformers', 'Architecture'],
-    contentPath: '/src/content/blog/beyond-transformers.md',
+    contentPath: '/blog/beyond-transformers.md',
   },
 };
 
