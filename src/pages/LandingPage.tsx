@@ -316,7 +316,7 @@ export default function LandingPage() {
               className="text-center"
             >
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[#1A1A1A]">
-                Trusted by Fortune 500 companies
+                Trusted by 20+ Fortune 500 companies
               </h2>
             </motion.div>
           </div>
