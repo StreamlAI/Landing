@@ -26,24 +26,10 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useSEO({
-    title: "Streaml | AI Agent Infrastructure for Autonomous Workflows",
-    description: "Streaml is an AI agent infrastructure platform for building and orchestrating autonomous workflows across tools, APIs, and enterprise systems.",
+    title: "Streaml | The Execution and Optimization Layer for AI Agents",
+    description: "Streaml is an AI agent runtime that combines tool connectivity with model optimization. Build production-grade AI systems with a single platform.",
     canonicalPath: "/",
-    keywords: "AI agent infrastructure, autonomous AI agents, AI workflow automation, multi-agent systems, agent orchestration platform",
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Streaml",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "description": "AI agent infrastructure for building and orchestrating autonomous workflows. Teams can deploy self-optimizing multi-agent systems that connect to APIs, tools, and enterprise data.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/ComingSoon"
-      }
-    }
+    keywords: "AI agent runtime, execution layer, model optimization, model routing, inference optimization, AI infrastructure, agent tools, workflow orchestration",
   });
 
   useEffect(() => {
@@ -255,7 +241,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.5, delay: 0.15 }}
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.9]"
                 >
-                  AI AGENT INFRASTRUCTURE
+                  THE EXECUTION &
                 </motion.h1>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
@@ -263,7 +249,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.9]"
                 >
-                  FOR AUTONOMOUS
+                  OPTIMIZATION LAYER
                 </motion.h1>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
@@ -271,7 +257,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.5, delay: 0.45 }}
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.9] text-[#1D3557]"
                 >
-                  WORKFLOWS
+                  FOR AI AGENTS
                 </motion.h1>
               </div>
 
@@ -282,7 +268,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="text-lg md:text-xl text-[#4A4A4A] max-w-lg mb-10 leading-relaxed"
               >
-                Streaml enables teams to deploy networks of AI agents that orchestrate, execute, and optimize workflows across tools, APIs, and enterprise data. Automate research, operations, and business processes with autonomous agents that learn and improve over time.
+                Connect agents to real-world tools while optimizing model execution, routing, and performance.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -354,9 +340,9 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
               >
-                WHAT STREAML
+                A NEW CATEGORY OF
                 <br />
-                <span className="text-[#1D3557]">AGENTS CAN DO</span>
+                <span className="text-[#1D3557]">AI INFRASTRUCTURE</span>
               </motion.h2>
             </div>
 
@@ -370,23 +356,23 @@ export default function LandingPage() {
                 style={{ minHeight: "300px" }}
               >
                 <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                  Execute & Orchestrate
+                  Tool Connectivity Layer
                 </h3>
                 <p className="text-lg text-white/80 leading-relaxed mb-6">
-                  Deploy autonomous agents across platforms
+                  Connect agents to APIs and tools
                 </p>
                 <ul className="space-y-3 text-white/70">
                   <li className="flex items-start gap-3">
-                    <Activity className="w-5 h-5 mt-1 flex-shrink-0" />
-                    <span>Deploy autonomous AI agents across multiple platforms</span>
+                    <Network className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>Integration with external services</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Network className="w-5 h-5 mt-1 flex-shrink-0" />
-                    <span>Orchestrate complex workflows without manual intervention</span>
+                    <Terminal className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>API connectivity and authentication</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Database className="w-5 h-5 mt-1 flex-shrink-0" />
-                    <span>Integrate with APIs, SaaS tools, and internal data systems</span>
+                    <span>Data source access</span>
                   </li>
                 </ul>
               </motion.div>
@@ -399,19 +385,23 @@ export default function LandingPage() {
                 style={{ minHeight: "300px" }}
               >
                 <h3 className="text-3xl md:text-4xl font-bold mb-6 text-[#1A1A1A]">
-                  Track & Optimize
+                  Model Optimization Layer
                 </h3>
                 <p className="text-lg text-[#1A1A1A]/80 leading-relaxed mb-6">
-                  Learn from workflow outcomes and performance
+                  Optimize model routing, inference, and cost
                 </p>
                 <ul className="space-y-3 text-[#1A1A1A]/70">
                   <li className="flex items-start gap-3">
-                    <Zap className="w-5 h-5 mt-1 flex-shrink-0" />
-                    <span>Continuous optimization and learning from workflow outcomes</span>
+                    <Cpu className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>Intelligent model routing</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Cpu className="w-5 h-5 mt-1 flex-shrink-0" />
-                    <span>Real-time monitoring and performance tracking</span>
+                    <Zap className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>Inference efficiency optimization</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Activity className="w-5 h-5 mt-1 flex-shrink-0" />
+                    <span>Performance monitoring and tuning</span>
                   </li>
                 </ul>
               </motion.div>
@@ -444,21 +434,12 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
               >
-                HOW STREAML ORCHESTRATES
+                EVERYTHING TEAMS NEED
                 <br />
-                <span className="text-[#1D3557]">MULTI-AGENT WORKFLOWS</span>
+                <span className="text-[#1D3557]">TO SHIP AI AGENTS</span>
               </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-lg md:text-xl text-[#4A4A4A] max-w-2xl leading-relaxed"
-              >
-                Streaml's multi-agent runtime platform allows agents to coordinate and execute tasks autonomously. Agents interact with each other, call external APIs, retrieve knowledge from internal systems, and perform actions across enterprise tools.
-              </motion.p>
             </div>
 
             {/* 2x2 Grid */}
@@ -585,7 +566,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.1 }}
                 className="text-4xl md:text-5xl font-bold tracking-tight"
               >
-                LEARN ABOUT <span className="text-[#1D3557]">AI AGENT INFRASTRUCTURE</span>
+                FROM THE <span className="text-[#1D3557]">BLOG</span>
               </motion.h2>
             </div>
 
@@ -672,9 +653,9 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-white"
               >
-                WHY CHOOSE STREAML
+                BUILD
                 <br />
-                <span className="text-[#FFB703]">FOR AI AUTOMATION</span>
+                <span className="text-[#FFB703]">PRODUCTION AI SYSTEMS</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -683,7 +664,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.1 }}
                 className="text-lg md:text-xl text-white/70 max-w-xl mb-10"
               >
-                Unlike traditional automation tools, Streaml provides a self-optimizing infrastructure for autonomous AI agents. Teams focus on outcomes rather than repetitive busywork, leveraging AI agents to manage data, execute workflows, and continuously improve performance.
+                Stop stitching together multiple services. Use Streaml as the runtime layer for intelligent systems.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
