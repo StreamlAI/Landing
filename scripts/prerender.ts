@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const toAbsolute = (p: string) => path.resolve(__dirname, "..", p);
@@ -10,8 +10,9 @@ async function prerender() {
   const template = fs.readFileSync(path.join(distPath, "index.html"), "utf-8");
 
   // Import the server entry
-  const serverEntryPath = path.join(distPath, "server", "entry-server.js");
-  const { render, routes } = await import(pathToFileURL(serverEntryPath).href);
+  const { render, routes } = await import(
+    path.join(distPath, "server", "entry-server.js")
+  );
 
   for (const url of routes) {
     const { html: appHtml } = render(url);
