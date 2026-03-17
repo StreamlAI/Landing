@@ -7,6 +7,7 @@ interface SEOProps {
   keywords?: string;
   ogImage?: string;
   noIndex?: boolean;
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
 const BASE_URL = "https://streaml.app";
@@ -19,6 +20,7 @@ export function useSEO({
   keywords,
   ogImage = DEFAULT_OG_IMAGE,
   noIndex = false,
+  schema,
 }: SEOProps) {
   useEffect(() => {
     // Update document title
@@ -62,5 +64,20 @@ export function useSEO({
     updateMeta('meta[name="twitter:title"]', title);
     updateMeta('meta[name="twitter:description"]', description);
     updateMeta('meta[name="twitter:image"]', ogImage);
-  }, [title, description, canonicalPath, keywords, ogImage, noIndex]);
+
+    // Update JSON-LD Schema
+    if (schema) {
+      let scriptTag = document.querySelector('script[id="dynamic-json-ld"]');
+      if (!scriptTag) {
+        scriptTag = document.createElement('script');
+        scriptTag.setAttribute('type', 'application/ld+json');
+        scriptTag.setAttribute('id', 'dynamic-json-ld');
+        document.head.appendChild(scriptTag);
+      }
+      scriptTag.textContent = JSON.stringify(schema);
+    } else {
+      const scriptTag = document.querySelector('script[id="dynamic-json-ld"]');
+      if (scriptTag) scriptTag.remove();
+    }
+  }, [title, description, canonicalPath, keywords, ogImage, noIndex, schema]);
 }
