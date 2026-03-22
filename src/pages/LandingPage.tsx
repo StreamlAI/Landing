@@ -77,12 +77,7 @@ export default function LandingPage() {
             >
               Blog
             </a>
-            <a
-              href="/use-cases"
-              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
-            >
-              Use Cases
-            </a>
+
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -158,13 +153,7 @@ export default function LandingPage() {
             >
               Blog
             </a>
-            <a
-              href="/use-cases"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
-            >
-              Use Cases
-            </a>
+
             <a
               href="https://calendly.com/yirancai00/30min"
               target="_blank"
@@ -634,6 +623,7 @@ export default function LandingPage() {
           </div>
         </section>
 
+
         {/* Use Cases Section */}
         <section
           id="use-cases"
@@ -666,91 +656,69 @@ export default function LandingPage() {
             </div>
 
             {/* Use Case Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-12">
-              {/* Featured Use Case 1 */}
-              <motion.a
-                href="/use-cases/automated-meeting-intelligence"
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="neo-card p-8 block group"
+                className="neo-card p-8"
               >
                 <div className="mb-4">
                   <span className="text-xs font-mono font-bold text-[#4A4A4A] tracking-wider uppercase">
                     MAR 19, 2026
                   </span>
                 </div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-[#1D3557] transition-colors">
+                <h3 className="text-xl font-bold mb-3">
                   Automated Meeting Intelligence: From Calendar to Action
                 </h3>
                 <p className="text-[#4A4A4A] text-sm leading-relaxed">
                   How AI agents connect to Google Calendar, research companies, prepare discovery questions, and deliver strategic briefs to Slack and Gmail — automatically before every meeting.
                 </p>
-              </motion.a>
+              </motion.div>
 
-              {/* Featured Use Case 2 */}
-              <motion.a
-                href="/use-cases/automated-issue-monitoring-confluence"
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="neo-card p-8 block group"
+                className="neo-card p-8"
               >
                 <div className="mb-4">
                   <span className="text-xs font-mono font-bold text-[#4A4A4A] tracking-wider uppercase">
                     MAR 19, 2026
                   </span>
                 </div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-[#1D3557] transition-colors">
+                <h3 className="text-xl font-bold mb-3">
                   Automated Issue Monitoring: From Confluence to Team Alerts
                 </h3>
                 <p className="text-[#4A4A4A] text-sm leading-relaxed">
                   How AI agents connect to Confluence and Jira, monitor for critical issues daily, and deliver structured digests to Slack and Gmail — so nothing falls through the cracks.
                 </p>
-              </motion.a>
+              </motion.div>
 
-              {/* Featured Use Case 3 */}
-              <motion.a
-                href="/use-cases/client-report-generation-google-sheets"
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="neo-card p-8 block group"
+                className="neo-card p-8"
               >
                 <div className="mb-4">
                   <span className="text-xs font-mono font-bold text-[#4A4A4A] tracking-wider uppercase">
                     MAR 19, 2026
                   </span>
                 </div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-[#1D3557] transition-colors">
+                <h3 className="text-xl font-bold mb-3">
                   Automated Client Report Generation from Google Sheets
                 </h3>
                 <p className="text-[#4A4A4A] text-sm leading-relaxed">
                   How AI agents read product and client data from Google Sheets, analyze usage trends, and generate polished client-facing reports — delivered automatically via Gmail and Google Drive.
                 </p>
-              </motion.a>
+              </motion.div>
             </div>
-
-            {/* View All Use Cases CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-center"
-            >
-              <a
-                href="/use-cases"
-                className="neo-btn-primary inline-flex items-center gap-2"
-              >
-                <span>View All Use Cases</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </motion.div>
           </div>
         </section>
+
 
         {/* CTA Section - Deep Blue Background */}
         <section
@@ -851,12 +819,7 @@ export default function LandingPage() {
             >
               Blog
             </a>
-            <a
-              href="/use-cases"
-              className="hover:text-[#1A1A1A] transition-colors"
-            >
-              Use Cases
-            </a>
+
             <a
               href="/privacy-policy"
               className="hover:text-[#1A1A1A] transition-colors"
