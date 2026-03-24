@@ -23,8 +23,8 @@ function Router() {
 
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
-      <Route path="/customers" component={Customers} />
-      <Route path="/customers/:slug" component={CustomerStory} />
+      <Route path="/use-cases" component={Customers} />
+      <Route path="/use-cases/:slug" component={CustomerStory} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -11,17 +11,17 @@ const caseStudies = [
     title: "Go-To-Market for a Series A Startup",
     subtitle:
       "Streaml deployed a network of GTM agents to help a Series A startup scale growth across creator outreach, content, pipeline, and CRM.",
-    cover: "/customers/gtm-cover.jpg",
+    cover: "/use-cases/gtm-cover.jpg",
   },
 ];
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Streaml Customers",
+  name: "Streaml Use Cases",
   description:
     "See how companies deploy Streaml's agent networks to automate go-to-market, sales pipeline, and CRM workflows.",
-  url: "https://streaml.app/customers",
+  url: "https://streaml.app/use-cases",
   publisher: {
     "@type": "Organization",
     name: "Streaml",
@@ -32,10 +32,10 @@ const jsonLd = {
 
 export default function Customers() {
   useSEO({
-    title: "Streaml | Customers — Agent-Powered Growth Stories",
+    title: "Streaml | Use Cases — Agent-Powered Growth Stories",
     description:
       "See how companies deploy Streaml's agent networks to automate go-to-market, sales pipeline, and CRM workflows at scale.",
-    canonicalPath: "/customers",
+    canonicalPath: "/use-cases",
     keywords:
       "AI agents, customer stories, case studies, GTM automation, agent workflows, sales automation, CRM automation, creator outreach",
   });
@@ -72,7 +72,7 @@ export default function Customers() {
               animate={{ opacity: 1 }}
               className="inline-block px-3 py-1 mb-6 text-xs font-mono font-bold tracking-wider uppercase border-2 border-[#1A1A1A]"
             >
-              /// CUSTOMER STORIES
+              /// USE CASES
             </motion.span>
 
             <motion.h1
@@ -81,7 +81,7 @@ export default function Customers() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.9] mb-6"
             >
-              CUSTOMERS
+              USE CASES
             </motion.h1>
 
             <motion.p
@@ -100,7 +100,7 @@ export default function Customers() {
 
         {/* Case Study Cards Grid */}
         <section
-          aria-label="Customer case studies"
+          aria-label="Use cases"
           className="py-16 md:py-24"
           style={{ borderTop: "4px solid #1A1A1A" }}
         >
@@ -115,7 +115,7 @@ export default function Customers() {
                   transition={{ delay: i * 0.1 }}
                 >
                   <Link
-                    href={`/customers/${study.slug}`}
+                    href={`/use-cases/${study.slug}`}
                     className="block group"
                   >
                     <article className="neo-card overflow-hidden p-0">

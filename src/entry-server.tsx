@@ -12,8 +12,8 @@ const pages: Record<string, React.ComponentType> = {
   "/": LandingPage,
   "/privacy-policy": PrivacyPolicy,
   "/terms-of-service": TermsOfService,
-  "/customers": Customers,
-  "/customers/gtm-series-a-startup": CustomerStory,
+  "/use-cases": Customers,
+  "/use-cases/gtm-series-a-startup": CustomerStory,
 };
 
 export function render(url: string) {

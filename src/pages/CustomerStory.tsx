@@ -20,7 +20,7 @@ const stories: Record<string, Story> = {
     tag: "GO-TO-MARKET",
     title: "Go-To-Market for a Series A Startup",
     subtitle: "",
-    cover: "/customers/gtm-cover.jpg",
+    cover: "/use-cases/gtm-cover.jpg",
     sections: [
       {
         heading: "Creator & Community Outreach",
@@ -49,7 +49,7 @@ export default function CustomerStory() {
   const story = slug ? stories[slug] : undefined;
 
   if (!story) {
-    return <Redirect to="/customers" />;
+    return <Redirect to="/use-cases" />;
   }
 
   const jsonLd = {
@@ -58,7 +58,7 @@ export default function CustomerStory() {
     headline: story.title,
     description: story.subtitle,
     image: `https://streaml.app${story.cover}`,
-    url: `https://streaml.app/customers/${story.slug}`,
+    url: `https://streaml.app/use-cases/${story.slug}`,
     author: { "@type": "Organization", name: "Streaml" },
     publisher: {
       "@type": "Organization",
@@ -68,9 +68,9 @@ export default function CustomerStory() {
   };
 
   useSEO({
-    title: `${story.title} | Streaml Customers`,
+    title: `${story.title} | Streaml Use Cases`,
     description: story.subtitle,
-    canonicalPath: `/customers/${story.slug}`,
+    canonicalPath: `/use-cases/${story.slug}`,
     keywords:
       "AI agents, case study, GTM automation, creator outreach, CRM automation, sales pipeline",
   });
@@ -103,11 +103,11 @@ export default function CustomerStory() {
           >
             <div className="container mx-auto px-6">
               <Link
-                href="/customers"
+                href="/use-cases"
                 className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-6"
               >
                 <ArrowLeft className="w-4 h-4" />
-                All customer stories
+                All use cases
               </Link>
 
               <span className="block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase bg-[#FFB703] text-[#1A1A1A] w-fit">

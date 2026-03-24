@@ -78,10 +78,10 @@ export default function LandingPage() {
               Blog
             </a>
             <a
-              href="/customers"
+              href="/use-cases"
               className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             >
-              Customers
+              Use Cases
             </a>
           </div>
 
@@ -160,11 +160,11 @@ export default function LandingPage() {
             </a>
 
             <a
-              href="/customers"
+              href="/use-cases"
               onClick={() => setMobileMenuOpen(false)}
               className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
             >
-              Customers
+              Use Cases
             </a>
             <a
               href="https://calendly.com/yirancai00/30min"
