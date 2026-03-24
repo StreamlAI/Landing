@@ -6,12 +6,14 @@ import LandingPage from "@/pages/LandingPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import Customers from "@/pages/Customers";
+import CustomerStory from "@/pages/CustomerStory";
 
 const pages: Record<string, React.ComponentType> = {
   "/": LandingPage,
   "/privacy-policy": PrivacyPolicy,
   "/terms-of-service": TermsOfService,
   "/customers": Customers,
+  "/customers/gtm-series-a-startup": CustomerStory,
 };
 
 export function render(url: string) {

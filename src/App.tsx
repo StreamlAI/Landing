@@ -10,6 +10,7 @@ import BlogPost from "@/pages/BlogPost";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import Customers from "@/pages/Customers";
+import CustomerStory from "@/pages/CustomerStory";
 import NotFound from "@/pages/not-found";
 import { CookieConsent } from "@/components/CookieConsent";
 
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/customers" component={Customers} />
+      <Route path="/customers/:slug" component={CustomerStory} />
       <Route component={NotFound} />
     </Switch>
   );
