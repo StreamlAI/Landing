@@ -5,11 +5,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import LandingPage from "@/pages/LandingPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import Customers from "@/pages/Customers";
 
 const pages: Record<string, React.ComponentType> = {
   "/": LandingPage,
   "/privacy-policy": PrivacyPolicy,
   "/terms-of-service": TermsOfService,
+  "/customers": Customers,
 };
 
 export function render(url: string) {

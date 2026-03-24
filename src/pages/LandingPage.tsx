@@ -77,7 +77,12 @@ export default function LandingPage() {
             >
               Blog
             </a>
-
+            <a
+              href="/customers"
+              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
+            >
+              Customers
+            </a>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -154,6 +159,13 @@ export default function LandingPage() {
               Blog
             </a>
 
+            <a
+              href="/customers"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
+            >
+              Customers
+            </a>
             <a
               href="https://calendly.com/yirancai00/30min"
               target="_blank"
