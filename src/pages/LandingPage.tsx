@@ -566,6 +566,103 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Use Cases Section */}
+        <section
+          id="use-cases"
+          className="py-24 md:py-32 relative"
+          style={{
+            borderTop: "4px solid #1A1A1A",
+            backgroundColor: "#FAFAFA"
+          }}
+        >
+          <div className="container mx-auto px-6">
+            {/* Section Header */}
+            <div className="mb-16">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold tracking-wider uppercase border-2 border-[#1A1A1A]"
+              >
+                /// USE CASES
+              </motion.span>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-4xl md:text-5xl font-bold tracking-tight"
+              >
+                REAL-WORLD <span className="text-[#1D3557]">AUTOMATION</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="mt-4 text-[#4A4A4A] text-lg max-w-2xl"
+              >
+                See how teams use Streaml agents to automate complex workflows across their entire tool stack.
+              </motion.p>
+            </div>
+
+            {/* Use Case Card and CTA */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              {/* Featured Use Case */}
+              <motion.a
+                href="/use-cases/automated-meeting-intelligence"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="neo-card p-8 block group"
+              >
+                <div className="mb-4 flex flex-wrap gap-2">
+                  <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 border border-[#1A1A1A]">
+                    Google Calendar
+                  </span>
+                  <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 border border-[#1A1A1A]">
+                    Slack
+                  </span>
+                  <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 border border-[#1A1A1A]">
+                    Gmail
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mb-3 group-hover:text-[#1D3557] transition-colors">
+                  Automated Meeting Intelligence: From Calendar to Action
+                </h3>
+                <p className="text-[#4A4A4A] text-sm leading-relaxed">
+                  How AI agents connect to Google Calendar, research companies, prepare discovery questions, and deliver strategic briefs to Slack and Gmail — automatically before every meeting.
+                </p>
+              </motion.a>
+
+              {/* View All Use Cases CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="flex items-center justify-center h-full"
+              >
+                <div className="text-center">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-6">
+                    Workflows That Run Themselves
+                  </h3>
+                  <p className="text-[#4A4A4A] text-lg mb-8">
+                    Explore real-world automation stories across meeting prep, issue tracking, client reporting, and more.
+                  </p>
+                  <a
+                    href="/use-cases"
+                    className="neo-btn-primary inline-flex items-center gap-2"
+                  >
+                    <span>View All Use Cases</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Blog Section */}
         <section
           id="blog"
