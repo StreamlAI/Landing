@@ -51,6 +51,12 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             >
               Use Cases
             </a>
+            <a
+              href="/templates"
+              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
+            >
+              Templates
+            </a>
           </div>
         )}
 
@@ -127,6 +133,13 @@ export function Navigation({ showLinks = true }: NavigationProps) {
                 className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
               >
                 Use Cases
+              </a>
+              <a
+                href="/templates"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
+              >
+                Templates
               </a>
             </>
           )}

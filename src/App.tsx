@@ -11,6 +11,8 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import Customers from "@/pages/Customers";
 import CustomerStory from "@/pages/CustomerStory";
+import Templates from "@/pages/Templates";
+import TemplateDetail from "@/pages/TemplateDetail";
 import NotFound from "@/pages/not-found";
 import { CookieConsent } from "@/components/CookieConsent";
 
@@ -25,6 +27,8 @@ function Router() {
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/use-cases" component={Customers} />
       <Route path="/use-cases/:slug" component={CustomerStory} />
+      <Route path="/templates" component={Templates} />
+      <Route path="/templates/:slug" component={TemplateDetail} />
       <Route component={NotFound} />
     </Switch>
   );
