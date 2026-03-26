@@ -610,7 +610,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
               {/* Featured Use Case */}
               <motion.a
-                href="/use-cases/automated-meeting-intelligence"
+                href="/use-cases/gtm-series-a-startup"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -618,20 +618,14 @@ export default function LandingPage() {
               >
                 <div className="mb-4 flex flex-wrap gap-2">
                   <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 border border-[#1A1A1A]">
-                    Google Calendar
-                  </span>
-                  <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 border border-[#1A1A1A]">
-                    Slack
-                  </span>
-                  <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 border border-[#1A1A1A]">
-                    Gmail
+                    Go-To-Market
                   </span>
                 </div>
                 <h3 className="text-xl font-bold mb-3 group-hover:text-[#1D3557] transition-colors">
-                  Automated Meeting Intelligence: From Calendar to Action
+                  Go-To-Market for a Series A Startup
                 </h3>
                 <p className="text-[#4A4A4A] text-sm leading-relaxed">
-                  How AI agents connect to Google Calendar, research companies, prepare discovery questions, and deliver strategic briefs to Slack and Gmail — automatically before every meeting.
+                  Streaml deployed a network of GTM agents to help a Series A startup scale growth across creator outreach, content, pipeline, and CRM.
                 </p>
               </motion.a>
 
