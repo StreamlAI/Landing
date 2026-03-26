@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { Menu, X, Mail, Phone } from "lucide-react";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 
 interface NavigationProps {
@@ -9,11 +9,22 @@ interface NavigationProps {
 }
 
 export function Navigation({ showLinks = true }: NavigationProps) {
+  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 h-16"
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        scrolled ? "h-16" : "h-20"
+      }`}
       style={{
         backgroundColor: "#FAFAFA",
         borderBottom: "2px solid #1A1A1A",
@@ -34,16 +45,16 @@ export function Navigation({ showLinks = true }: NavigationProps) {
         {showLinks && (
           <div className="hidden md:flex items-center gap-8">
             <a
-              href="/#architecture"
+              href="/"
               className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             >
-              Architecture
+              Home
             </a>
             <a
-              href="/#features"
+              href="/blog"
               className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
             >
-              Features
+              Blog
             </a>
             <a
               href="/use-cases"
@@ -60,25 +71,33 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           </div>
         )}
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <a
             href="https://calendly.com/yirancai00/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn-secondary flex items-center gap-2 group"
           >
-            <span>Schedule Call</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            <Phone className="w-4 h-4" />
+            <span>Book Demo</span>
           </a>
 
           <a
             href="http://linkedin.com/in/caivivian"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
-            aria-label="LinkedIn"
+            className="neo-btn-secondary flex items-center gap-2"
           >
-            <LinkedInIcon className="w-5 h-5" />
+            <LinkedInIcon className="w-4 h-4" />
+            <span>LinkedIn</span>
+          </a>
+
+          <a
+            href="mailto:vivian@streaml.app"
+            className="neo-btn-secondary flex items-center gap-2"
+          >
+            <Mail className="w-4 h-4" />
+            <span>Email</span>
           </a>
         </div>
 
@@ -114,18 +133,18 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           {showLinks && (
             <>
               <a
-                href="/#architecture"
+                href="/"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
               >
-                Architecture
+                Home
               </a>
               <a
-                href="/#features"
+                href="/blog"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
               >
-                Features
+                Blog
               </a>
               <a
                 href="/use-cases"
@@ -151,7 +170,6 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             className="neo-btn-primary flex items-center justify-center gap-2 mt-2"
           >
             <span>Schedule Call</span>
-            <ArrowRight className="w-4 h-4" />
           </a>
           <a
             href="http://linkedin.com/in/caivivian"
@@ -162,6 +180,14 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           >
             <LinkedInIcon className="w-5 h-5" />
             <span>LinkedIn</span>
+          </a>
+          <a
+            href="mailto:vivian@streaml.app"
+            className="flex items-center justify-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
+            aria-label="Email"
+          >
+            <Mail className="w-5 h-5" />
+            <span>Email</span>
           </a>
         </div>
       </motion.div>

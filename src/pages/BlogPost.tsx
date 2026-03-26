@@ -5,6 +5,7 @@ import { Link, useParams } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { getPostBySlug, formatDate, type BlogPost } from "@/lib/blog";
 import MarkdownContent from "@/components/MarkdownContent";
+import { Navigation } from "@/components/Navigation";
 
 export default function BlogPost() {
   const params = useParams();
@@ -51,42 +52,15 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#1A1A1A] overflow-x-hidden font-sans selection:bg-[#E63946]/20">
-      {/* Navigation */}
-      <nav
-        className="h-20"
-        style={{
-          backgroundColor: "#FAFAFA",
-          borderBottom: "2px solid #1A1A1A",
-        }}
-      >
-        <div className="container mx-auto px-6 h-full flex items-center justify-between">
-          <Link href="/">
-            <a className="flex items-center gap-3 cursor-pointer group">
-              <img
-                src="/favicon.png"
-                alt="Streaml"
-                className="w-8 h-8 group-hover:scale-105 transition-transform duration-200"
-              />
-              <span className="text-xl font-bold tracking-tight">Streaml</span>
-            </a>
-          </Link>
-
-          <Link href="/blog">
-            <a className="flex items-center gap-2 text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors">
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Blog</span>
-            </a>
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       <main>
         {loading ? (
-          <div className="container mx-auto px-6 py-24 text-center">
+          <div className="container mx-auto px-6 pt-32 pb-24 text-center">
             <p className="text-xl text-[#4A4A4A]">Loading article...</p>
           </div>
         ) : error || !post ? (
-          <div className="container mx-auto px-6 py-24 text-center">
+          <div className="container mx-auto px-6 pt-32 pb-24 text-center">
             <h1 className="text-4xl font-bold mb-6">Article Not Found</h1>
             <p className="text-xl text-[#4A4A4A] mb-8">
               Sorry, we couldn't find the article you're looking for.
@@ -101,7 +75,7 @@ export default function BlogPost() {
         ) : (
           <>
             {/* Article Header */}
-            <section className="py-16 md:py-24 relative">
+            <section className="pt-32 pb-16 md:pt-40 md:pb-24 relative">
               <div className="absolute inset-0 neo-grid opacity-30"></div>
 
               <div className="container mx-auto px-6 relative z-10">

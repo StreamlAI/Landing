@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { getAllUseCases, formatDate, type UseCase } from "@/lib/use-cases";
+import { Navigation } from "@/components/Navigation";
 
 export default function UseCasesList() {
   const [useCases, setUseCases] = useState<UseCase[]>([]);
@@ -28,37 +29,11 @@ export default function UseCasesList() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#1A1A1A] overflow-x-hidden font-sans selection:bg-[#E63946]/20">
-      {/* Navigation */}
-      <nav
-        className="h-20"
-        style={{
-          backgroundColor: "#FAFAFA",
-          borderBottom: "2px solid #1A1A1A",
-        }}
-      >
-        <div className="container mx-auto px-6 h-full flex items-center justify-between">
-          <Link href="/">
-            <a className="flex items-center gap-3 cursor-pointer group">
-              <img
-                src="/favicon.png"
-                alt="Streaml"
-                className="w-8 h-8 group-hover:scale-105 transition-transform duration-200"
-              />
-              <span className="text-xl font-bold tracking-tight">Streaml</span>
-            </a>
-          </Link>
-
-          <Link href="/">
-            <a className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors">
-              &larr; Back to Home
-            </a>
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       <main>
         {/* Hero Section */}
-        <section className="py-24 md:py-32 relative">
+        <section className="pt-32 pb-24 md:pt-40 md:pb-32 relative">
           <div className="absolute inset-0 neo-grid opacity-30"></div>
 
           <div className="container mx-auto px-6 relative z-10">

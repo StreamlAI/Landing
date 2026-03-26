@@ -9,22 +9,16 @@ import {
   Activity,
   Server,
   Lock,
-  Menu,
-  X,
   Mail,
-  Phone,
 } from "lucide-react";
-import { useState, useEffect } from "react";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { RedditIcon } from "@/components/icons/RedditIcon";
 import { useSEO } from "@/hooks/useSEO";
 import IntegrationWorkflow from "@/components/IntegrationWorkflow";
+import { Navigation } from "@/components/Navigation";
 
 export default function LandingPage() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   useSEO({
     title: "Streaml | The Execution and Optimization Layer for AI Agents",
     description: "Streaml is an AI agent runtime that combines tool connectivity with model optimization. Build production-grade AI systems with a single platform.",
@@ -32,183 +26,9 @@ export default function LandingPage() {
     keywords: "AI agent runtime, execution layer, model optimization, model routing, inference optimization, AI infrastructure, agent tools, workflow orchestration",
   });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#1A1A1A] overflow-x-hidden font-sans selection:bg-[#E63946]/20">
-      {/* Navigation */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled ? "h-16" : "h-20"
-        }`}
-        style={{
-          backgroundColor: "#FAFAFA",
-          borderBottom: "2px solid #1A1A1A",
-        }}
-      >
-        <div className="container mx-auto px-6 h-full flex items-center justify-between">
-          <div className="flex items-center gap-3 cursor-pointer group">
-            <img
-              src="/favicon.png"
-              alt="Streaml"
-              className="w-8 h-8 group-hover:scale-105 transition-transform duration-200"
-            />
-            <span className="text-xl font-bold tracking-tight">
-              Streaml
-            </span>
-          </div>
-
-          <div className="hidden md:flex items-center gap-8">
-            <a
-              href="#"
-              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="/blog"
-              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
-            >
-              Blog
-            </a>
-            <a
-              href="/use-cases"
-              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
-            >
-              Use Cases
-            </a>
-            <a
-              href="/templates"
-              className="text-sm font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
-            >
-              Templates
-            </a>
-          </div>
-
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="https://calendly.com/yirancai00/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="neo-btn-secondary flex items-center gap-2 group"
-            >
-              <Phone className="w-4 h-4" />
-              <span>Book Demo</span>
-            </a>
-
-            <a
-              href="http://linkedin.com/in/caivivian"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="neo-btn-secondary flex items-center gap-2"
-            >
-              <LinkedInIcon className="w-4 h-4" />
-              <span>LinkedIn</span>
-            </a>
-
-            <a
-              href="mailto:vivian@streaml.app"
-              className="neo-btn-secondary flex items-center gap-2"
-            >
-              <Mail className="w-4 h-4" />
-              <span>Email</span>
-            </a>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile menu panel */}
-        <motion.div
-          initial={false}
-          animate={{
-            height: mobileMenuOpen ? "auto" : 0,
-            opacity: mobileMenuOpen ? 1 : 0,
-          }}
-          transition={{ duration: 0.2 }}
-          className="md:hidden overflow-hidden"
-          style={{
-            backgroundColor: "#FAFAFA",
-            borderBottom: mobileMenuOpen ? "2px solid #1A1A1A" : "none",
-          }}
-        >
-          <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-            <a
-              href="#"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
-            >
-              Home
-            </a>
-            <a
-              href="/blog"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
-            >
-              Blog
-            </a>
-
-            <a
-              href="/use-cases"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
-            >
-              Use Cases
-            </a>
-            <a
-              href="/templates"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
-            >
-              Templates
-            </a>
-            <a
-              href="https://calendly.com/yirancai00/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="neo-btn-primary flex items-center justify-center gap-2 mt-2"
-            >
-              <span>Schedule Call</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="http://linkedin.com/in/caivivian"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
-              aria-label="LinkedIn"
-            >
-              <LinkedInIcon className="w-5 h-5" />
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="mailto:vivian@streaml.app"
-              className="flex items-center justify-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
-              aria-label="Email"
-            >
-              <Mail className="w-5 h-5" />
-              <span>Email</span>
-            </a>
-          </div>
-        </motion.div>
-      </nav>
+      <Navigation />
 
       <main>
         {/* Hero Section - Neo-Geo Style */}
