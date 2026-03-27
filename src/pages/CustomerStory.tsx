@@ -24,7 +24,7 @@ const stories: Record<string, Story> = {
     sections: [
       {
         heading: "Creator & Community Outreach",
-        body: "Agents identified relevant creators and communities, generated personalized outreach, and coordinated collaborations across platforms such as YouTube, X, TikTok, and LinkedIn. This helped the company increase product visibility and reach new audiences through creator-led distribution.",
+        body: "Identified relevant creators and communities, generated personalized outreach, and coordinated collaborations across platforms such as YouTube, X, TikTok, and LinkedIn. This helped the company increase product visibility and reach new audiences through creator-led distribution.",
       },
       {
         heading: "Content & Social Engagement",
@@ -40,7 +40,7 @@ const stories: Record<string, Story> = {
       },
     ],
     conclusion:
-      "By deploying specialized agents across these workflows, the company was able to scale GTM execution while keeping the team lean.",
+      "The company was able to scale GTM execution while keeping the team lean.",
   },
 };
 
