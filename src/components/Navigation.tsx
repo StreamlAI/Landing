@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Menu, X, Mail, Phone } from "lucide-react";
+import { Menu, X, Mail, Phone, ArrowRight } from "lucide-react";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 
 interface NavigationProps {
@@ -72,6 +72,16 @@ export function Navigation({ showLinks = true }: NavigationProps) {
         )}
 
         <div className="hidden md:flex items-center gap-3">
+          <a
+            href="https://app.streaml.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-btn-primary flex items-center gap-2 group bg-green-600 hover:bg-green-700 border-green-600"
+          >
+            <span>Start Now</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+
           <a
             href="https://calendly.com/yirancai00/30min"
             target="_blank"
@@ -164,10 +174,20 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           )}
 
           <a
+            href="https://app.streaml.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-btn-primary flex items-center justify-center gap-2 mt-2 bg-green-600 hover:bg-green-700 border-green-600"
+          >
+            <span>Start Now</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+
+          <a
             href="https://calendly.com/yirancai00/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="neo-btn-primary flex items-center justify-center gap-2 mt-2"
+            className="neo-btn-primary flex items-center justify-center gap-2"
           >
             <span>Schedule Call</span>
           </a>
