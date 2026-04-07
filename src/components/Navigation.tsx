@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Menu, X, Mail, Phone, ArrowRight } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 
 interface NavigationProps {
@@ -87,6 +88,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn-secondary flex items-center gap-2 group"
+            onClick={() => trackEvent("cta_book_demo", { location: "nav" })}
           >
             <Phone className="w-4 h-4" />
             <span>Book Demo</span>
@@ -105,6 +107,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           <a
             href="mailto:vivian@streaml.app"
             className="neo-btn-secondary flex items-center gap-2"
+            onClick={() => trackEvent("cta_contact_us", { location: "nav" })}
           >
             <Mail className="w-4 h-4" />
             <span>Email</span>
@@ -188,6 +191,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn-primary flex items-center justify-center gap-2"
+            onClick={() => trackEvent("cta_book_demo", { location: "nav_mobile" })}
           >
             <span>Schedule Call</span>
           </a>
@@ -205,6 +209,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             href="mailto:vivian@streaml.app"
             className="flex items-center justify-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
             aria-label="Email"
+            onClick={() => trackEvent("cta_contact_us", { location: "nav_mobile" })}
           >
             <Mail className="w-5 h-5" />
             <span>Email</span>

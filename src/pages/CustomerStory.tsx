@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link, useParams, Redirect } from "wouter";
+import { trackEvent } from "@/lib/analytics";
 import { useSEO } from "@/hooks/useSEO";
 import { Navigation } from "@/components/Navigation";
 
@@ -211,6 +212,7 @@ export default function CustomerStory() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-btn-primary flex items-center gap-3 group shrink-0"
+                onClick={() => trackEvent("cta_book_demo", { location: "customer_story" })}
               >
                 Talk to Founder
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

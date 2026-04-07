@@ -11,6 +11,7 @@ import {
   Lock,
   Mail,
 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { RedditIcon } from "@/components/icons/RedditIcon";
@@ -139,6 +140,7 @@ export default function LandingPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="neo-btn-primary flex items-center gap-3 group"
+                  onClick={() => trackEvent("cta_book_demo", { location: "hero" })}
                 >
                   Book a Demo
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -146,6 +148,7 @@ export default function LandingPage() {
                 <a
                   href="mailto:vivian@streaml.app"
                   className="neo-btn-secondary flex items-center gap-3 group"
+                  onClick={() => trackEvent("cta_contact_us", { location: "hero" })}
                 >
                   Contact Us
                   <Mail className="w-4 h-4" />
@@ -636,6 +639,7 @@ export default function LandingPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#E63946] text-white border-2 border-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"
                   style={{ fontFamily: "'Cabin', system-ui, sans-serif" }}
+                  onClick={() => trackEvent("cta_book_demo", { location: "footer_cta" })}
                 >
                   Book a Demo
                   <ArrowRight className="w-4 h-4" />
@@ -646,6 +650,7 @@ export default function LandingPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-6 py-3 font-medium text-sm transition-all duration-200 bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#1D3557]"
                   style={{ fontFamily: "'Cabin', system-ui, sans-serif" }}
+                  onClick={() => trackEvent("cta_contact_us", { location: "footer_cta" })}
                 >
                   Contact Us
                 </a>

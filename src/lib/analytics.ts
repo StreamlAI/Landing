@@ -1,3 +1,5 @@
+import posthog from "posthog-js";
+
 declare global {
   interface Window {
     dataLayer: unknown[];
@@ -6,6 +8,8 @@ declare global {
 }
 
 const GA_MEASUREMENT_ID = "G-CGXY3QXY7K";
+const POSTHOG_API_KEY = "phc_yveJ2wpMt8hT7UiF2bDbpvmcdN2zzUZPMYafLLLiiGBy";
+const POSTHOG_HOST = "https://us.i.posthog.com";
 const CONSENT_KEY = "streaml-cookie-consent";
 
 export type ConsentState = "accepted" | "rejected" | null;
@@ -28,6 +32,11 @@ export function setConsentState(state: "accepted" | "rejected"): void {
   }
   if (state === "accepted") {
     loadGoogleAnalytics();
+    loadPostHog();
+  } else {
+    if (posthog.__loaded) {
+      posthog.opt_out_capturing();
+    }
   }
 }
 
@@ -48,8 +57,46 @@ function loadGoogleAnalytics(): void {
   window.gtag("config", GA_MEASUREMENT_ID);
 }
 
+function loadPostHog(): void {
+  if (typeof window === "undefined") return;
+  if (posthog.__loaded) {
+    posthog.opt_in_capturing();
+    return;
+  }
+
+  posthog.init(POSTHOG_API_KEY, {
+    api_host: POSTHOG_HOST,
+    autocapture: true,
+    capture_pageview: false,
+    capture_pageleave: true,
+    persistence: "localStorage+cookie",
+  });
+}
+
 export function initAnalytics(): void {
   if (getConsentState() === "accepted") {
     loadGoogleAnalytics();
+    loadPostHog();
+  }
+}
+
+export function capturePageView(path: string): void {
+  if (posthog.__loaded) {
+    posthog.capture("$pageview", { $current_url: window.location.origin + path });
+  }
+  if (window.gtag) {
+    window.gtag("event", "page_view", { page_path: path });
+  }
+}
+
+export function trackEvent(
+  event: string,
+  properties?: Record<string, unknown>,
+): void {
+  if (posthog.__loaded) {
+    posthog.capture(event, properties);
+  }
+  if (window.gtag) {
+    window.gtag("event", event, properties);
   }
 }
