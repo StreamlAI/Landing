@@ -17,6 +17,7 @@ import { RedditIcon } from "@/components/icons/RedditIcon";
 import { useSEO } from "@/hooks/useSEO";
 import IntegrationWorkflow from "@/components/IntegrationWorkflow";
 import { Navigation } from "@/components/Navigation";
+import { useUtmUrl } from "@/hooks/useUtmUrl";
 
 export default function LandingPage() {
   useSEO({
@@ -25,6 +26,9 @@ export default function LandingPage() {
     canonicalPath: "/",
     keywords: "AI agent runtime, execution layer, model optimization, model routing, inference optimization, AI infrastructure, agent tools, workflow orchestration",
   });
+
+  const appUrl = useUtmUrl("https://app.streaml.app/");
+  const calendlyUrl = useUtmUrl("https://calendly.com/yirancai00/30min");
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#1A1A1A] overflow-x-hidden font-sans selection:bg-[#E63946]/20">
@@ -126,7 +130,7 @@ export default function LandingPage() {
                 className="flex flex-wrap gap-4"
               >
                 <a
-                  href="https://app.streaml.app/"
+                  href={appUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="neo-btn-primary flex items-center gap-3 group bg-green-600 hover:bg-green-700 border-green-600"
@@ -135,7 +139,7 @@ export default function LandingPage() {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
-                  href="https://calendly.com/yirancai00/30min"
+                  href={calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="neo-btn-primary flex items-center gap-3 group"
@@ -621,7 +625,7 @@ export default function LandingPage() {
                 className="flex flex-wrap gap-4"
               >
                 <a
-                  href="https://app.streaml.app/"
+                  href={appUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#FFB703] text-[#1A1A1A] border-2 border-[#FFB703] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"
@@ -631,7 +635,7 @@ export default function LandingPage() {
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://calendly.com/yirancai00/30min"
+                  href={calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#E63946] text-white border-2 border-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"

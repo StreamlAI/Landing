@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link, useParams, Redirect } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { Navigation } from "@/components/Navigation";
+import { useUtmUrl } from "@/hooks/useUtmUrl";
 
 interface Story {
   slug: string;
@@ -47,6 +48,7 @@ const stories: Record<string, Story> = {
 export default function CustomerStory() {
   const { slug } = useParams<{ slug: string }>();
   const story = slug ? stories[slug] : undefined;
+  const calendlyUrl = useUtmUrl("https://calendly.com/yirancai00/30min");
 
   if (!story) {
     return <Redirect to="/use-cases" />;
@@ -207,7 +209,7 @@ export default function CustomerStory() {
                 </p>
               </div>
               <a
-                href="https://calendly.com/yirancai00/30min"
+                href={calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-btn-primary flex items-center gap-3 group shrink-0"

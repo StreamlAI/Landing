@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Menu, X, Mail, Phone, ArrowRight } from "lucide-react";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
+import { useUtmUrl } from "@/hooks/useUtmUrl";
 
 interface NavigationProps {
   showLinks?: boolean;
@@ -11,6 +12,8 @@ interface NavigationProps {
 export function Navigation({ showLinks = true }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const appUrl = useUtmUrl("https://app.streaml.app/");
+  const calendlyUrl = useUtmUrl("https://calendly.com/yirancai00/30min");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +76,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://app.streaml.app/"
+            href={appUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn-primary flex items-center gap-2 group bg-green-600 hover:bg-green-700 border-green-600"
@@ -83,7 +86,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           </a>
 
           <a
-            href="https://calendly.com/yirancai00/30min"
+            href={calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn-secondary flex items-center gap-2 group"
@@ -174,7 +177,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           )}
 
           <a
-            href="https://app.streaml.app/"
+            href={appUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn-primary flex items-center justify-center gap-2 mt-2 bg-green-600 hover:bg-green-700 border-green-600"
@@ -184,7 +187,7 @@ export function Navigation({ showLinks = true }: NavigationProps) {
           </a>
 
           <a
-            href="https://calendly.com/yirancai00/30min"
+            href={calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn-primary flex items-center justify-center gap-2"

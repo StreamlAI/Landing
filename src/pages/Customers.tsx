@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { Navigation } from "@/components/Navigation";
+import { useUtmUrl } from "@/hooks/useUtmUrl";
 
 const caseStudies = [
   {
@@ -39,6 +40,8 @@ export default function Customers() {
     keywords:
       "AI agents, customer stories, case studies, GTM automation, agent workflows, sales automation, CRM automation, creator outreach",
   });
+
+  const calendlyUrl = useUtmUrl("https://calendly.com/yirancai00/30min");
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#1A1A1A] overflow-x-hidden font-sans selection:bg-[#E63946]/20">
@@ -201,7 +204,7 @@ export default function Customers() {
                 transition={{ delay: 0.2 }}
               >
                 <a
-                  href="https://calendly.com/yirancai00/30min"
+                  href={calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#E63946] text-white border-2 border-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"

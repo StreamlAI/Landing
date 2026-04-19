@@ -4,10 +4,12 @@ import { Link, useParams, Redirect } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { Navigation } from "@/components/Navigation";
 import { getTemplateBySlug } from "@/lib/templates";
+import { useUtmUrl } from "@/hooks/useUtmUrl";
 
 export default function TemplateDetail() {
   const { slug } = useParams<{ slug: string }>();
   const tpl = getTemplateBySlug(slug);
+  const calendlyUrl = useUtmUrl("https://calendly.com/yirancai00/30min");
 
   useSEO({
     title: tpl
@@ -264,7 +266,7 @@ export default function TemplateDetail() {
                 className="flex flex-wrap gap-4"
               >
                 <a
-                  href="https://calendly.com/yirancai00/30min"
+                  href={calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#E63946] text-white border-2 border-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"

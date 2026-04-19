@@ -5,6 +5,7 @@ import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { Navigation } from "@/components/Navigation";
 import { templates, categories, type Category } from "@/lib/templates";
+import { useUtmUrl } from "@/hooks/useUtmUrl";
 
 /* ------------------------------------------------------------------ */
 /*  JSON-LD                                                            */
@@ -32,6 +33,7 @@ const jsonLd = {
 export default function Templates() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [search, setSearch] = useState("");
+  const calendlyUrl = useUtmUrl("https://calendly.com/yirancai00/30min");
 
   useSEO({
     title: "Streaml | Templates — Pre-Built Agent Workflows",
@@ -280,7 +282,7 @@ export default function Templates() {
                 transition={{ delay: 0.2 }}
               >
                 <a
-                  href="https://calendly.com/yirancai00/30min"
+                  href={calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#E63946] text-white border-2 border-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"
