@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Search } from "lucide-react";
 import { Link } from "wouter";
+import { trackEvent } from "@/lib/analytics";
 import { useSEO } from "@/hooks/useSEO";
 import { Navigation } from "@/components/Navigation";
 import { templates, categories, type Category } from "@/lib/templates";
@@ -287,6 +288,7 @@ export default function Templates() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-3 font-medium text-sm transition-all duration-200 bg-[#E63946] text-white border-2 border-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_white]"
                   style={{ fontFamily: "'Cabin', system-ui, sans-serif" }}
+                  onClick={() => trackEvent("cta_book_demo", { location: "templates" })}
                 >
                   Talk to Founder
                   <ArrowRight className="w-4 h-4" />

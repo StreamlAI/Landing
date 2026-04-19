@@ -15,6 +15,7 @@ import Templates from "@/pages/Templates";
 import TemplateDetail from "@/pages/TemplateDetail";
 import NotFound from "@/pages/not-found";
 import { CookieConsent } from "@/components/CookieConsent";
+import { usePageView } from "@/hooks/usePageView";
 
 function Router() {
   return (
@@ -35,6 +36,8 @@ function Router() {
 }
 
 function App() {
+  usePageView();
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
