@@ -1,4 +1,5 @@
 import posthog from "posthog-js";
+import { captureUtmParams, getUtmForPostHog } from "./utm";
 
 declare global {
   interface Window {
@@ -87,9 +88,16 @@ function loadPostHog(): void {
     capture_pageleave: true,
     persistence: "localStorage+cookie",
   });
+
+  const utm = getUtmForPostHog();
+  if (utm) {
+    posthog.register(utm);
+  }
 }
 
 export function initAnalytics(): void {
+  captureUtmParams();
+
   if (getConsentState() === "accepted") {
     loadGoogleAnalytics();
     loadPostHog();

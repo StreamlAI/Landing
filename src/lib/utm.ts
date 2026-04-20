@@ -7,22 +7,23 @@ const UTM_KEYS = [
 ] as const;
 
 const STORAGE_KEY = "streaml-utm-params";
+const COOKIE_NAME = "sl_utm";
+const COOKIE_MAX_AGE = 30 * 24 * 60 * 60; // 30 days
 
-export type UtmParams = Partial<Record<(typeof UTM_KEYS)[number], string>>;
+export type UtmParams = Partial<Record<(typeof UTM_KEYS)[number], string>> & {
+  landing_url?: string;
+  referrer?: string;
+  timestamp?: number;
+};
 
-/**
- * Capture UTM parameters from the current URL and persist them
- * in sessionStorage using first-touch attribution (only stores
- * on the first landing; subsequent navigations won't overwrite).
- */
+function setUtmCookie(params: UtmParams): void {
+  const value = encodeURIComponent(JSON.stringify(params));
+  const secure = window.location.protocol === "https:" ? "; Secure" : "";
+  document.cookie = `${COOKIE_NAME}=${value}; domain=.streaml.app; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax${secure}`;
+}
+
 export function captureUtmParams(): void {
   if (typeof window === "undefined") return;
-
-  try {
-    if (sessionStorage.getItem(STORAGE_KEY)) return;
-  } catch {
-    return;
-  }
 
   const params = new URLSearchParams(window.location.search);
   const utm: Record<string, string> = {};
@@ -34,6 +35,15 @@ export function captureUtmParams(): void {
 
   if (Object.keys(utm).length === 0) return;
 
+  const fullUtm: UtmParams = {
+    ...utm,
+    landing_url: window.location.href.split("?")[0],
+    referrer: document.referrer || undefined,
+    timestamp: Date.now(),
+  };
+
+  setUtmCookie(fullUtm);
+
   try {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(utm));
   } catch {
@@ -44,16 +54,30 @@ export function captureUtmParams(): void {
 export function getStoredUtmParams(): UtmParams {
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
-    if (!raw) return {};
-    return JSON.parse(raw) as UtmParams;
+    if (raw) return JSON.parse(raw) as UtmParams;
   } catch {
-    return {};
+    // sessionStorage unavailable
   }
+
+  if (typeof document !== "undefined") {
+    const match = document.cookie.match(/(?:^|;\s*)sl_utm=([^;]*)/);
+    if (match) {
+      try {
+        return JSON.parse(decodeURIComponent(match[1]));
+      } catch {
+        // malformed cookie
+      }
+    }
+  }
+
+  return {};
 }
 
 export function buildOutboundUrl(baseUrl: string): string {
   const utm = getStoredUtmParams();
-  const entries = Object.entries(utm);
+  const entries = Object.entries(utm).filter(
+    ([key]) => key.startsWith("utm_"),
+  );
   if (entries.length === 0) return baseUrl;
 
   const url = new URL(baseUrl);
@@ -61,4 +85,16 @@ export function buildOutboundUrl(baseUrl: string): string {
     if (value) url.searchParams.set(key, value);
   }
   return url.toString();
+}
+
+export function getUtmForPostHog(): Record<string, string | undefined> | null {
+  const utm = getStoredUtmParams();
+  if (!utm.utm_source && !utm.utm_medium && !utm.utm_campaign) return null;
+  return {
+    utm_source: utm.utm_source,
+    utm_medium: utm.utm_medium,
+    utm_campaign: utm.utm_campaign,
+    utm_term: utm.utm_term,
+    utm_content: utm.utm_content,
+  };
 }
