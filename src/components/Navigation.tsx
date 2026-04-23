@@ -72,6 +72,12 @@ export function Navigation({ showLinks = true }: NavigationProps) {
             >
               Templates
             </a>
+            <a
+              href="/waitlist"
+              className="text-sm font-bold text-[#E63946] hover:text-[#c62d39] transition-colors"
+            >
+              Waitlist
+            </a>
           </div>
         )}
 
@@ -175,6 +181,13 @@ export function Navigation({ showLinks = true }: NavigationProps) {
                 className="text-base font-medium text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors py-2"
               >
                 Templates
+              </a>
+              <a
+                href="/waitlist"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-bold text-[#E63946] hover:text-[#c62d39] transition-colors py-2"
+              >
+                Waitlist
               </a>
             </>
           )}

@@ -13,6 +13,7 @@ import Customers from "@/pages/Customers";
 import CustomerStory from "@/pages/CustomerStory";
 import Templates from "@/pages/Templates";
 import TemplateDetail from "@/pages/TemplateDetail";
+import WaitlistPage from "@/pages/WaitlistPage";
 import NotFound from "@/pages/not-found";
 import { CookieConsent } from "@/components/CookieConsent";
 import { usePageView } from "@/hooks/usePageView";
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/use-cases/:slug" component={CustomerStory} />
       <Route path="/templates" component={Templates} />
       <Route path="/templates/:slug" component={TemplateDetail} />
+      <Route path="/waitlist" component={WaitlistPage} />
       <Route component={NotFound} />
     </Switch>
   );

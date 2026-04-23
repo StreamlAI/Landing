@@ -7,6 +7,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import Customers from "@/pages/Customers";
 import CustomerStory from "@/pages/CustomerStory";
+import WaitlistPage from "@/pages/WaitlistPage";
 
 const pages: Record<string, React.ComponentType> = {
   "/": LandingPage,
@@ -14,6 +15,7 @@ const pages: Record<string, React.ComponentType> = {
   "/terms-of-service": TermsOfService,
   "/use-cases": Customers,
   "/use-cases/gtm-series-a-startup": CustomerStory,
+  "/waitlist": WaitlistPage,
 };
 
 export function render(url: string) {
