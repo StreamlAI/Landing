@@ -25,7 +25,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Switch } from "@/components/ui/switch";
 import {
   Select,
   SelectContent,
@@ -661,8 +660,6 @@ function BrandForm({
   onSubmit: (data: BrandFormData) => void;
   submitting: boolean;
 }) {
-  const referred = form.watch("referred");
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -745,7 +742,6 @@ function BrandForm({
         />
 
         <PlatformCheckboxes form={form} />
-        <ReferralToggle form={form} referred={referred} />
         <SubmitButton submitting={submitting} accent="#1D3557" />
       </form>
     </Form>
@@ -761,8 +757,6 @@ function InfluencerForm({
   onSubmit: (data: InfluencerFormData) => void;
   submitting: boolean;
 }) {
-  const referred = form.watch("referred");
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -845,7 +839,6 @@ function InfluencerForm({
         />
 
         <PlatformCheckboxes form={form} />
-        <ReferralToggle form={form} referred={referred} />
         <SubmitButton submitting={submitting} accent="#E63946" />
       </form>
     </Form>
@@ -910,66 +903,6 @@ function PlatformCheckboxes({
         </FormItem>
       )}
     />
-  );
-}
-
-function ReferralToggle({
-  form,
-  referred,
-}: {
-  form: ReturnType<typeof useForm<BrandFormData>> | ReturnType<typeof useForm<InfluencerFormData>>;
-  referred: boolean;
-}) {
-  return (
-    <>
-      <FormField
-        control={form.control as any}
-        name="referred"
-        render={({ field }) => (
-          <FormItem className="flex items-center justify-between gap-4 py-1">
-            <FormLabel className="text-sm font-bold">
-              Were you referred?
-            </FormLabel>
-            <FormControl>
-              <Switch
-                checked={field.value as boolean}
-                onCheckedChange={field.onChange}
-              />
-            </FormControl>
-          </FormItem>
-        )}
-      />
-
-      <AnimatePresence>
-        {referred && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
-            <FormField
-              control={form.control as any}
-              name="referred_by"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-sm font-bold">Who referred you?</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Name or email"
-                      className="border-2 border-[#1A1A1A] rounded-none h-11"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
   );
 }
 
