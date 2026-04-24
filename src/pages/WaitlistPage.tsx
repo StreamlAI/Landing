@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
-import { ArrowRight, Check, Heart, X as XIcon, Building2, User } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Check, Building2, User } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Navigation } from "@/components/Navigation";
@@ -277,28 +277,6 @@ export default function WaitlistPage() {
           </div>
         </section>
 
-        {/* ── Swipe Matching Visualization ── */}
-        <section className="py-20 md:py-28 relative overflow-hidden">
-          <div className="absolute inset-0 neo-grid opacity-30" />
-          <div className="container mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-                HOW IT <span className="text-[#E63946]">WORKS</span>
-              </h2>
-              <p className="text-lg text-[#4A4A4A] max-w-lg mx-auto">
-                Finding your perfect influencer partner is as easy as a swipe.
-              </p>
-            </motion.div>
-
-            <SwipeDemo />
-          </div>
-        </section>
-
         {/* ── Brand Section ── */}
         <div ref={brandRef} className="scroll-mt-24">
           <section
@@ -484,166 +462,6 @@ export default function WaitlistPage() {
         </DialogContent>
       </Dialog>
     </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════
-   Swipe Demo — interactive card stack visualization
-   ═══════════════════════════════════════════════════════ */
-
-const demoProfiles = [
-  { name: "Sarah Chen", role: "Fashion Influencer", followers: "125K", platform: "Instagram", emoji: "👗" },
-  { name: "Alex Rivera", role: "Tech Creator", followers: "89K", platform: "YouTube", emoji: "💻" },
-  { name: "Mia Johnson", role: "Fitness Coach", followers: "340K", platform: "TikTok", emoji: "💪" },
-];
-
-function SwipeDemo() {
-  const [cards, setCards] = useState(demoProfiles);
-  const [matched, setMatched] = useState(false);
-
-  function handleSwipe(direction: "left" | "right") {
-    if (cards.length === 0) return;
-
-    if (direction === "right" && cards.length === 1) {
-      setMatched(true);
-      setTimeout(() => {
-        setMatched(false);
-        setCards(demoProfiles);
-      }, 2500);
-    }
-
-    setCards((prev) => prev.slice(1));
-  }
-
-  return (
-    <div className="flex flex-col items-center">
-      <div className="relative w-72 h-96 mx-auto mb-8">
-        <AnimatePresence>
-          {matched && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              className="absolute inset-0 z-30 flex flex-col items-center justify-center border-4 border-[#E63946] bg-[#FAFAFA]"
-            >
-              <span className="text-5xl mb-3">🎉</span>
-              <h3 className="text-2xl font-black text-[#E63946] tracking-tight">
-                It's a Match!
-              </h3>
-              <p className="text-sm text-[#4A4A4A] mt-1">Start collaborating now</p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <AnimatePresence>
-          {cards.map((profile, i) => (
-            <SwipeCard
-              key={profile.name}
-              profile={profile}
-              index={i}
-              onSwipe={handleSwipe}
-              isTop={i === 0}
-            />
-          ))}
-        </AnimatePresence>
-
-        {cards.length === 0 && !matched && (
-          <div className="absolute inset-0 flex items-center justify-center border-2 border-dashed border-[#1A1A1A]/20">
-            <p className="text-[#4A4A4A] text-sm">Loading more...</p>
-          </div>
-        )}
-      </div>
-
-      {/* Swipe buttons */}
-      <div className="flex items-center gap-6">
-        <button
-          onClick={() => handleSwipe("left")}
-          className="w-14 h-14 flex items-center justify-center border-2 border-[#1A1A1A] bg-[#FAFAFA] hover:bg-[#1A1A1A] hover:text-white transition-colors"
-          aria-label="Pass"
-        >
-          <XIcon className="w-6 h-6" />
-        </button>
-        <span className="text-sm text-[#4A4A4A] font-medium">Swipe to match</span>
-        <button
-          onClick={() => handleSwipe("right")}
-          className="w-14 h-14 flex items-center justify-center border-2 border-[#E63946] bg-[#FAFAFA] text-[#E63946] hover:bg-[#E63946] hover:text-white transition-colors"
-          aria-label="Like"
-        >
-          <Heart className="w-6 h-6" />
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function SwipeCard({
-  profile,
-  index,
-  onSwipe,
-  isTop,
-}: {
-  profile: (typeof demoProfiles)[0];
-  index: number;
-  onSwipe: (dir: "left" | "right") => void;
-  isTop: boolean;
-}) {
-  const x = useMotionValue(0);
-  const rotate = useTransform(x, [-200, 200], [-15, 15]);
-  const likeOpacity = useTransform(x, [0, 100], [0, 1]);
-  const nopeOpacity = useTransform(x, [-100, 0], [1, 0]);
-
-  function handleDragEnd(_: unknown, info: { offset: { x: number } }) {
-    if (info.offset.x > 80) onSwipe("right");
-    else if (info.offset.x < -80) onSwipe("left");
-  }
-
-  return (
-    <motion.div
-      initial={{ scale: 0.95, opacity: 0 }}
-      animate={{
-        scale: 1 - index * 0.05,
-        y: index * 8,
-        opacity: 1 - index * 0.15,
-      }}
-      exit={{ x: 300, opacity: 0, rotate: 15 }}
-      transition={{ duration: 0.3 }}
-      style={{ x: isTop ? x : 0, rotate: isTop ? rotate : 0, zIndex: 20 - index }}
-      drag={isTop ? "x" : false}
-      dragConstraints={{ left: 0, right: 0 }}
-      dragElastic={0.8}
-      onDragEnd={isTop ? handleDragEnd : undefined}
-      className="absolute inset-0 cursor-grab active:cursor-grabbing border-2 border-[#1A1A1A] bg-[#FAFAFA] flex flex-col"
-    >
-      {/* LIKE / NOPE overlays */}
-      {isTop && (
-        <>
-          <motion.div
-            style={{ opacity: likeOpacity }}
-            className="absolute top-4 left-4 z-10 px-3 py-1 border-2 border-green-500 text-green-500 font-bold text-sm rotate-[-12deg]"
-          >
-            LIKE
-          </motion.div>
-          <motion.div
-            style={{ opacity: nopeOpacity }}
-            className="absolute top-4 right-4 z-10 px-3 py-1 border-2 border-[#E63946] text-[#E63946] font-bold text-sm rotate-[12deg]"
-          >
-            NOPE
-          </motion.div>
-        </>
-      )}
-
-      <div className="flex-1 flex items-center justify-center bg-[#1D3557]/5">
-        <span className="text-7xl">{profile.emoji}</span>
-      </div>
-      <div className="p-5 border-t-2 border-[#1A1A1A]">
-        <h4 className="text-lg font-bold tracking-tight">{profile.name}</h4>
-        <p className="text-sm text-[#4A4A4A]">{profile.role}</p>
-        <div className="flex items-center gap-3 mt-2 text-xs text-[#4A4A4A]">
-          <span className="px-2 py-1 border border-[#1A1A1A]/20">{profile.platform}</span>
-          <span>{profile.followers} followers</span>
-        </div>
-      </div>
-    </motion.div>
   );
 }
 
